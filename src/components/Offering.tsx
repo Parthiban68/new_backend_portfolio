@@ -2,6 +2,12 @@
 import React from 'react';
 import { Layers, Smartphone, Zap, Activity, Server, Layout, MousePointer2 } from 'lucide-react';
 
+interface OfferingCardProps
+  extends React.HTMLAttributes<HTMLDivElement> {
+  title: string;
+  icon: React.ReactNode;
+}
+
 const Offering: React.FC = () => {
   const modules = [
     { 
@@ -70,7 +76,13 @@ const Offering: React.FC = () => {
             <div key={m.id} className="group relative bg-black/[0.02] dark:bg-white/[0.02] border border-black/5 dark:border-white/5 p-6 md:p-10 hover:bg-black/[0.04] dark:hover:bg-white/[0.04] hover:border-blue-600/30 transition-all lg:cursor-crosshair">
               <div className="flex justify-between items-start mb-8 md:mb-12">
                 <div className="p-3 md:p-4 bg-white dark:bg-black border border-black/10 dark:border-white/10 text-black dark:text-white group-hover:bg-blue-600 group-hover:border-blue-500 group-hover:text-white transition-all shadow-xl">
-                  {React.cloneElement(m.icon as React.ReactElement, { className: "w-5 h-5 md:w-6 md:h-6" })}
+{React.cloneElement(
+  m.icon as React.ReactElement<React.SVGProps<SVGSVGElement>>,
+  {
+    className: "w-5 h-5 md:w-6 md:h-6",
+  }
+)}
+
                 </div>
                 <div className="text-right">
                   <p className="text-[9px] md:text-[10px] font-black mono text-black/20 dark:text-white/20 mb-1">{m.id}</p>
