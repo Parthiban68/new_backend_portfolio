@@ -85,13 +85,21 @@
 // export default Hero;
 
 import React from "react";
-import { Terminal, Command, ArrowRight } from "lucide-react";
+import {
+  Terminal,
+  ArrowRight,
+  UserCheck,
+  Share2,
+  Target,
+  Fingerprint,
+} from "lucide-react";
+import IMAGES from "../assets/Parthiban.jpeg";
 
 const Hero: React.FC = () => {
   return (
     <section
       className="
-       relative min-h-screen flex flex-col justify-center pt-24 md:pt-32 pb-12 md:pb-20 px-4 md:px-6 max-w-7xl mx-auto overflow-hidden transition-colors duration-300
+       relative min-h-screen flex flex-col justify-center pt-24 md:pt-32 pb-12 md:pb-20 px-4 md:px-20 max-w-8xl mx-auto overflow-hidden transition-colors duration-300
       "
     >
       {/* Decorative Blueprint Lines */}
@@ -100,7 +108,7 @@ const Hero: React.FC = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-12 items-center">
         {/* MAIN CONTENT */}
-        <div className="lg:col-span-9 space-y-10 md:space-y-12">
+        <div className="lg:col-span-8 space-y-10 md:space-y-12">
           {/* Init Badge */}
           <div className="flex items-center space-x-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.5em] text-blue-600 dark:text-blue-500 mono">
             <span>Initializing Core Portfolio</span>
@@ -201,8 +209,8 @@ const Hero: React.FC = () => {
         </div>
 
         {/* SIDEBAR HUD */}
-        <div className="lg:col-span-3 hidden lg:block space-y-4">
-          {[
+        <div className="lg:col-span-4 hidden lg:block space-y-4">
+          {/* {[
             {
               id: "CPU_LOAD",
               val: "12%",
@@ -250,9 +258,94 @@ const Hero: React.FC = () => {
 
           <div className="p-4 border-2 border-dashed border-black/10 dark:border-white/5 text-center text-[10px] mono text-black/30 dark:text-white/20">
             Waiting for inbound data...
+          </div> */}
+          <div className="lg:col-span-4 relative group">
+            {/* Main Visual Frame */}
+            <div className="relative aspect-[4/5] md:aspect-[3/4] max-h-[850px] overflow-hidden border-2 border-white  bg-black shadow-[20px_20px_0px_rgba(0,102,255,0.2)] dark:shadow-[20px_20px_0px_rgba(255,255,255,0.05)]">
+              {/* The Photo */}
+              <img
+                src={IMAGES}
+                alt="Operator Profile"
+                className="w-full h-full object-cover grayscale brightness-90 group-hover:grayscale-0 group-hover:brightness-110 group-hover:scale-105 transition-all duration-1000"
+              />
+
+              {/* Subtle Overlay Grid */}
+              <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle,rgba(255,255,255,0.05)_1px,transparent_1px)] dark:bg-[radial-gradient(circle,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:30px_30px]"></div>
+
+              {/* Minimal Scanning Line */}
+              <div className="absolute top-0 left-0 w-full h-0.5 bg-blue-500 animate-[scan_4s_infinite_linear] opacity-30"></div>
+
+              {/* Corner Targeting UI - Brutalist Style */}
+              <div className="absolute top-0 left-0 w-8 h-8 border-t-4 border-l-4 border-blue-600"></div>
+              <div className="absolute top-0 right-0 w-8 h-8 border-t-4 border-r-4 border-blue-600"></div>
+              <div className="absolute bottom-0 left-0 w-8 h-8 border-b-4 border-l-4 border-blue-600"></div>
+              <div className="absolute bottom-0 right-0 w-8 h-8 border-b-4 border-r-4 border-blue-600"></div>
+
+              {/* HUD Identity Tags */}
+              <div className="absolute inset-0 flex flex-col justify-between p-6 md:p-10 pointer-events-none">
+                <div className="flex justify-between items-start">
+                  <div className="bg-black/90 backdrop-blur-md p-2 border border-white/20 space-y-1">
+                    <div className="flex items-center space-x-2">
+                      <Fingerprint className="w-4 h-4 text-blue-500" />
+                      <span className="text-[8px] mono font-black text-white uppercase tracking-[0.2em]">
+                        IDENT_VERIFIED
+                      </span>
+                    </div>
+                    <h3 className="text-base font-black mono text-white uppercase">
+                      PARTHIBAN.M
+                    </h3>
+                  </div>
+
+                  <div className="flex flex-col items-end">
+                    <div className="bg-blue-600 p-2">
+                      <Target className="w-6 h-6 text-white animate-pulse" />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex justify-between items-end">
+                  <div className="space-y-1 text-black/80 mono text-[9px] uppercase tracking-widest">
+                    <p>LAT: 12.9716° N</p>
+                    <p>LNG: 80.2446° E</p>
+                  </div>
+                  <div className="bg-white/10 backdrop-blur-sm border border-white/10 px-4 py-2">
+                    <span className="text-[10px] mono font-bold text-black/90 uppercase tracking-widest">
+                      CORE_SYS_v2.5
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Vertical Identity Ribbon */}
+              <div className="absolute right-0 top-0 bottom-0 w-8 bg-blue-600 flex items-center justify-center">
+                <span className="text-[9px] font-black text-white uppercase vertical-text tracking-[0.6em] whitespace-nowrap">
+                  BACKEND ARCHITECT // FULL STACK ENGINEER
+                </span>
+              </div>
+            </div>
+
+            {/* Decorative Framing */}
+            <div className="absolute -top-6 -left-6 w-24 h-24 border-t border-l border-black/10 dark:border-white/10 -z-10"></div>
+            <div className="absolute -bottom-6 -right-6 w-24 h-24 border-b border-r border-black/10 dark:border-white/10 -z-10"></div>
           </div>
         </div>
       </div>
+      <style>{`
+        @keyframes scan {
+          0% { transform: translateY(0); opacity: 0; }
+          10% { opacity: 0.3; }
+          90% { opacity: 0.3; }
+          100% { transform: translateY(850px); opacity: 0; }
+        }
+        @keyframes loading {
+          0% { transform: translateX(-100%); }
+          100% { transform: translateX(300%); }
+        }
+        .vertical-text {
+          writing-mode: vertical-rl;
+          text-orientation: mixed;
+        }
+      `}</style>
     </section>
   );
 };
