@@ -56,7 +56,7 @@ const Navbar: React.FC = () => {
 
         {/* Right: Diagnostics, Toggle & Download */}
         <div className="flex items-center space-x-2 md:space-x-4">
-          <a
+          {/* <a
             href="#"
             className="hidden md:flex items-center space-x-2 bg-black dark:bg-white text-white dark:text-black px-3 py-1.5 border border-transparent hover:bg-transparent hover:text-black dark:hover:text-white dark:hover:bg-black hover:border-black/20 dark:hover:border-white/20 transition-all group"
           >
@@ -64,7 +64,7 @@ const Navbar: React.FC = () => {
             <span className="text-[9px] font-black mono uppercase tracking-widest">
               RESUME
             </span>
-          </a>
+          </a> */}
 
           <button
             onClick={toggleTheme}
