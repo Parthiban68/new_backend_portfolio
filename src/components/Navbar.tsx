@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { Shield, Radio, Activity, Sun, Moon, FileText } from "lucide-react";
+import toast from "react-hot-toast";
 
 const Navbar: React.FC = () => {
   const [time, setTime] = useState(new Date().toLocaleTimeString());
   const [isDark, setIsDark] = useState(
-    document.documentElement.classList.contains("dark")
+    document.documentElement.classList.contains("dark"),
   );
 
   useEffect(() => {
     const timer = setInterval(
       () => setTime(new Date().toLocaleTimeString()),
-      1000
+      1000,
     );
     return () => clearInterval(timer);
   }, []);
@@ -25,6 +26,35 @@ const Navbar: React.FC = () => {
       localStorage.theme = "dark";
       setIsDark(true);
     }
+  };
+
+  const downloadResume = () => {
+    const downloadPromise = new Promise<void>((resolve) => {
+      setTimeout(() => {
+        const link = document.createElement("a");
+        link.href = "/resume.pdf";
+        link.download = "Parthiban_Resume.pdf";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        resolve();
+      }, 3000);
+    });
+
+    toast.promise(
+      downloadPromise,
+      {
+        loading: (
+          <span className="flex items-center gap-2">Downloading...</span>
+        ),
+        success: "Download successful!",
+        error: "Download failed. Please try again.",
+      },
+      {
+        position: "top-center",
+      },
+    );
   };
 
   return (
@@ -56,15 +86,17 @@ const Navbar: React.FC = () => {
 
         {/* Right: Diagnostics, Toggle & Download */}
         <div className="flex items-center space-x-2 md:space-x-4">
-          {/* <a
-            href="#"
+          <button
+            onClick={() => {
+              downloadResume();
+            }}
             className="hidden md:flex items-center space-x-2 bg-black dark:bg-white text-white dark:text-black px-3 py-1.5 border border-transparent hover:bg-transparent hover:text-black dark:hover:text-white dark:hover:bg-black hover:border-black/20 dark:hover:border-white/20 transition-all group"
           >
             <FileText className="w-3 h-3" />
             <span className="text-[9px] font-black mono uppercase tracking-widest">
               RESUME
             </span>
-          </a> */}
+          </button>
 
           <button
             onClick={toggleTheme}
