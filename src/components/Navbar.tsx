@@ -77,7 +77,7 @@ const Navbar: React.FC = () => {
         {/* Center: Brand */}
         <div className="flex flex-col items-center flex-1 sm:flex-none">
           <span className="text-[10px] md:text-xs font-black uppercase tracking-tighter mono glitch-text cursor-pointer leading-none text-black dark:text-white text-center">
-            PARTHIBAN_ARCHITECTURE_CORE_v2.5
+            PARTHIBAN_ARCHITECTURE_CORE_v2.0
           </span>
           <span className="text-[7px] md:text-[8px] mono text-black/20 dark:text-white/20 uppercase tracking-[0.3em] md:tracking-[0.5em] mt-1 whitespace-nowrap">
             Industrial Backend Engineer
