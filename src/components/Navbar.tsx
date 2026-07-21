@@ -1,3 +1,156 @@
+// import React, { useState, useEffect } from "react";
+// import { Shield, Radio, Activity, Sun, Moon, FileText } from "lucide-react";
+// import toast from "react-hot-toast";
+
+// const Navbar: React.FC = () => {
+//   const [time, setTime] = useState(new Date().toLocaleTimeString());
+//   const [isDark, setIsDark] = useState(
+//     document.documentElement.classList.contains("dark"),
+//   );
+
+//   useEffect(() => {
+//     const timer = setInterval(
+//       () => setTime(new Date().toLocaleTimeString()),
+//       1000,
+//     );
+//     return () => clearInterval(timer);
+//   }, []);
+
+//   const toggleTheme = () => {
+//     if (document.documentElement.classList.contains("dark")) {
+//       document.documentElement.classList.remove("dark");
+//       localStorage.theme = "light";
+//       setIsDark(false);
+//     } else {
+//       document.documentElement.classList.add("dark");
+//       localStorage.theme = "dark";
+//       setIsDark(true);
+//     }
+//   };
+
+//   const downloadResume = () => {
+//     const downloadPromise = new Promise<void>((resolve) => {
+//       setTimeout(() => {
+//         const link = document.createElement("a");
+//         link.href = "/resume.pdf";
+//         link.download = "Parthiban_Resume.pdf";
+//         document.body.appendChild(link);
+//         link.click();
+//         document.body.removeChild(link);
+
+//         resolve();
+//       }, 3000);
+//     });
+
+//     toast.promise(
+//       downloadPromise,
+//       {
+//         loading: (
+//           <span className="flex items-center gap-2">Downloading...</span>
+//         ),
+//         success: "Download successful!",
+//         error: "Download failed. Please try again.",
+//       },
+//       {
+//         position: "top-center",
+//       },
+//     );
+//   };
+
+//   return (
+//     <div className="fixed top-0 left-0 w-full z-[100] pointer-events-none">
+//       <div className="bg-white/90 dark:bg-black/95 backdrop-blur-xl border-b border-black/5 dark:border-white/10 px-4 md:px-6 py-2 flex justify-between items-center pointer-events-auto overflow-hidden transition-colors duration-300">
+//         {/* Left: System Status - Hidden on small mobile */}
+//         <div className="hidden sm:flex items-center space-x-6">
+//           <div className="flex items-center space-x-2">
+//             <Activity className="w-3 h-3 text-green-500 animate-pulse" />
+//             <span className="text-[8px] md:text-[9px] font-black uppercase tracking-[0.2em] md:tracking-[0.3em] mono text-green-600 dark:text-green-500 whitespace-nowrap">
+//               STABLE
+//             </span>
+//           </div>
+//           <div className="hidden lg:flex items-center space-x-3 text-[9px] mono text-black/30 dark:text-white/30 uppercase tracking-widest">
+//             <Radio className="w-3 h-3" />
+//             <span>CONNECTED</span>
+//           </div>
+//         </div>
+
+//         {/* Center: Brand */}
+//         <div className="flex flex-col items-center flex-1 sm:flex-none">
+//           <span className="text-[10px] md:text-xs font-black uppercase tracking-tighter mono glitch-text cursor-pointer leading-none text-black dark:text-white text-center">
+//             PARTHIBAN_ARCHITECTURE_CORE_v2.0
+//           </span>
+//           <span className="text-[7px] md:text-[8px] mono text-black/20 dark:text-white/20 uppercase tracking-[0.3em] md:tracking-[0.5em] mt-1 whitespace-nowrap">
+//             Industrial Backend Engineer
+//           </span>
+//         </div>
+
+//         {/* Right: Diagnostics, Toggle & Download */}
+//         <div className="flex items-center space-x-2 md:space-x-4">
+//           <button
+//             onClick={() => {
+//               downloadResume();
+//             }}
+//             className="hidden md:flex items-center space-x-2 bg-black dark:bg-white text-white dark:text-black px-3 py-1.5 border border-transparent hover:bg-transparent hover:text-black dark:hover:text-white dark:hover:bg-black hover:border-black/20 dark:hover:border-white/20 transition-all group"
+//           >
+//             <FileText className="w-3 h-3" />
+//             <span className="text-[9px] font-black mono uppercase tracking-widest">
+//               RESUME
+//             </span>
+//           </button>
+
+//           <button
+//             onClick={toggleTheme}
+//             className="p-1.5 md:p-2 border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5 transition-all text-black dark:text-white flex items-center space-x-2"
+//           >
+//             {isDark ? (
+//               <Sun className="w-3 h-3" />
+//             ) : (
+//               <Moon className="w-3 h-3" />
+//             )}
+//           </button>
+//           <div className="flex items-center space-x-1.5 md:space-x-2 bg-blue-600/10 border border-blue-500/20 px-2 md:px-3 py-1 rounded-sm">
+//             <Shield className="w-2.5 h-2.5 md:w-3 md:h-3 text-blue-500" />
+//             <span className="text-[8px] md:text-[9px] font-bold mono text-blue-500 uppercase">
+//               {time.split(" ")[0]}
+//             </span>
+//           </div>
+//         </div>
+//       </div>
+
+//       <nav className="max-w-7xl mx-auto flex justify-center mt-3 md:mt-4 px-4">
+//         <div className="bg-white/40 dark:bg-white/5 backdrop-blur-md border border-black/5 dark:border-white/10 px-4 md:px-8 py-2 rounded-full flex space-x-6 md:space-x-12 text-[9px] md:text-[10px] font-bold uppercase tracking-[0.15em] md:tracking-[0.2em] mono text-black/65 dark:text-white/40 pointer-events-auto shadow-2xl transition-colors duration-300">
+//           <a
+//             href="#work"
+//             className="hover:text-blue-600 dark:hover:text-blue-500 hover:scale-110 transition-all"
+//           >
+//             ./work
+//           </a>
+//           <a
+//             href="#services"
+//             className="hover:text-blue-600 dark:hover:text-blue-500 hover:scale-110 transition-all"
+//           >
+//             ./stack
+//           </a>
+//           <a
+//             href="#experience"
+//             className="hover:text-blue-600 dark:hover:text-blue-500 hover:scale-110 transition-all"
+//           >
+//             ./logs
+//           </a>
+//           <a
+//             href="#contact"
+//             className="hover:text-black dark:hover:text-white transition-all text-black/90 dark:text-white/80"
+//           >
+//             ./ping
+//           </a>
+//         </div>
+//       </nav>
+//     </div>
+//   );
+// };
+
+// export default Navbar;
+
 import React, { useState, useEffect } from "react";
 import { Shield, Radio, Activity, Sun, Moon, FileText } from "lucide-react";
 import toast from "react-hot-toast";
@@ -5,13 +158,15 @@ import toast from "react-hot-toast";
 const Navbar: React.FC = () => {
   const [time, setTime] = useState(new Date().toLocaleTimeString());
   const [isDark, setIsDark] = useState(
-    document.documentElement.classList.contains("dark"),
+    document.documentElement.classList.contains("dark")
   );
+  // State to track the active navigation tab
+  const [activeTab, setActiveTab] = useState("work");
 
   useEffect(() => {
     const timer = setInterval(
       () => setTime(new Date().toLocaleTimeString()),
-      1000,
+      1000
     );
     return () => clearInterval(timer);
   }, []);
@@ -37,7 +192,6 @@ const Navbar: React.FC = () => {
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
-
         resolve();
       }, 3000);
     });
@@ -51,24 +205,30 @@ const Navbar: React.FC = () => {
         success: "Download successful!",
         error: "Download failed. Please try again.",
       },
-      {
-        position: "top-center",
-      },
+      { position: "top-center" }
     );
   };
 
+  const navItems = [
+    { id: "work", label: "./work" },
+    { id: "services", label: "./stack" },
+    { id: "experience", label: "./logs" },
+    { id: "lab", label: "./projects" },
+  ];
+
   return (
-    <div className="fixed top-0 left-0 w-full z-[100] pointer-events-none">
-      <div className="bg-white/90 dark:bg-black/95 backdrop-blur-xl border-b border-black/5 dark:border-white/10 px-4 md:px-6 py-2 flex justify-between items-center pointer-events-auto overflow-hidden transition-colors duration-300">
-        {/* Left: System Status - Hidden on small mobile */}
+    <div className="fixed top-0 left-0 w-full z-[100] pointer-events-none max-w-[100vw] overflow-hidden">
+      {/* Top Diagnostics Bar */}
+      <div className="bg-white/90 dark:bg-black/95 backdrop-blur-xl border-b border-black/10 dark:border-white/10 px-4 md:px-6 py-2 flex justify-between items-center pointer-events-auto transition-colors duration-300">
+        {/* Left: System Status */}
         <div className="hidden sm:flex items-center space-x-6">
           <div className="flex items-center space-x-2">
             <Activity className="w-3 h-3 text-green-500 animate-pulse" />
-            <span className="text-[8px] md:text-[9px] font-black uppercase tracking-[0.2em] md:tracking-[0.3em] mono text-green-600 dark:text-green-500 whitespace-nowrap">
+            <span className="text-[8px] md:text-[9px] font-black uppercase tracking-[0.2em] md:tracking-[0.3em] font-mono text-green-600 dark:text-green-500 whitespace-nowrap">
               STABLE
             </span>
           </div>
-          <div className="hidden lg:flex items-center space-x-3 text-[9px] mono text-black/30 dark:text-white/30 uppercase tracking-widest">
+          <div className="hidden lg:flex items-center space-x-3 text-[9px] font-mono text-black/40 dark:text-white/30 uppercase tracking-widest">
             <Radio className="w-3 h-3" />
             <span>CONNECTED</span>
           </div>
@@ -76,10 +236,10 @@ const Navbar: React.FC = () => {
 
         {/* Center: Brand */}
         <div className="flex flex-col items-center flex-1 sm:flex-none">
-          <span className="text-[10px] md:text-xs font-black uppercase tracking-tighter mono glitch-text cursor-pointer leading-none text-black dark:text-white text-center">
-            PARTHIBAN_ARCHITECTURE_CORE_v2.0 
+          <span className="text-[10px] md:text-xs font-black uppercase tracking-tighter font-mono cursor-pointer leading-none text-black dark:text-white text-center">
+            PARTHIBAN_ARCHITECTURE_CORE_v2.0
           </span>
-          <span className="text-[7px] md:text-[8px] mono text-black/20 dark:text-white/20 uppercase tracking-[0.3em] md:tracking-[0.5em] mt-1 whitespace-nowrap">
+          <span className="text-[7px] md:text-[8px] font-mono text-black/40 dark:text-white/30 uppercase tracking-[0.3em] md:tracking-[0.5em] mt-1 whitespace-nowrap">
             Industrial Backend Engineer
           </span>
         </div>
@@ -87,20 +247,19 @@ const Navbar: React.FC = () => {
         {/* Right: Diagnostics, Toggle & Download */}
         <div className="flex items-center space-x-2 md:space-x-4">
           <button
-            onClick={() => {
-              downloadResume();
-            }}
-            className="hidden md:flex items-center space-x-2 bg-black dark:bg-white text-white dark:text-black px-3 py-1.5 border border-transparent hover:bg-transparent hover:text-black dark:hover:text-white dark:hover:bg-black hover:border-black/20 dark:hover:border-white/20 transition-all group"
+            onClick={downloadResume}
+            className="hidden md:flex items-center space-x-2 bg-black dark:bg-white text-white dark:text-black px-3 py-1.5 border border-transparent hover:bg-transparent hover:text-black dark:hover:text-white dark:hover:bg-black hover:border-black/20 dark:hover:border-white/20 transition-all"
           >
             <FileText className="w-3 h-3" />
-            <span className="text-[9px] font-black mono uppercase tracking-widest">
+            <span className="text-[9px] font-black font-mono uppercase tracking-widest">
               RESUME
             </span>
           </button>
 
           <button
             onClick={toggleTheme}
-            className="p-1.5 md:p-2 border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5 transition-all text-black dark:text-white flex items-center space-x-2"
+            className="p-1.5 md:p-2 border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5 transition-all text-black dark:text-white flex items-center space-x-2 rounded-md"
+            aria-label="Toggle Theme"
           >
             {isDark ? (
               <Sun className="w-3 h-3" />
@@ -108,41 +267,45 @@ const Navbar: React.FC = () => {
               <Moon className="w-3 h-3" />
             )}
           </button>
+
           <div className="flex items-center space-x-1.5 md:space-x-2 bg-blue-600/10 border border-blue-500/20 px-2 md:px-3 py-1 rounded-sm">
             <Shield className="w-2.5 h-2.5 md:w-3 md:h-3 text-blue-500" />
-            <span className="text-[8px] md:text-[9px] font-bold mono text-blue-500 uppercase">
+            <span className="text-[8px] md:text-[9px] font-bold font-mono text-blue-500 uppercase">
               {time.split(" ")[0]}
             </span>
           </div>
         </div>
       </div>
 
-      <nav className="max-w-7xl mx-auto flex justify-center mt-3 md:mt-4 px-4">
-        <div className="bg-white/40 dark:bg-white/5 backdrop-blur-md border border-black/5 dark:border-white/10 px-4 md:px-8 py-2 rounded-full flex space-x-6 md:space-x-12 text-[9px] md:text-[10px] font-bold uppercase tracking-[0.15em] md:tracking-[0.2em] mono text-black/65 dark:text-white/40 pointer-events-auto shadow-2xl transition-colors duration-300">
-          <a
-            href="#work"
-            className="hover:text-blue-600 dark:hover:text-blue-500 hover:scale-110 transition-all"
-          >
-            ./work
-          </a>
-          <a
-            href="#services"
-            className="hover:text-blue-600 dark:hover:text-blue-500 hover:scale-110 transition-all"
-          >
-            ./stack
-          </a>
-          <a
-            href="#experience"
-            className="hover:text-blue-600 dark:hover:text-blue-500 hover:scale-110 transition-all"
-          >
-            ./logs
-          </a>
-          <a
-            href="#contact"
-            className="hover:text-black dark:hover:text-white transition-all text-black/90 dark:text-white/80"
-          >
-            ./ping
-          </a>
+      {/* Redesigned Navigation Pill */}
+      <nav className="w-full flex justify-center mt-4 md:mt-5 px-4">
+        <div className="bg-white/80 dark:bg-[#1a1b26]/70 backdrop-blur-xl border border-black/20 dark:border-white/10 p-1 md:p-1.5 rounded-full flex items-center gap-1 pointer-events-auto shadow-[0_8px_30px_rgb(0,0,0,0.08)] dark:shadow-2xl transition-colors duration-300">
+          {/* Dynamic Navigation Items */}
+          {navItems.map((item) => (
+            <a
+              key={item.id}
+              href={`#${item.id}`}
+              onClick={() => setActiveTab(item.id)}
+              className={`px-3 md:px-4 py-1.5 rounded-full text-[9px] md:text-[10px] font-bold uppercase tracking-[0.15em] md:tracking-[0.2em] font-mono transition-all duration-300 ease-in-out ${
+                activeTab === item.id
+                  ? "bg-black/10 dark:bg-white/10 text-black dark:text-white shadow-sm"
+                  : "text-black/80 dark:text-white/40 hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5"
+              }`}
+            >
+              {item.label}
+            </a>
+          ))}
+
+          {/* Gradient Border Button for ./ping */}
+          <div className="ml-1 p-[1px] md:p-[1.5px] rounded-full bg-gradient-to-r from-cyan-400 via-purple-500 to-orange-400 shadow-sm transition-transform hover:scale-105 duration-300">
+            <a
+              href="#contact"
+              onClick={() => setActiveTab("contact")}
+              className="block px-3 md:px-4 py-1.5 rounded-full bg-white dark:bg-[#1a1b26] text-black dark:text-white text-[9px] md:text-[10px] font-bold uppercase tracking-[0.15em] md:tracking-[0.2em] font-mono hover:opacity-90 transition-opacity"
+            >
+              ./Say Hello
+            </a>
+          </div>
         </div>
       </nav>
     </div>
