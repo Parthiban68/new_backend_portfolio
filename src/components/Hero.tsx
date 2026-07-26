@@ -98,6 +98,7 @@ import IMAGES from "../assets/Parthiban.jpeg";
 const Hero: React.FC = () => {
   return (
     <section
+      id="home"
       className="
        relative min-h-screen flex flex-col justify-center pt-24 md:pt-32 pb-12 md:pb-20 px-4 md:px-20 max-w-8xl mx-auto overflow-hidden transition-colors duration-300
       "
