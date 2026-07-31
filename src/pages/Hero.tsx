@@ -1,7 +1,7 @@
 import { motion } from 'motion/react';
-import BackgroundElements from '../hero/BackgroundElements';
-import LeftContent from '../hero/LeftContent';
-import RightNetwork from '../hero/RightNetwork';
+import BackgroundElements from '../components/hero/BackgroundElements';
+import LeftContent from '../components/hero/LeftContent';
+import RightNetwork from '../components/hero/RightNetwork';
 
 export default function Hero() {
   return (

@@ -1,7 +1,7 @@
 
 import React from 'react';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
+import Hero from './pages/Hero';
 import Ticker from './components/Ticker';
 import SocialBar from './components/SocialBar';
 import Offering from './components/Offering';
