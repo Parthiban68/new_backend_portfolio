@@ -202,7 +202,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from 'motion/react';
 // import NetworkNode from './NetworkNode';
 import FloatingTechPills from './FloatingTechPills';
-import image from "../../assets/new.png"
+import image from "../../assets/new_5.png"
 
 const services = [
   { id: 'auth', label: 'Auth', stack: 'JWT / OAuth 2.0', db: 'Redis', angle: 0, distance: 220, color: 'bg-primary' },
@@ -319,7 +319,7 @@ export default function RightNetwork() {
           style={{ transform: "translateZ(30px)" }}
         >
           <motion.div
-            className={`h-[500px] w-[350px] rounded-2xl bg-transparent p-2.5 border border-black/10 shadow-[0_20px_40px_rgba(0,0,0,0.12)] cursor-pointer transition-all duration-300 flex flex-col items-center justify-center ${
+            className={`h-[600px] w-[400px] rounded-2xl bg-transparent p-2.5  cursor-pointer transition-all duration-300 flex flex-col items-center justify-center ${
               activeNode === 'gateway' ? 'ring-4 ring-[#111111] scale-110' : 'hover:scale-105'
             }`}
             onClick={() => setActiveNode(activeNode === 'gateway' ? null : 'gateway')}
