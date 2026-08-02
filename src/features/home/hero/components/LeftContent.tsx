@@ -103,7 +103,7 @@
 // }
 
 
-import { motion } from 'motion/react';
+import { motion, Variants } from 'motion/react';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
 
 const containerVariants = {
@@ -117,7 +117,7 @@ const containerVariants = {
   }
 };
 
-const itemVariants = {
+const itemVariants : Variants = {
   hidden: { opacity: 0, y: 30 },
   visible: { 
     opacity: 1, 
@@ -136,56 +136,61 @@ export default function LeftContent() {
       variants={containerVariants}
       initial="hidden"
       animate="visible"
-      className="flex flex-col justify-center max-w-3xl"
+      className="flex flex-col justify-center max-w-3xl w-full"
     >
       {/* Top Badge Style */}
       <motion.div 
         variants={itemVariants} 
-        className="flex items-center gap-2.5 mb-5 md:mb-5 text-[15px] md:text-[17px] text-gray-500 font-medium"
+        className="flex items-center flex-wrap gap-2 sm:gap-2.5 mb-4 md:mb-5 text-[14px] sm:text-[15px] md:text-[17px] text-zinc-600 dark:text-zinc-400 font-medium transition-colors duration-300"
       >
-        <div className="w-2.5 h-2.5 bg-emerald-400 rounded-full shadow-[0_0_8px_rgba(52,211,153,0.6)]"></div>
+        <div className="w-2.5 h-2.5 bg-emerald-400 rounded-full shadow-[0_0_8px_rgba(52,211,153,0.6)] shrink-0"></div>
         <span>Backend Engineering</span>
-        <span className="text-gray-300 font-light text-xl px-0.5">×</span>
+        <span className="text-zinc-300 dark:text-zinc-600 font-light text-xl px-0.5">×</span>
         <span>Distributed Systems</span>
       </motion.div>
 
       {/* Headline */}
       <motion.div variants={itemVariants}>
-        <h1 className="text-[42px] sm:text-5xl md:text-6xl lg:text-[60px] leading-[0.92] font-medium tracking-[-0.04em] mb-6 md:mb-8 text-[#0a0a0a]">
-          Crafting Secure APIs,<br />
-          Distributed Systems,<br />
+        {/* Uses natural wrap on mobile, forced breaks on sm+ */}
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[60px] leading-[1.1] sm:leading-[0.92] font-medium tracking-[-0.04em] mb-5 sm:mb-6 md:mb-8 text-zinc-900 dark:text-zinc-50 transition-colors duration-300">
+          Crafting Secure APIs,<br className="hidden sm:block" />
+          Distributed Systems,<br className="hidden sm:block" />
           & Enterprise Software!
         </h1>
       </motion.div>
 
       {/* Description */}
       <motion.div variants={itemVariants}>
-        <p className="text-[15px] md:text-[17px] text-[#1a1a1a] leading-[1.45] mb-10 md:mb-12 max-w-[800px] font-normal">
+        <p className="text-[15px] sm:text-[16px] md:text-[17px] text-zinc-700 dark:text-zinc-300 leading-[1.6] sm:leading-[1.45] mb-8 sm:mb-10 md:mb-12 max-w-[800px] font-normal transition-colors duration-300">
           I started with clean architecture, database design, and API development. Today, I turn that foundation into highly scalable backend systems, robust interfaces, and production-grade software built with purpose.
         </p>
       </motion.div>
 
       {/* Buttons */}
-      <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-6 md:gap-8">
+      <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-start sm:items-center gap-5 sm:gap-6 md:gap-8">
+        
         {/* Primary Download Button */}
         <motion.button 
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
-          className="flex items-center gap-4 pl-6 pr-2 py-2 bg-[#0a0a0a] text-white rounded-[32px] font-medium text-[16px] md:text-[18px] transition-colors shadow-md"
+          // Full width on mobile, auto width on larger screens
+          className="flex items-center justify-between sm:justify-start w-full sm:w-auto gap-4 pl-6 pr-2 py-2 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 rounded-[32px] font-medium text-[16px] md:text-[18px] transition-colors duration-300 shadow-md group"
         >
           <span>Download CV</span>
-          <div className="bg-[#2a2a2a] p-2.5 rounded-full flex items-center justify-center">
-            <ArrowRight className="w-5 h-5 text-white" strokeWidth={2.5} />
+          <div className="bg-zinc-800 dark:bg-zinc-200 group-hover:bg-zinc-700 dark:group-hover:bg-zinc-300 p-2.5 rounded-full flex items-center justify-center transition-colors duration-300">
+            <ArrowRight className="w-5 h-5 text-white dark:text-zinc-900" strokeWidth={2.5} />
           </div>
         </motion.button>
 
         {/* Secondary Explore Button */}
         <motion.button 
           whileHover={{ x: 4 }}
-          className="flex items-center gap-1.5 pb-1 border-b-[1.5px] border-gray-300 text-[#0a0a0a] font-medium text-[16px] md:text-[18px] hover:border-gray-500 transition-colors"
+          // Aligned nicely for mobile stacking
+          className="flex items-center gap-1.5 pb-1 border-b-[1.5px] border-zinc-300 dark:border-zinc-700 text-zinc-900 dark:text-zinc-100 font-medium text-[16px] md:text-[18px] hover:border-zinc-500 dark:hover:border-zinc-400 transition-colors duration-300"
         >
-          Explore projects <ArrowUpRight className="w-4 h-4 text-gray-700 mb-0.5" strokeWidth={2} />
+          Explore projects <ArrowUpRight className="w-4 h-4 text-zinc-600 dark:text-zinc-400 mb-0.5" strokeWidth={2} />
         </motion.button>
+
       </motion.div>
     </motion.div>
   );
