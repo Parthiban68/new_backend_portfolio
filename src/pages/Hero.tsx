@@ -38,7 +38,7 @@ export default function Hero() {
         transition={{ delay: 1, duration: 0.8 }}
         className="absolute bottom-14 left-6 right-6 md:left-12 md:right-12 lg:left-24 lg:right-24 flex justify-end items-center z-20 pointer-events-none hidden md:flex"
       >
-        <div className="flex items-center gap-2 text-[12px] font-medium text-primary bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md px-4 py-2 rounded-full border border-black/5 dark:border-white/10 shadow-sm text-zinc-900 dark:text-zinc-100">
+        <div className="flex items-center gap-2 text-[12px] font-medium bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md px-4 py-2 rounded-full border border-black/5 dark:border-white/10 shadow-sm text-zinc-900 dark:text-zinc-100">
           <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
           Available for new Backend projects
         </div>
