@@ -9,6 +9,7 @@ import SystemTopology from "../components/SystemTopology";
 import { Contact } from "lucide-react";
 import Footer from "../components/Footer";
 import Stats from "../components/Stats";
+import HomeAbout from "../features/home/about/HomeAbout";
 
 const HomePage = () => {
   return (
@@ -17,6 +18,7 @@ const HomePage = () => {
         <Hero />
         <Ticker />
         {/* <SocialBar /> */}
+        <HomeAbout />
         <Offering />
         <Experience />
         <CaseStudy />
