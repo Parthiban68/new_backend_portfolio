@@ -1,6 +1,6 @@
 import React from "react";
 import Hero from "../features/home/hero/Hero";
-import Ticker from "../components/Ticker";
+import Ticker from "../features/home/techstack/Ticker";
 import SocialBar from "../components/SocialBar";
 import Offering from "../components/Offering";
 import Experience from "../components/Experience";
@@ -16,7 +16,7 @@ const HomePage = () => {
       <main>
         <Hero />
         <Ticker />
-        <SocialBar />
+        {/* <SocialBar /> */}
         <Offering />
         <Experience />
         <CaseStudy />
