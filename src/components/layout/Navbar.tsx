@@ -502,13 +502,13 @@ export const NAV_SECTIONS: NavSection[] = [
   {
     id: "home",
     label: "Home",
-    href: "#",
+    href: "/",
     icon: Home,
   },
   {
     id: "projects",
     label: "Projects",
-    href: "#projects",
+    href: "projects",
     icon: FolderGit2,
   },
   {
@@ -1014,6 +1014,8 @@ const MobileDrawer: React.FC<MobileDrawerProps> = ({
               {NAV_SECTIONS.map((section) => {
                 const Icon = section.icon;
                 const isActive = activeSection === section.id;
+                console.log(activeSection, section.id);
+                
                 return (
                   <a
                     key={section.id}

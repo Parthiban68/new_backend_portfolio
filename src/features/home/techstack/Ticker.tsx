@@ -163,7 +163,7 @@ const Ticker: React.FC = () => {
   );
 
   return (
-    <div className="relative z-10 py-5 bg-[#fafafa] border-y border-gray-200 overflow-hidden flex flex-col items-center">
+    <div className="relative z-10 py-5 bg-[#fafafa] dark:bg-neutral-950 border-y border-gray-200 dark:border-gray-800 overflow-hidden flex flex-col items-center">
       {/* Inline styles for responsive scrolling animation */}
       <style>
         {`
@@ -184,15 +184,15 @@ const Ticker: React.FC = () => {
       </style>
 
       {/* Heading - Styled exactly like "DAILY-DRIVER TOOLKIT" in the image */}
-      <p className="text-[10px] md:text-[14px] font-ligth text-gray-900 tracking-[0.2em] uppercase text-center mb-4">
+      <p className="text-[10px] md:text-[14px] font-ligth text-gray-900 dark:text-gray-200 tracking-[0.2em] uppercase text-center mb-4">
        Daily-driver toolkit
       </p>
 
       {/* Ticker Container */}
       <div className="w-full flex overflow-hidden group py-2 md:py-4 relative">
         {/* Optional subtle gradient fade on the edges for a polished look */}
-        <div className="absolute inset-y-0 left-0 w-12 md:w-24 bg-gradient-to-r from-[#fafafa] to-transparent z-20 pointer-events-none"></div>
-        <div className="absolute inset-y-0 right-0 w-12 md:w-24 bg-gradient-to-l from-[#fafafa] to-transparent z-20 pointer-events-none"></div>
+      <div className="absolute inset-y-0 left-0 w-12 md:w-24 bg-gradient-to-r from-[#fafafa] to-transparent dark:from-neutral-950 dark:to-transparent z-20 pointer-events-none"></div>
+<div className="absolute inset-y-0 right-0 w-12 md:w-24 bg-gradient-to-l from-[#fafafa] to-transparent dark:from-neutral-950 dark:to-transparent z-20 pointer-events-none"></div>
 
         <div className="flex w-max animate-scroll hover:[animation-play-state:paused] items-center">
           
@@ -202,7 +202,7 @@ const Ticker: React.FC = () => {
               {tech.map((item, i) => (
                 <React.Fragment key={i}>
                   {/* Item Container: Flex row for Icon + Text */}
-                  <div className="flex items-center space-x-2 md:space-x-3 text-gray-400 hover:text-black transition-colors duration-200 cursor-default">
+                  <div className="flex items-center space-x-2 md:space-x-3 text-gray-400 hover:text-black dark:hover:text-white transition-colors duration-200 cursor-default">
                     {item.icon}
                     <span className="text-lg sm:text-xl md:text-2xl font-light tracking-tight whitespace-nowrap">
                       {item.name}

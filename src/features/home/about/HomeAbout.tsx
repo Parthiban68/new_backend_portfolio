@@ -1,110 +1,111 @@
-  import React from "react";
+import React from "react";
+import { NavLink } from "react-router-dom";
 
-  const HomeAbout = () => {
-    return (
-      <section className="bg-[#fcfcfd]">
-        {/* Main Container */}
-        <div className="max-w-full w-full relative z-10 bg-white/60 p-16 flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
-          {/* Left Column */}
-          <div className="w-full lg:w-1/8 flex flex-col justify-center">
-            <div className="flex items-center gap-3 mb-6">
-              <span className="w-3 h-3 rounded-full bg-emerald-500"></span>
-              <span className="text-xs font-semibold tracking-[0.3em] text-gray-500 uppercase">
-                WHO AM I?
-              </span>
-            </div>
-
-            <h2 className="text-5xl md:text-5xl font-bold text-gray-950 leading-[1.05] mb-8 tracking-tight">
-              Backend Software Engineer.
-            </h2>
-
-            <p className="text-gray-700 text-md leading-relaxed mb-10 max-w-xl">
-              I'm <strong>Parthiban</strong>, a Backend Software Engineer with
-              <strong> 1.6+ years of experience</strong> building scalable SaaS
-              applications using{" "}
-              <strong>
-                Node.js, NestJS, Express.js, TypeScript, PostgreSQL, and Sequelize
-              </strong>
-              . I specialize in designing REST APIs, multi-tenant architectures,
-              authentication systems, and clean backend solutions for enterprise
-              applications.
-            </p>
-
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
-              <button className="group inline-flex items-center justify-center gap-3 px-6 py-3 border border-gray-300 rounded-full text-base font-semibold text-gray-900 hover:border-gray-900 hover:bg-gray-900 hover:text-white transition-all">
-                Ready my story
-                <svg
-                  className="w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </button>
-
-              <div className="flex items-center gap-2.5 text-base text-gray-700">
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                Open to Full-Time Backend Opportunities
-              </div>
-            </div>
+const HomeAbout = () => {
+  return (
+    <section className="bg-[#fcfcfd] dark:bg-gray-950 transition-colors duration-300">
+      {/* Main Container */}
+      <div className="max-w-full w-full relative z-10 bg-white/60 dark:bg-neutral-950 p-16 flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
+        {/* Left Column */}
+        <div className="w-full lg:w-1/8 flex flex-col justify-center">
+          <div className="flex items-center gap-3 mb-6">
+            <span className="w-3 h-3 rounded-full bg-emerald-500"></span>
+            <span className="text-xs font-semibold tracking-[0.3em] text-gray-500 dark:text-gray-400 uppercase">
+              WHO AM I?
+            </span>
           </div>
 
-          {/* Right Column */}
-          <div className="w-full lg:w-1/2 flex items-center justify-center lg:justify-end">
-            <div className="flex items-center gap-10 md:gap-16 text-center">
-              {/* Experience */}
-              <div className="flex flex-col items-center">
-                <h3 className="text-5xl md:text-6xl lg:text-7xl font-medium text-gray-950 mb-2.5 tracking-tight">
-                  1.6+
-                </h3>
-                <p className="text-xs font-semibold text-gray-600 uppercase tracking-[0.2em] leading-tight">
-                  YEARS OF
-                  <br />
-                  EXPERIENCE
-                </p>
-              </div>
+          <h2 className="text-5xl md:text-5xl font-bold text-gray-950 dark:text-white leading-[1.05] mb-8 tracking-tight">
+            Backend Software Engineer.
+          </h2>
 
-              <div className="h-32 lg:h-44 w-px bg-gray-200"></div>
+          <p className="text-gray-700 dark:text-gray-300 text-md leading-relaxed mb-10 max-w-xl">
+            I'm <strong>Parthiban</strong>, a Backend Software Engineer with
+            <strong> 1.6+ years of experience</strong> building scalable SaaS
+            applications using{" "}
+            <strong>
+              Node.js, NestJS, Express.js, TypeScript, PostgreSQL, and Sequelize
+            </strong>
+            . I specialize in designing REST APIs, multi-tenant architectures,
+            authentication systems, and clean backend solutions for enterprise
+            applications.
+          </p>
 
-              {/* Projects */}
-              <div className="flex flex-col items-center">
-                <h3 className="text-5xl md:text-6xl lg:text-7xl font-medium text-gray-950 mb-2.5 tracking-tight">
-                  10+
-                </h3>
-                <p className="text-xs font-semibold text-gray-600 uppercase tracking-[0.2em] leading-tight">
-                  BACKEND
-                  <br />
-                  PROJECTS
-                </p>
-              </div>
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+            <NavLink to={"/about-me"} className="group inline-flex items-center justify-center gap-3 px-6 py-3 border border-gray-300 dark:border-gray-700 rounded-full text-base font-semibold text-gray-900 dark:text-gray-100 hover:border-gray-900 hover:bg-gray-900 hover:text-white dark:hover:bg-white dark:hover:text-gray-900 dark:hover:border-white transition-all">
+              Read my story
+              <svg
+                className="w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
+              </svg>
+            </NavLink>
 
-              <div className="h-32 lg:h-44 w-px bg-gray-200"></div>
-
-              {/* Technologies */}
-              <div className="flex flex-col items-center">
-                <h3 className="text-5xl md:text-6xl lg:text-7xl font-medium text-gray-950 mb-2.5 tracking-tight">
-                  15+
-                </h3>
-                <p className="text-xs font-semibold text-gray-600 uppercase tracking-[0.2em] leading-tight">
-                  TECHNOLOGIES
-                  <br />
-                  USED
-                </p>
-              </div>
+            <div className="flex items-center gap-2.5 text-base text-gray-700 dark:text-gray-300">
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+              Open to Full-Time Backend Opportunities
             </div>
           </div>
         </div>
-      </section>
-    );
-  };
 
-  export default HomeAbout;
+        {/* Right Column */}
+        <div className="w-full lg:w-1/2 flex items-center justify-center lg:justify-end">
+          <div className="flex items-center gap-10 md:gap-16 text-center">
+            {/* Experience */}
+            <div className="flex flex-col items-center">
+              <h3 className="text-5xl md:text-6xl lg:text-7xl font-medium text-gray-950 dark:text-white mb-2.5 tracking-tight">
+                1.6+
+              </h3>
+              <p className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-[0.2em] leading-tight">
+                YEARS OF
+                <br />
+                EXPERIENCE
+              </p>
+            </div>
+
+            <div className="h-32 lg:h-44 w-px bg-gray-200 dark:bg-gray-800"></div>
+
+            {/* Projects */}
+            <div className="flex flex-col items-center">
+              <h3 className="text-5xl md:text-6xl lg:text-7xl font-medium text-gray-950 dark:text-white mb-2.5 tracking-tight">
+                10+
+              </h3>
+              <p className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-[0.2em] leading-tight">
+                BACKEND
+                <br />
+                PROJECTS
+              </p>
+            </div>
+
+            <div className="h-32 lg:h-44 w-px bg-gray-200 dark:bg-gray-800"></div>
+
+            {/* Technologies */}
+            <div className="flex flex-col items-center">
+              <h3 className="text-5xl md:text-6xl lg:text-7xl font-medium text-gray-950 dark:text-white mb-2.5 tracking-tight">
+                15+
+              </h3>
+              <p className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-[0.2em] leading-tight">
+                TECHNOLOGIES
+                <br />
+                USED
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default HomeAbout;
 
 
 
