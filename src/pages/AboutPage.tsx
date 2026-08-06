@@ -1,45 +1,14 @@
 import React from "react";
+import AboutHero from "../features/about/AboutHero"
 
 const AboutPage = () => {
   return (
     <div className="min-h-screen bg-[#FDFCFB] text-[#111111] selection:bg-orange-500 selection:text-white pb-20">
       
-      <main className="max-w-7xl mx-auto px-6 pt-40 md:pt-48 space-y-32">
+      <main className=" mx-auto px-6 pt-20 space-y-32">
         
         {/* 1. HERO SECTION & BENTO GRID */}
-        <section className="text-center space-y-12">
-          {/* Eyebrow */}
-          <div className="flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-widest text-zinc-500">
-            <div className="w-1.5 h-1.5 bg-orange-500 rounded-full"></div>
-            Backend Engineer
-          </div>
-          
-          {/* Headline */}
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-[1.1] max-w-4xl mx-auto">
-            Transforming requirements.<br />Building the <span className="italic text-zinc-500">foundation.</span>
-          </h1>
-          
-          <p className="text-lg text-zinc-500 max-w-xl mx-auto">
-            Specializing in enterprise application development. Focused on clean architecture, database design, and building scalable backend services for ERP systems.
-          </p>
-
-          {/* Image Bento Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-16 max-w-5xl mx-auto h-[600px]">
-            {/* Main Left Image Placeholder */}
-            <div className="rounded-[32px] bg-zinc-200 overflow-hidden h-full">
-              <img src="/api/placeholder/800/800" alt="Workspace" className="w-full h-full object-cover grayscale opacity-80 mix-blend-multiply" />
-            </div>
-            {/* Stacked Right Images */}
-            <div className="grid grid-rows-2 gap-4 h-full">
-              <div className="rounded-[32px] bg-zinc-200 overflow-hidden">
-                <img src="/api/placeholder/800/400" alt="Collaboration" className="w-full h-full object-cover grayscale opacity-80 mix-blend-multiply" />
-              </div>
-              <div className="rounded-[32px] bg-zinc-200 overflow-hidden">
-                <img src="/api/placeholder/800/400" alt="Architecture" className="w-full h-full object-cover grayscale opacity-80 mix-blend-multiply" />
-              </div>
-            </div>
-          </div>
-        </section>
+       <AboutHero/>
 
         {/* 2. QUOTE SECTION */}
         <section className="max-w-4xl mx-auto text-center space-y-8">

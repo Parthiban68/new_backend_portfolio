@@ -15,7 +15,7 @@ const HomeAbout = () => {
             </span>
           </div>
 
-          <h2 className="text-5xl md:text-5xl font-bold text-gray-950 dark:text-white leading-[1.05] mb-8 tracking-tight">
+          <h2 className="text-5xl md:text-5xl font-[400] whitespace-nowrap text-gray-950 dark:text-white leading-[1.05] mb-8 tracking-tight">
             Backend Software Engineer.
           </h2>
 
@@ -33,7 +33,7 @@ const HomeAbout = () => {
 
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
             <NavLink to={"/about-me"} className="group inline-flex items-center justify-center gap-3 px-6 py-3 border border-gray-300 dark:border-gray-700 rounded-full text-base font-semibold text-gray-900 dark:text-gray-100 hover:border-gray-900 hover:bg-gray-900 hover:text-white dark:hover:bg-white dark:hover:text-gray-900 dark:hover:border-white transition-all">
-              Read my story
+              Unfold My Story
               <svg
                 className="w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
                 fill="none"
