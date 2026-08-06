@@ -1,34 +1,44 @@
 import React from "react";
 import AboutHero from "../features/about/AboutHero"
+import EducationTimeline from "../features/about/EducationTimeline"
 
 const AboutPage = () => {
   return (
-    <div className="min-h-screen bg-[#FDFCFB] text-[#111111] selection:bg-orange-500 selection:text-white pb-20">
+    <div className="min-h-screen bg-[#fcfcfd] dark:bg-gray-950 text-[#111111] selection:bg-orange-500 selection:text-white pb-20">
       
-      <main className=" mx-auto px-6 pt-20 space-y-32">
+      <main className=" mx-auto px-6 pt-20">
         
         {/* 1. HERO SECTION & BENTO GRID */}
        <AboutHero/>
 
         {/* 2. QUOTE SECTION */}
-        <section className="max-w-4xl mx-auto text-center space-y-8">
+        <section className="max-w-4xl mx-auto text-center ">
           <div className="text-orange-500 text-6xl font-serif leading-none">"</div>
-          <h2 className="text-3xl md:text-5xl font-medium tracking-tight leading-tight">
-            Good software is created by understanding the problem first. My approach: design the architecture carefully, prioritize database structure, and write maintainable code.
-          </h2>
-          <div className="flex items-center justify-center gap-3 pt-4">
-            <div className="w-10 h-10 rounded-full bg-zinc-300 overflow-hidden">
-               <img src="/api/placeholder/100/100" alt="Avatar" className="w-full h-full object-cover" />
-            </div>
+
+          <blockquote className="text-3xl md:text-5xl font-medium tracking-tight leading-tight">
+          "Bad programmers worry about the code. Good programmers worry about data structures and their relationships."
+          </blockquote>
+
+          <div className="flex items-center justify-center gap-4 pt-6 ">
+            <img
+              src="https://images.openai.com/static-rsc-4/B4vKVl0UzVhk7VaH6Bp6k_HefERCj7J6-dI0juWMiIoGVfLfVGy4FPzp3nBImc5QR_HVz_XoGHF4iOuIrtS8-3OfTcZ8HvWyJcQJZu21vnYENPMBXFaMzcmP2O9xeehvDOQ-XXUKSTzKoN3b-fLBFH4zQZg6Vl4GhpMgDlt5xSs?purpose=inline"
+              alt="Martin Fowler"
+              className="w-12 h-12 rounded-full object-cover"
+            />
+
             <div className="text-left">
-              <div className="font-bold text-sm">Parthiban</div>
-              <div className="text-xs text-zinc-500">Backend Engineer & Team Lead</div>
+              <div className="font-bold text-sm">Linus Torvalds</div>
+              <div className="text-xs text-zinc-500">
+              Creator of Linux and Git
+              </div>
             </div>
           </div>
         </section>
 
+        <EducationTimeline/>
+
         {/* 3. MEET THE CORE (4-Column Layout) */}
-        <section className="space-y-12">
+        <section className="space-y-12 mt-10 mx-auto max-w-7xl">
           <div className="flex flex-col md:flex-row justify-between items-end gap-8">
             <div>
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-zinc-500 mb-4">
@@ -41,7 +51,6 @@ const AboutPage = () => {
               I specialize in the backend foundation. From relational PostgreSQL modeling to secure JWT authentication flows, every module is designed for long-term maintainability.
             </p>
           </div>
-
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             {[
               { title: "REST APIs", role: "Node.js & NestJS", img: "/api/placeholder/300/300" },
