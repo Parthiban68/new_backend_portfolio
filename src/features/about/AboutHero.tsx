@@ -697,7 +697,7 @@ export default function AboutHero() {
   }, []);
 
   return (
-    <section className="relative w-full min-h-screen bg-[#fcfcfd] dark:bg-gray-950 text-slate-900 dark:text-slate-100 overflow-hidden flex flex-col justify-between selection:bg-blue-500 selection:text-white transition-colors duration-500">
+    <section className="relative w-full min-h-screen bg-[#fcfcfd] dark:bg-neutral-950 text-slate-900 dark:text-slate-100 overflow-hidden flex flex-col justify-between selection:bg-blue-500 selection:text-white transition-colors duration-500">
       
       {/* Radial Soft Ambient Glows */}
       <div className="absolute top-12 left-1/4 w-[500px] h-[500px] bg-blue-400/10 dark:bg-blue-600/10 rounded-full blur-[140px] pointer-events-none" />

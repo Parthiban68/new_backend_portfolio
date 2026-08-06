@@ -1,10 +1,12 @@
 import React from "react";
 import AboutHero from "../features/about/AboutHero"
 import EducationTimeline from "../features/about/EducationTimeline"
+import ExperienceTimeline from "../features/about/ExperienceTimeline"
+
 
 const AboutPage = () => {
   return (
-    <div className="min-h-screen bg-[#fcfcfd] dark:bg-gray-950 text-[#111111] selection:bg-orange-500 selection:text-white pb-20">
+    <div className="min-h-screen bg-[#fcfcfd] dark:bg-neutral-950 text-[#111111] dark:text-white selection:bg-orange-500 selection:text-white pb-20">
       
       <main className=" mx-auto px-6 pt-20">
         
@@ -36,6 +38,7 @@ const AboutPage = () => {
         </section>
 
         <EducationTimeline/>
+        <ExperienceTimeline/>
 
         {/* 3. MEET THE CORE (4-Column Layout) */}
         <section className="space-y-12 mt-10 mx-auto max-w-7xl">
