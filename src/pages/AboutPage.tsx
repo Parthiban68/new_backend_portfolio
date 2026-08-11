@@ -40,114 +40,6 @@ const AboutPage = () => {
         <EducationTimeline/>
         <ExperienceTimeline/>
 
-        {/* 3. MEET THE CORE (4-Column Layout) */}
-        <section className="space-y-12 mt-10 mx-auto max-w-7xl">
-          <div className="flex flex-col md:flex-row justify-between items-end gap-8">
-            <div>
-              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-zinc-500 mb-4">
-                <div className="w-1.5 h-1.5 bg-orange-500 rounded-full"></div>
-                Capabilities
-              </div>
-              <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Core Expertise</h2>
-            </div>
-            <p className="text-zinc-500 max-w-md text-sm leading-relaxed">
-              I specialize in the backend foundation. From relational PostgreSQL modeling to secure JWT authentication flows, every module is designed for long-term maintainability.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            {[
-              { title: "REST APIs", role: "Node.js & NestJS", img: "/api/placeholder/300/300" },
-              { title: "System Auth", role: "JWT & RBAC", img: "/api/placeholder/300/300" },
-              { title: "Enterprise ERP", role: "Accounting & Payroll", img: "/api/placeholder/300/300" },
-              { title: "Database Design", role: "PostgreSQL Schemas", img: "/api/placeholder/300/300" }
-            ].map((item, i) => (
-              <div key={i} className="bg-white rounded-[24px] p-4 shadow-sm border border-zinc-100 flex flex-col items-center text-center group hover:-translate-y-1 transition-transform">
-                <div className="w-full aspect-square rounded-[16px] bg-zinc-100 mb-6 overflow-hidden">
-                   <img src={item.img} alt={item.title} className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 transition-all duration-500" />
-                </div>
-                <h3 className="font-bold text-lg">{item.title}</h3>
-                <p className="text-zinc-500 text-sm mt-1 mb-2">{item.role}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* 4. EXPERIENCE LEDGER (List/Table Layout) */}
-        <section className="space-y-12">
-          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-zinc-500">
-            <div className="w-1.5 h-1.5 bg-orange-500 rounded-full"></div>
-            Experience
-          </div>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Ledger</h2>
-
-          <div className="mt-8">
-            <div className="flex text-xs font-bold uppercase tracking-widest text-zinc-400 border-b border-zinc-200 pb-4 px-2">
-              <div className="w-1/3">Company & Role</div>
-              <div className="w-1/2">Impact</div>
-              <div className="w-1/6 text-right">Year</div>
-            </div>
-            
-            {[
-              { name: "Nubiznez Pvt Ltd — Backend Team Lead", desc: "Leading backend architecture, code reviews, and technical discussions for enterprise ERP software.", year: "2025-Present" },
-              { name: "Nubiznez Pvt Ltd — Backend Engineer", desc: "Built scalable REST APIs and PostgreSQL schemas for Accounting, Payroll, and Inventory modules.", year: "2025-Present" },
-              { name: "Core Systems — Backend Developer", desc: "Implemented secure JWT authentication, RBAC, and automated business reporting workflows.", year: "2024-2025" },
-            ].map((award, i) => (
-              <div key={i} className="flex items-center text-sm md:text-base border-b border-zinc-200 py-6 px-2 hover:bg-white transition-colors rounded-xl">
-                <div className="w-1/3 font-bold">{award.name}</div>
-                <div className="w-1/2 text-zinc-500">{award.desc}</div>
-                <div className="w-1/6 text-right font-medium">{award.year}</div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* 5. METRICS & TESTIMONIALS */}
-        <section className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <div className="lg:col-span-1 bg-white rounded-[32px] p-10 shadow-sm border border-zinc-100 flex flex-col justify-between">
-            <div>
-              <div className="text-6xl font-bold tracking-tighter mb-4">1.5+ <span className="text-2xl text-zinc-400 block mt-2">Years Experience</span></div>
-              <div className="w-6 h-1 bg-orange-500 rounded-full mb-6"></div>
-              <p className="text-sm text-zinc-500 leading-relaxed">
-                Focused on building secure, modular, and scalable backend architectures for enterprise ERP systems and multi-tenant SaaS platforms using Node.js and PostgreSQL.
-              </p>
-            </div>
-            <div className="flex items-center gap-3 mt-8">
-               <div className="w-8 h-8 rounded-full bg-zinc-200"></div>
-               <div>
-                 <div className="text-xs font-bold">Track Record</div>
-                 <div className="text-xs text-zinc-400">Enterprise Backend</div>
-               </div>
-            </div>
-          </div>
-          
-          <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-white rounded-[32px] p-8 shadow-sm border border-zinc-100 flex flex-col justify-between">
-              <p className="text-sm text-zinc-600 leading-relaxed italic mb-8">
-                "Database design is the foundation of every backend application. Get the schema wrong, and scaling the system becomes impossible as the business grows."
-              </p>
-              <div className="flex items-center gap-3">
-                 <div className="w-8 h-8 rounded-full bg-zinc-200"></div>
-                 <div>
-                   <div className="text-xs font-bold">Data Modeling</div>
-                   <div className="text-xs text-zinc-400">Core Principle</div>
-                 </div>
-              </div>
-            </div>
-            <div className="bg-white rounded-[32px] p-8 shadow-sm border border-zinc-100 flex flex-col justify-between">
-              <p className="text-sm text-zinc-600 leading-relaxed italic mb-8">
-                "Architecture before implementation. I focus on writing reusable, modular, and maintainable backend services that solve real engineering problems."
-              </p>
-              <div className="flex items-center gap-3">
-                 <div className="w-8 h-8 rounded-full bg-zinc-200"></div>
-                 <div>
-                   <div className="text-xs font-bold">Clean Architecture</div>
-                   <div className="text-xs text-zinc-400">Core Principle</div>
-                 </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* 6. COMPARISON: WHY WORK WITH ME? */}
         <section className="space-y-12 max-w-4xl mx-auto">
           <div className="text-center">
@@ -189,36 +81,44 @@ const AboutPage = () => {
         </section>
 
         {/* 7. FAQ BLOCK */}
-        <section className="bg-zinc-100/50 rounded-[40px] p-8 md:p-16 flex flex-col md:flex-row gap-16">
-          <div className="md:w-1/3">
-            <h2 className="text-3xl font-bold tracking-tight mb-4">Current Focus &<br/>Future Vision.</h2>
-            <p className="text-zinc-500 text-sm mb-12">
-              Constantly studying software architecture and system design to improve my engineering decisions.
-            </p>
-            <div className="bg-white p-6 rounded-[24px] shadow-sm flex flex-col gap-4">
-              <div className="font-bold">Looking to collaborate?</div>
-              <p className="text-xs text-zinc-500">Reach out to discuss enterprise backend development.</p>
-              <button className="self-start text-xs font-bold uppercase tracking-widest border border-zinc-200 px-4 py-2 rounded-full hover:bg-zinc-50">
-                Contact Me
-              </button>
-            </div>
-          </div>
-          
-          <div className="md:w-2/3 space-y-2">
-            {[
-              "I specialize in Node.js, NestJS, TypeScript, and Express.",
-              "I prioritize PostgreSQL with optimized relational schemas.",
-              "Deep diving into Docker, Redis, AWS, and distributed systems.",
-              "My goal is to become a Software Architect for enterprise SaaS.",
-              "I implement robust JWT authentication and RBAC by default."
-            ].map((q, i) => (
-              <div key={i} className="border-b border-zinc-200 py-6 flex justify-between items-center group cursor-pointer hover:pl-2 transition-all">
-                <span className="font-bold text-sm">{q}</span>
-                <span className="text-zinc-400 group-hover:text-black">+</span>
-              </div>
-            ))}
-          </div>
-        </section>
+       <section className="bg-zinc-100/50 rounded-[40px] p-8 md:p-16 flex flex-col md:flex-row gap-32">
+  <div className="md:w-1/3 ">
+    <h2 className="text-3xl font-bold tracking-tight mb-4">
+      Current Focus &<br />Future Vision.
+    </h2>
+    <p className="text-zinc-500 text-sm mb-12">
+      Constantly studying software architecture and system design to improve my engineering decisions.
+    </p>
+    <div className="bg-white p-6 rounded-[24px] shadow-sm flex flex-col gap-4">
+      <div className="font-bold">Looking to collaborate?</div>
+      <p className="text-xs text-zinc-500">
+        Reach out to discuss enterprise backend development.
+      </p>
+      <button className="self-start text-xs font-bold uppercase tracking-widest border border-zinc-200 px-4 py-2 rounded-full hover:bg-zinc-50 transition-colors">
+        Contact Me
+      </button>
+    </div>
+  </div>
+  
+  <div className="md:w-2/3 flex flex-col justify-center">
+    {[
+      "I specialize in Node.js, NestJS, TypeScript, and Express.",
+      "I prioritize PostgreSQL with optimized relational schemas.",
+      "Deep diving into Docker, Redis, AWS, and distributed systems.",
+      "My goal is to become a Software Architect for enterprise SaaS.",
+      "I implement robust JWT authentication and RBAC by default."
+    ].map((q, i) => (
+      <div 
+        key={i} 
+        className="border-b border-zinc-200 py-6 last:border-0 flex items-center"
+      >
+        <span className="font-medium text-sm md:text-base text-zinc-800 leading-relaxed">
+          {q}
+        </span>
+      </div>
+    ))}
+  </div>
+</section>
 
         {/* 8. CTA & FOOTER */}
         <section className="relative text-center py-32 overflow-hidden flex flex-col items-center justify-center">

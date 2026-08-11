@@ -490,7 +490,7 @@ export default function EngineeringJourney() {
   return (
     <section 
       ref={containerRef} 
-      className="relative min-h-screen py-24 bg-[#FAFAFA] dark:bg-[#09090B] text-gray-900 dark:text-gray-100  transition-colors duration-300 overflow-hidden"
+      className="relative min-h-screen py-14 bg-[#FAFAFA] dark:bg-[#09090B] text-gray-900 dark:text-gray-100  transition-colors duration-300 overflow-hidden"
     >
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-8">
@@ -560,14 +560,14 @@ export default function EngineeringJourney() {
                 <div>
                   <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">Nubiznez Private Limited</h3>
                   <div className="flex items-center gap-2 text-blue-600 dark:text-blue-400 font-semibold text-lg">
-                    Team Lead (Backend)
+                    Software Engineer (Backend)
                   </div>
                 </div>
               </div>
               <div className="flex flex-col items-start md:items-end gap-2 text-sm text-gray-500 dark:text-gray-400 font-medium">
-                <span className="flex items-center gap-2"><MapPin size={16} /> Coimbatore, Tamil Nadu</span>
                 <span className="flex items-center gap-2"><Briefcase size={16} /> Full Time</span>
                 <span className="flex items-center gap-2"><Calendar size={16} /> January 2025 — Present</span>
+                <span className="flex items-center gap-2"><MapPin size={16} /> Coimbatore, Tamil Nadu</span>
               </div>
             </div>
 
@@ -576,7 +576,7 @@ export default function EngineeringJourney() {
                 <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span> Currently Working
               </span>
               <span className="px-4 py-2 rounded-full text-sm font-semibold bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300 border border-gray-200 dark:border-gray-700">
-                Started as Backend Engineer
+                Started as Traniee
               </span>
             </div>
           </div>
