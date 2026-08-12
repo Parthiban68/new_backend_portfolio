@@ -490,23 +490,14 @@ export default function EngineeringJourney() {
   return (
     <section 
       ref={containerRef} 
-      className="relative min-h-screen py-14 bg-[#FAFAFA] dark:bg-[#09090B] text-gray-900 dark:text-gray-100  transition-colors duration-300 overflow-hidden"
+      className="relative min-h-screen py-14 bg-[#fdfdfd] dark:bg-[#09090B] text-gray-900 dark:text-gray-100  transition-colors duration-300 overflow-hidden"
     >
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-8">
         
         {/* --- HEADER --- */}
         <div className="text-center max-w-3xl mx-auto mb-20">
-          <motion.span
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-block px-3 py-1 text-xs font-semibold tracking-widest text-blue-600 dark:text-blue-400 uppercase bg-blue-100 dark:bg-blue-900/30 rounded-full mb-6"
-          >
-            Experience
-          </motion.span>
-          
-          <motion.h2
+                  <motion.h2
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -514,7 +505,7 @@ export default function EngineeringJourney() {
               hidden: {},
               visible: { transition: { staggerChildren: 0.1 } }
             }}
-            className="text-4xl md:text-5xl font-extrabold tracking-tight mb-6"
+            className="text-4xl md:text-5xl font-[500] tracking-tight mb-6"
           >
             {['My ', 'Engineering ', 'Journey'].map((word, i) => (
               <motion.span

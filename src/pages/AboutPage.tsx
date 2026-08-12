@@ -2,6 +2,7 @@ import React from "react";
 import AboutHero from "../features/about/AboutHero"
 import EducationTimeline from "../features/about/EducationTimeline"
 import ExperienceTimeline from "../features/about/ExperienceTimeline"
+import GrabMyResume from "../features/about/GrabMyResume"
 
 
 const AboutPage = () => {
@@ -39,6 +40,7 @@ const AboutPage = () => {
 
         <EducationTimeline/>
         <ExperienceTimeline/>
+        <GrabMyResume/>
 
         {/* 6. COMPARISON: WHY WORK WITH ME? */}
         <section className="space-y-12 max-w-4xl mx-auto">
@@ -80,45 +82,6 @@ const AboutPage = () => {
           </div>
         </section>
 
-        {/* 7. FAQ BLOCK */}
-       <section className="bg-zinc-100/50 rounded-[40px] p-8 md:p-16 flex flex-col md:flex-row gap-32">
-  <div className="md:w-1/3 ">
-    <h2 className="text-3xl font-bold tracking-tight mb-4">
-      Current Focus &<br />Future Vision.
-    </h2>
-    <p className="text-zinc-500 text-sm mb-12">
-      Constantly studying software architecture and system design to improve my engineering decisions.
-    </p>
-    <div className="bg-white p-6 rounded-[24px] shadow-sm flex flex-col gap-4">
-      <div className="font-bold">Looking to collaborate?</div>
-      <p className="text-xs text-zinc-500">
-        Reach out to discuss enterprise backend development.
-      </p>
-      <button className="self-start text-xs font-bold uppercase tracking-widest border border-zinc-200 px-4 py-2 rounded-full hover:bg-zinc-50 transition-colors">
-        Contact Me
-      </button>
-    </div>
-  </div>
-  
-  <div className="md:w-2/3 flex flex-col justify-center">
-    {[
-      "I specialize in Node.js, NestJS, TypeScript, and Express.",
-      "I prioritize PostgreSQL with optimized relational schemas.",
-      "Deep diving into Docker, Redis, AWS, and distributed systems.",
-      "My goal is to become a Software Architect for enterprise SaaS.",
-      "I implement robust JWT authentication and RBAC by default."
-    ].map((q, i) => (
-      <div 
-        key={i} 
-        className="border-b border-zinc-200 py-6 last:border-0 flex items-center"
-      >
-        <span className="font-medium text-sm md:text-base text-zinc-800 leading-relaxed">
-          {q}
-        </span>
-      </div>
-    ))}
-  </div>
-</section>
 
         {/* 8. CTA & FOOTER */}
         <section className="relative text-center py-32 overflow-hidden flex flex-col items-center justify-center">
