@@ -42,46 +42,6 @@ const AboutPage = () => {
         <ExperienceTimeline/>
         <GrabMyResume/>
 
-        {/* 6. COMPARISON: WHY WORK WITH ME? */}
-        <section className="space-y-12 max-w-4xl mx-auto">
-          <div className="text-center">
-            <div className="flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-widest text-zinc-500 mb-4">
-              <div className="w-1.5 h-1.5 bg-orange-500 rounded-full"></div>
-              Mindset
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">My Engineering Approach.</h2>
-          </div>
-
-          <div className="bg-white rounded-[40px] shadow-sm border border-zinc-100 overflow-hidden flex flex-col md:flex-row p-4">
-            {/* Left Column */}
-            <div className="flex-1 p-8 border-b md:border-b-0 md:border-r border-zinc-100">
-              <h3 className="flex items-center justify-center gap-2 font-bold mb-8 text-zinc-400">
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                Typical Development
-              </h3>
-              <ul className="space-y-6 text-sm text-zinc-500 font-medium">
-                <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-zinc-300 rounded-full"></div> Complex over simple solutions</li>
-                <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-zinc-300 rounded-full"></div> Duplicated logic across services</li>
-                <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-zinc-300 rounded-full"></div> Implementation without planning</li>
-                <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-zinc-300 rounded-full"></div> Security as an afterthought</li>
-              </ul>
-            </div>
-            {/* Right Column */}
-            <div className="flex-1 p-8 bg-[#FAFAFA] rounded-[32px]">
-               <h3 className="flex items-center justify-center gap-2 font-bold mb-8">
-                <svg className="w-5 h-5 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                My Approach
-              </h3>
-              <ul className="space-y-6 text-sm font-medium">
-                <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-orange-500 rounded-full"></div> Architecture before implementation</li>
-                <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-orange-500 rounded-full"></div> Database-first thinking</li>
-                <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-orange-500 rounded-full"></div> Reusable, modular backend services</li>
-                <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-orange-500 rounded-full"></div> Security by default (JWT, RBAC)</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
 
         {/* 8. CTA & FOOTER */}
         <section className="relative text-center py-32 overflow-hidden flex flex-col items-center justify-center">
