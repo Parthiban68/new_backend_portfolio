@@ -31,12 +31,12 @@ const Loader = ({ onComplete } : any) => {
         
         {/* Quote */}
         <h1 className="text-3xl md:text-4xl text-gray-900 font-normal tracking-tight leading-snug mb-4">
-          “You lose your grip, and then you slip into the Masterpiece.”
+          “The journey of a thousand miles begins with one step.”
         </h1>
         
         {/* Author */}
         <p className="text-xs text-gray-400 uppercase tracking-[0.2em] mb-12">
-          — Leonard Cohen
+          — Lao Tzu
         </p>
 
         {/* Progress Bar Track */}

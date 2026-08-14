@@ -557,7 +557,7 @@ import {
   SiReact,
   SiNextdotjs,
 } from "react-icons/si";
-import image from "../../assets/Parthiban.jpeg";
+import image from "../../assets/about2.png";
 
 // ==========================================
 // 1. TECH STACK BADGES WITH TOOLTIPS
@@ -864,13 +864,13 @@ export default function AboutHero() {
                 />
                 
                 {/* Subtle Overlay Badge */}
-                <div className="absolute bottom-3 left-3 right-3 bg-slate-900/80 dark:bg-slate-950/80 backdrop-blur-md px-3 py-2 rounded-xl text-white flex items-center justify-between text-xs font-mono">
+                {/* <div className="absolute bottom-3 left-3 right-3 bg-slate-900/80 dark:bg-slate-950/80 backdrop-blur-md px-3 py-2 rounded-xl text-white flex items-center justify-between text-xs font-mono">
                   <span className="flex items-center gap-1.5">
                     <span className="w-2 h-2 rounded-full bg-emerald-400" />
                     System Active
                   </span>
                   <span className="text-slate-400">PostgreSQL</span>
-                </div>
+                </div> */}
               </div>
 
               {/* Polaroid Footer */}
