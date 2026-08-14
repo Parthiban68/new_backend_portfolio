@@ -345,341 +345,794 @@
 //   );
 // }
 
-import React, { useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import {
-  Building2, MapPin, Briefcase, Calendar, CheckCircle2,
-  Server, Shield, Database, LayoutTemplate, Cpu, Zap, Box, Lock, Layers
-} from 'lucide-react';
+// import React, { useEffect, useRef } from 'react';
+// import { motion } from 'framer-motion';
+// import { gsap } from 'gsap';
+// import { ScrollTrigger } from 'gsap/ScrollTrigger';
+// import {
+//   Building2, MapPin, Briefcase, Calendar, CheckCircle2,
+//   Server, Shield, Database, LayoutTemplate, Cpu, Zap, Box, Lock, Layers
+// } from 'lucide-react';
 
-gsap.registerPlugin(ScrollTrigger);
+// gsap.registerPlugin(ScrollTrigger);
 
-// --- Data ---
-const milestones = [
-  {
-    id: '01',
-    title: 'Started as Backend Engineer',
-    description: 'Joined the company to build backend services for an enterprise accounting SaaS platform while learning large-scale software architecture.',
-  },
-  {
-    id: '02',
-    title: 'Built Core Backend Modules',
-    description: 'Designed and implemented scalable REST APIs, authentication systems, and accounting business workflows using NestJS and PostgreSQL.',
-  },
-  {
-    id: '03',
-    title: 'Designed Multi-Tenant Architecture',
-    description: 'Engineered schema-based multi-tenant architecture capable of supporting enterprise SaaS customers while keeping the codebase modular and scalable.',
-  },
-  {
-    id: '04',
-    title: 'Led Backend Development',
-    description: 'Started leading backend implementation, reviewing architecture decisions, mentoring developers, and owning critical accounting modules.',
-  },
-  {
-    id: '05',
-    title: 'Building Enterprise Scale',
-    description: 'Currently focused on system design, backend optimization, scalable infrastructure, clean architecture, and enterprise software engineering.',
-  },
-];
+// // --- Data ---
+// const milestones = [
+//   {
+//     id: '01',
+//     title: 'Started as Backend Engineer',
+//     description: 'Joined the company to build backend services for an enterprise accounting SaaS platform while learning large-scale software architecture.',
+//   },
+//   {
+//     id: '02',
+//     title: 'Built Core Backend Modules',
+//     description: 'Designed and implemented scalable REST APIs, authentication systems, and accounting business workflows using NestJS and PostgreSQL.',
+//   },
+//   {
+//     id: '03',
+//     title: 'Designed Multi-Tenant Architecture',
+//     description: 'Engineered schema-based multi-tenant architecture capable of supporting enterprise SaaS customers while keeping the codebase modular and scalable.',
+//   },
+//   {
+//     id: '04',
+//     title: 'Led Backend Development',
+//     description: 'Started leading backend implementation, reviewing architecture decisions, mentoring developers, and owning critical accounting modules.',
+//   },
+//   {
+//     id: '05',
+//     title: 'Building Enterprise Scale',
+//     description: 'Currently focused on system design, backend optimization, scalable infrastructure, clean architecture, and enterprise software engineering.',
+//   },
+// ];
 
-const responsibilities = [
-  { name: 'Backend Architecture', icon: <Server size={20} /> },
-  { name: 'NestJS Development', icon: <Box size={20} /> },
-  { name: 'Authentication', icon: <Shield size={20} /> },
-  { name: 'Accounting Engine', icon: <Cpu size={20} /> },
-  { name: 'REST APIs', icon: <Layers size={20} /> },
-  { name: 'Database Design', icon: <Database size={20} /> },
-  { name: 'Multi-Tenant SaaS', icon: <LayoutTemplate size={20} /> },
-  { name: 'API Security', icon: <Lock size={20} /> },
-];
+// const responsibilities = [
+//   { name: 'Backend Architecture', icon: <Server size={20} /> },
+//   { name: 'NestJS Development', icon: <Box size={20} /> },
+//   { name: 'Authentication', icon: <Shield size={20} /> },
+//   { name: 'Accounting Engine', icon: <Cpu size={20} /> },
+//   { name: 'REST APIs', icon: <Layers size={20} /> },
+//   { name: 'Database Design', icon: <Database size={20} /> },
+//   { name: 'Multi-Tenant SaaS', icon: <LayoutTemplate size={20} /> },
+//   { name: 'API Security', icon: <Lock size={20} /> },
+// ];
 
-const techStack = [
-  'NestJS', 'Node.js', 'TypeScript', 'PostgreSQL', 'Sequelize',
-  'JWT', 'Docker', 'Git', 'REST APIs', 'React'
-];
+// const techStack = [
+//   'NestJS', 'Node.js', 'TypeScript', 'PostgreSQL', 'Sequelize',
+//   'JWT', 'Docker', 'Git', 'REST APIs', 'React'
+// ];
 
-const impacts = [
-  'Designed enterprise backend architecture',
-  'Built scalable authentication infrastructure',
-  'Developed finance modules',
-  'Created reusable backend components',
-  'Improved API performance',
-  'Optimized PostgreSQL queries',
-  'Implemented modular backend architecture',
-  'Created multi-tenant backend foundation',
-];
+// const impacts = [
+//   'Designed enterprise backend architecture',
+//   'Built scalable authentication infrastructure',
+//   'Developed finance modules',
+//   'Created reusable backend components',
+//   'Improved API performance',
+//   'Optimized PostgreSQL queries',
+//   'Implemented modular backend architecture',
+//   'Created multi-tenant backend foundation',
+// ];
 
-// --- Components ---
+// // --- Components ---
 
-const BackgroundGrid = () => (
-  <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-    <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:32px_32px]"></div>
-    <div className="absolute top-[20%] left-[10%] w-96 h-96 bg-blue-500/10 dark:bg-blue-500/20 rounded-full blur-[128px]"></div>
-    <div className="absolute bottom-[20%] right-[10%] w-96 h-96 bg-indigo-500/10 dark:bg-indigo-500/20 rounded-full blur-[128px]"></div>
-  </div>
-);
+// const BackgroundGrid = () => (
+//   <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+//     <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:32px_32px]"></div>
+//     <div className="absolute top-[20%] left-[10%] w-96 h-96 bg-blue-500/10 dark:bg-blue-500/20 rounded-full blur-[128px]"></div>
+//     <div className="absolute bottom-[20%] right-[10%] w-96 h-96 bg-indigo-500/10 dark:bg-indigo-500/20 rounded-full blur-[128px]"></div>
+//   </div>
+// );
 
-export default function EngineeringJourney() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const lineRef = useRef<HTMLDivElement>(null);
-  const milestoneRefs = useRef<(HTMLDivElement | null)[]>([]);
+// export default function EngineeringJourney() {
+//   const containerRef = useRef<HTMLDivElement>(null);
+//   const lineRef = useRef<HTMLDivElement>(null);
+//   const milestoneRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // 1. Draw the journey line downwards based on scroll
-      gsap.fromTo(
-        lineRef.current,
-        { scaleY: 0 },
-        {
-          scaleY: 1,
-          transformOrigin: 'top center',
-          ease: 'none',
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: 'top center',
-            end: '80% center',
-            scrub: 1,
-          },
-        }
-      );
+//   useEffect(() => {
+//     const ctx = gsap.context(() => {
+//       // 1. Draw the journey line downwards based on scroll
+//       gsap.fromTo(
+//         lineRef.current,
+//         { scaleY: 0 },
+//         {
+//           scaleY: 1,
+//           transformOrigin: 'top center',
+//           ease: 'none',
+//           scrollTrigger: {
+//             trigger: containerRef.current,
+//             start: 'top center',
+//             end: '80% center',
+//             scrub: 1,
+//           },
+//         }
+//       );
 
-      // 2. Animate milestones
-      milestoneRefs.current.forEach((milestone, index) => {
-        if (!milestone) return;
-        const isLeft = index % 2 === 0;
+//       // 2. Animate milestones
+//       milestoneRefs.current.forEach((milestone, index) => {
+//         if (!milestone) return;
+//         const isLeft = index % 2 === 0;
         
-        gsap.fromTo(
-          milestone,
-          { opacity: 0, y: 50, x: isLeft ? -20 : 20 },
-          {
-            opacity: 1,
-            y: 0,
-            x: 0,
-            duration: 0.8,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: milestone,
-              start: 'top 85%',
-              toggleActions: 'play none none reverse',
-            },
-          }
-        );
+//         gsap.fromTo(
+//           milestone,
+//           { opacity: 0, y: 50, x: isLeft ? -20 : 20 },
+//           {
+//             opacity: 1,
+//             y: 0,
+//             x: 0,
+//             duration: 0.8,
+//             ease: 'power3.out',
+//             scrollTrigger: {
+//               trigger: milestone,
+//               start: 'top 85%',
+//               toggleActions: 'play none none reverse',
+//             },
+//           }
+//         );
 
-        // Glow the timeline dot
-        const dot = milestone.querySelector('.timeline-dot');
-        if (dot) {
-          gsap.to(dot, {
-            boxShadow: '0 0 20px rgba(59, 130, 246, 0.8)',
-            backgroundColor: '#3B82F6',
-            scrollTrigger: {
-              trigger: milestone,
-              start: 'top center',
-              toggleActions: 'play none none reverse',
-            },
-          });
+//         // Glow the timeline dot
+//         const dot = milestone.querySelector('.timeline-dot');
+//         if (dot) {
+//           gsap.to(dot, {
+//             boxShadow: '0 0 20px rgba(59, 130, 246, 0.8)',
+//             backgroundColor: '#3B82F6',
+//             scrollTrigger: {
+//               trigger: milestone,
+//               start: 'top center',
+//               toggleActions: 'play none none reverse',
+//             },
+//           });
+//         }
+//       });
+//     }, containerRef);
+
+//     return () => ctx.revert();
+//   }, []);
+
+//   return (
+//     <section 
+//       ref={containerRef} 
+//       className="relative min-h-screen py-14 bg-[#fdfdfd] dark:bg-[#09090B] text-gray-900 dark:text-gray-100  transition-colors duration-300 overflow-hidden"
+//     >
+
+//       <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-8">
+        
+//         {/* --- HEADER --- */}
+//         <div className="text-center max-w-3xl mx-auto mb-20">
+//                   <motion.h2
+//             initial="hidden"
+//             whileInView="visible"
+//             viewport={{ once: true }}
+//             variants={{
+//               hidden: {},
+//               visible: { transition: { staggerChildren: 0.1 } }
+//             }}
+//             className="text-4xl md:text-5xl font-[500] tracking-tight mb-6"
+//           >
+//             {['My ', 'Engineering ', 'Journey'].map((word, i) => (
+//               <motion.span
+//                 key={i}
+//                 variants={{
+//                   hidden: { opacity: 0, y: 20 },
+//                   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } }
+//                 }}
+//                 className="inline-block"
+//               >
+//                 {word}&nbsp;
+//               </motion.span>
+//             ))}
+//           </motion.h2>
+
+//           <motion.p
+//             initial={{ opacity: 0 }}
+//             whileInView={{ opacity: 1 }}
+//             transition={{ delay: 0.4, duration: 0.8 }}
+//             viewport={{ once: true }}
+//             className="text-lg text-gray-600 dark:text-gray-400"
+//           >
+//             From writing backend APIs to leading enterprise SaaS backend development, every milestone has strengthened my understanding of scalable software architecture.
+//           </motion.p>
+//         </div>
+
+//         {/* --- FEATURED COMPANY CARD --- */}
+//         <motion.div 
+//           initial={{ opacity: 0, y: 40 }}
+//           whileInView={{ opacity: 1, y: 0 }}
+//           viewport={{ once: true }}
+//           transition={{ duration: 0.8 }}
+//           className="relative max-w-4xl mx-auto mb-32 group"
+//         >
+//           <div className="absolute inset-0 rounded-3xl blur-xl opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
+//           <div className="relative bg-white/60 dark:bg-[#111111]/80 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl hover:-translate-y-1 transition-transform duration-500">
+            
+//             <div className="flex flex-col md:flex-row gap-8 items-start md:items-center justify-between border-b border-gray-200 dark:border-gray-800 pb-8 mb-8">
+//               <div className="flex items-center gap-6">
+//                 <div className="w-16 h-16 rounded-2xl bg-blue-600 flex items-center justify-center text-white font-bold text-xl shadow-lg">
+//                   NB
+//                 </div>
+//                 <div>
+//                   <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">Nubiznez Private Limited</h3>
+//                   <div className="flex items-center gap-2 text-blue-600 dark:text-blue-400 font-semibold text-lg">
+//                     Software Engineer (Backend)
+//                   </div>
+//                 </div>
+//               </div>
+//               <div className="flex flex-col items-start md:items-end gap-2 text-sm text-gray-500 dark:text-gray-400 font-medium">
+//                 <span className="flex items-center gap-2"><Briefcase size={16} /> Full Time</span>
+//                 <span className="flex items-center gap-2"><Calendar size={16} /> January 2025 — Present</span>
+//                 <span className="flex items-center gap-2"><MapPin size={16} /> Coimbatore, Tamil Nadu</span>
+//               </div>
+//             </div>
+
+//             <div className="flex flex-wrap gap-4 items-center">
+//               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold bg-green-100 text-green-700 dark:bg-green-500/10 dark:text-green-400 border border-green-200 dark:border-green-500/20">
+//                 <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span> Currently Working
+//               </span>
+//               <span className="px-4 py-2 rounded-full text-sm font-semibold bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300 border border-gray-200 dark:border-gray-700">
+//                 Started as Traniee
+//               </span>
+//             </div>
+//           </div>
+//         </motion.div>
+
+//         {/* --- CAREER JOURNEY (VERTICAL) --- */}
+//         <div className="relative max-w-4xl mx-auto mb-32">
+//           {/* Main Track Line */}
+//           <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-[2px] bg-gray-200 dark:bg-gray-800 -translate-x-1/2"></div>
+//           {/* Animated Glow Line */}
+//           <div 
+//             ref={lineRef}
+//             className="absolute left-8 md:left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-blue-500 via-indigo-500 to-transparent -translate-x-1/2 z-10"
+//           ></div>
+
+//           {milestones.map((milestone, index) => {
+//             const isLeft = index % 2 === 0;
+//             return (
+//               <div
+//                 key={milestone.id}
+//                 ref={(el) => (milestoneRefs.current[index] = el)}
+//                 className={`relative flex flex-col md:flex-row items-center mb-20 last:mb-0 ${isLeft ? 'md:flex-row-reverse' : ''}`}
+//               >
+//                 <div className="hidden md:block w-1/2"></div>
+                
+//                 {/* Node */}
+//                 <div className="absolute left-8 md:left-1/2 w-5 h-5 rounded-full bg-gray-300 dark:bg-gray-700 border-4 border-[#FAFAFA] dark:border-[#09090B] -translate-x-1/2 z-20 timeline-dot transition-colors duration-500"></div>
+                
+//                 {/* Content Card */}
+//                 <div className={`w-full md:w-1/2 pl-20 pr-0 md:px-12 py-2`}>
+//                   <motion.div 
+//                     whileHover={{ scale: 1.02 }}
+//                     className="relative bg-white/40 dark:bg-[#111111]/40 backdrop-blur-md p-6 rounded-2xl border border-gray-200 dark:border-gray-800 hover:border-blue-500/50 dark:hover:border-blue-500/50 transition-colors shadow-sm"
+//                   >
+//                     <span className="text-6xl font-black text-gray-100 dark:text-gray-800/50 absolute top-2 right-4 -z-10 pointer-events-none">
+//                       {milestone.id}
+//                     </span>
+//                     <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+//                       {milestone.title}
+//                     </h4>
+//                     <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+//                       {milestone.description}
+//                     </p>
+//                   </motion.div>
+//                 </div>
+//               </div>
+//             );
+//           })}
+//         </div>
+
+//         {/* --- ENGINEERING RESPONSIBILITIES --- */}
+//         <div className="mb-32">
+//           <h3 className="text-2xl font-bold mb-8 text-center">Engineering Responsibilities</h3>
+//           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+//             {responsibilities.map((res, i) => (
+//               <motion.div
+//                 key={i}
+//                 whileHover={{ y: -5, boxShadow: '0 10px 30px -10px rgba(59, 130, 246, 0.3)' }}
+//                 className="flex flex-col items-center justify-center p-6 bg-white dark:bg-[#111111] rounded-2xl border border-gray-200 dark:border-white/5 group transition-all"
+//               >
+//                 <div className="text-gray-400 group-hover:text-blue-500 mb-4 transition-colors">
+//                   {res.icon}
+//                 </div>
+//                 <span className="text-sm font-semibold text-center group-hover:text-blue-500 transition-colors">
+//                   {res.name}
+//                 </span>
+//               </motion.div>
+//             ))}
+//           </div>
+//         </div>
+
+//         {/* --- TECH STACK (FLOATING CLOUD) --- */}
+//         <div className="mb-32 flex flex-col items-center">
+//           <h3 className="text-2xl font-bold mb-8 text-center">Technology Ecosystem</h3>
+//           <div className="flex flex-wrap justify-center gap-4 max-w-3xl">
+//             {techStack.map((tech, i) => (
+//               <motion.div
+//                 key={i}
+//                 whileHover={{ scale: 1.1, rotate: Math.random() > 0.5 ? 2 : -2 }}
+//                 className="px-6 py-3 bg-white/80 dark:bg-[#111111]/80 backdrop-blur-sm border border-gray-200 dark:border-gray-800 rounded-xl shadow-sm text-sm font-mono font-medium hover:border-blue-500 hover:text-blue-500 dark:hover:text-blue-400 transition-colors cursor-default"
+//               >
+//                 {tech}
+//               </motion.div>
+//             ))}
+//           </div>
+//         </div>
+
+//         {/* --- ENGINEERING IMPACT --- */}
+//         <div className="mb-20">
+//           <h3 className="text-2xl font-bold mb-8 text-center">System Impact & Achievements</h3>
+//           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
+//             {impacts.map((impact, i) => (
+//               <motion.div
+//                 key={i}
+//                 initial={{ opacity: 0, y: 20 }}
+//                 whileInView={{ opacity: 1, y: 0 }}
+//                 viewport={{ once: true }}
+//                 transition={{ delay: i * 0.1 }}
+//                 whileHover={{ x: 5 }}
+//                 className="flex items-center gap-4 p-4 bg-white/50 dark:bg-[#111111]/50 border border-gray-100 dark:border-white/5 rounded-2xl shadow-sm hover:bg-white dark:hover:bg-[#151515] transition-all"
+//               >
+//                 <div className="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center shrink-0">
+//                   <CheckCircle2 size={18} className="text-blue-600 dark:text-blue-400" />
+//                 </div>
+//                 <span className="font-medium text-gray-800 dark:text-gray-200 text-sm md:text-base">
+//                   {impact}
+//                 </span>
+//               </motion.div>
+//             ))}
+//           </div>
+//         </div>
+
+//       </div>
+//     </section>
+//   );
+// }
+
+
+
+import { useState, useRef, useEffect } from 'react';
+import { motion, AnimatePresence, useScroll } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
+
+export const experiences = [
+  {
+    id: 'nubiznez',
+    index: '01',
+    company: 'Nubiznez Private Limited',
+    designation: 'Software Engineer',
+    startDate: 'January 2025',
+    endDate: 'Present',
+    location: 'Coimbatore, Tamil Nadu',
+    current: true,
+    role: 'Backend engineer working on enterprise SaaS, financial systems, APIs and scalable backend architecture.',
+    responsibilities: [
+      'Backend Architecture',
+      'API Development',
+      'Database Design',
+      'Authentication',
+      'Third-party Integrations',
+      'Multi-Tenant Architecture',
+      'Business Logic',
+      'System Design'
+    ],
+    projects: [
+      {
+        title: 'CFO360.ai',
+        subtitle: 'Enterprise Financial & Accounting SaaS',
+        description: 'Worked on the backend architecture and development of an enterprise financial SaaS platform, building accounting workflows, REST APIs, authentication systems, database architecture, and multi-tenant infrastructure. Took ownership of critical backend modules and contributed to architectural decisions around scalability, tenant isolation, migrations, and maintainability.',
+        areas: ['Multi-Tenant SaaS', 'Accounting Systems', 'Backend Architecture', 'Database Architecture', 'Authentication', 'Migration Architecture'],
+        technologies: ['NestJS', 'Node.js', 'TypeScript', 'PostgreSQL', 'SQL', 'Sequelize', 'REST APIs', 'JWT', 'Jest', 'Docker', 'Git'],
+        impact: [
+          'Built the backend foundation for a multi-tenant financial SaaS platform',
+          'Established tenant isolation using PostgreSQL schemas',
+          'Designed architecture capable of evolving from schema-per-tenant toward database-per-tenant',
+          'Contributed to scalable accounting and financial workflows',
+          'Improved maintainability through modular backend architecture',
+          'Built migration and tenant infrastructure designed for multiple customer environments'
+        ]
+      },
+      {
+        title: 'TheBusStand',
+        subtitle: 'Bus Booking Platform',
+        description: 'Developed backend services for a bus booking platform, implementing REST APIs, booking-related workflows, and third-party transportation API integrations. Worked on integrating external bus inventory and booking services while handling real-world API reliability and integration constraints.',
+        areas: ['REST APIs', 'Third-Party Integration', 'SOAP Integration', 'Booking Systems', 'Backend Services'],
+        technologies: ['Node.js', 'Express.js', 'JavaScript', 'SOAP', 'AbhiBus API', 'REST APIs'],
+        impact: [
+          'Built backend services supporting bus booking workflows',
+          'Integrated external transportation inventory and booking services',
+          'Connected the platform with AbhiBus APIs',
+          'Implemented backend handling for third-party API failures and rate-limit scenarios',
+          'Created reusable API integration patterns for external services'
+        ]
+      },
+      {
+        title: 'CRM — crm.thebusstand',
+        subtitle: 'Business CRM Platform',
+        description: 'Developed and maintained a business CRM platform supporting internal operational workflows. Worked across backend APIs and frontend interfaces to build business features, manage data flows, and connect the application with backend services.',
+        areas: ['CRM Systems', 'Full-Stack Development', 'REST APIs', 'Business Workflows', 'Frontend Integration'],
+        technologies: ['React', 'TypeScript', 'Tailwind CSS', 'REST APIs', 'JWT', 'Git'],
+        impact: [
+          'Developed backend APIs and business logic',
+          'Built frontend interfaces for CRM workflows',
+          'Connected frontend applications with REST APIs',
+          'Implemented CRUD-based business operations',
+          'Designed API request/response structures',
+          'Worked with authentication and protected application routes',
+          'Implemented form validation and business rules',
+          'Debugged frontend/backend integration issues',
+          'Improved reusable components and application structure',
+          'Worked on database-backed business workflows'
+        ]
+      }
+    ],
+    technologies: [
+      { category: 'Backend', items: ['NestJS', 'Node.js', 'Express.js', 'TypeScript'] },
+      { category: 'Data', items: ['PostgreSQL', 'SQL', 'Sequelize'] },
+      { category: 'Frontend', items: ['React', 'Tailwind CSS'] },
+      { category: 'Architecture', items: ['REST APIs', 'Multi-Tenant Architecture', 'Modular Architecture', 'Authentication'] },
+      { category: 'Engineering', items: ['Git', 'Docker', 'Jest'] }
+    ],
+    impact: [
+      'Multi-tenant financial SaaS backend',
+      'Accounting and financial workflows',
+      'Enterprise tenant infrastructure',
+      'External transportation API integrations',
+      'Business workflow automation',
+      'Modular backend architecture'
+    ]
+  }
+];
+
+// Motion variants
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1, transition: { staggerChildren: 0.1 } }
+};
+
+const fadeUpVariant = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } }
+};
+
+export default function Experience() {
+  const [activeId] = useState<string>(experiences[0]?.id || '');
+  const activeExp = experiences.find(e => e.id === activeId);
+
+  // Active project index state for timeline dot animation
+  const [activeProjectIndex, setActiveProjectIndex] = useState<number>(0);
+
+  // Hook to track scrolling through the projects container for the progress line
+  const projectsContainerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: projectsContainerRef,
+    offset: ["start center", "end center"]
+  });
+
+  // Intersection Observer to detect which project is currently in view
+  useEffect(() => {
+    const handleIntersect = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const match = entry.target.id.match(/project-(\d+)/);
+          if (match) {
+            setActiveProjectIndex(Number(match[1]));
+          }
         }
       });
-    }, containerRef);
+    };
 
-    return () => ctx.revert();
-  }, []);
+    const observer = new IntersectionObserver(handleIntersect, {
+      root: null,
+      rootMargin: "-20% 0px -50% 0px", // Triggers when the project enters the middle of the screen
+      threshold: 0
+    });
+
+    // Observe all project elements
+    const elements = document.querySelectorAll('[id^="project-"]');
+    elements.forEach(el => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, [activeExp]);
 
   return (
-    <section 
-      ref={containerRef} 
-      className="relative min-h-screen py-14 bg-[#fdfdfd] dark:bg-[#09090B] text-gray-900 dark:text-gray-100  transition-colors duration-300 overflow-hidden"
-    >
-
-      <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-8">
-        
-        {/* --- HEADER --- */}
-        <div className="text-center max-w-3xl mx-auto mb-20">
-                  <motion.h2
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={{
-              hidden: {},
-              visible: { transition: { staggerChildren: 0.1 } }
-            }}
-            className="text-4xl md:text-5xl font-[500] tracking-tight mb-6"
-          >
-            {['My ', 'Engineering ', 'Journey'].map((word, i) => (
-              <motion.span
-                key={i}
-                variants={{
-                  hidden: { opacity: 0, y: 20 },
-                  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } }
-                }}
-                className="inline-block"
-              >
-                {word}&nbsp;
-              </motion.span>
-            ))}
-          </motion.h2>
-
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-lg text-gray-600 dark:text-gray-400"
-          >
-            From writing backend APIs to leading enterprise SaaS backend development, every milestone has strengthened my understanding of scalable software architecture.
-          </motion.p>
-        </div>
-
-        {/* --- FEATURED COMPANY CARD --- */}
+    <section className="w-full bg-[#fcfcfd] text-primary dark:bg-black py-24 px-6 md:px-12 lg:px-24 border-black/5" id="experience">
+      <div className="max-w-7xl mx-auto">
+        {/* Section Header */}
         <motion.div 
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="relative max-w-4xl mx-auto mb-32 group"
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="mb-16 md:mb-24"
         >
-          <div className="absolute inset-0 rounded-3xl blur-xl opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
-          <div className="relative bg-white/60 dark:bg-[#111111]/80 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl hover:-translate-y-1 transition-transform duration-500">
-            
-            <div className="flex flex-col md:flex-row gap-8 items-start md:items-center justify-between border-b border-gray-200 dark:border-gray-800 pb-8 mb-8">
-              <div className="flex items-center gap-6">
-                <div className="w-16 h-16 rounded-2xl bg-blue-600 flex items-center justify-center text-white font-bold text-xl shadow-lg">
-                  NB
-                </div>
-                <div>
-                  <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">Nubiznez Private Limited</h3>
-                  <div className="flex items-center gap-2 text-blue-600 dark:text-blue-400 font-semibold text-lg">
-                    Software Engineer (Backend)
-                  </div>
-                </div>
-              </div>
-              <div className="flex flex-col items-start md:items-end gap-2 text-sm text-gray-500 dark:text-gray-400 font-medium">
-                <span className="flex items-center gap-2"><Briefcase size={16} /> Full Time</span>
-                <span className="flex items-center gap-2"><Calendar size={16} /> January 2025 — Present</span>
-                <span className="flex items-center gap-2"><MapPin size={16} /> Coimbatore, Tamil Nadu</span>
-              </div>
-            </div>
-
-            <div className="flex flex-wrap gap-4 items-center">
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold bg-green-100 text-green-700 dark:bg-green-500/10 dark:text-green-400 border border-green-200 dark:border-green-500/20">
-                <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span> Currently Working
-              </span>
-              <span className="px-4 py-2 rounded-full text-sm font-semibold bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300 border border-gray-200 dark:border-gray-700">
-                Started as Traniee
-              </span>
-            </div>
-          </div>
+          <span className="text-[11px] font-bold tracking-[0.2em] text-secondary uppercase mb-4 block">
+            Experience
+          </span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter text-primary mb-6">
+            Engineering Journey
+          </h2>
+          <p className="text-lg text-secondary leading-relaxed max-w-2xl font-light">
+            From backend development to enterprise system architecture, my experience has been shaped by building financial systems, APIs, integrations, and scalable SaaS infrastructure.
+          </p>
         </motion.div>
 
-        {/* --- CAREER JOURNEY (VERTICAL) --- */}
-        <div className="relative max-w-4xl mx-auto mb-32">
-          {/* Main Track Line */}
-          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-[2px] bg-gray-200 dark:bg-gray-800 -translate-x-1/2"></div>
-          {/* Animated Glow Line */}
-          <div 
-            ref={lineRef}
-            className="absolute left-8 md:left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-blue-500 via-indigo-500 to-transparent -translate-x-1/2 z-10"
-          ></div>
+        {/* Master-Detail Layout */}
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 relative items-start">
 
-          {milestones.map((milestone, index) => {
-            const isLeft = index % 2 === 0;
-            return (
-              <div
-                key={milestone.id}
-                ref={(el) => (milestoneRefs.current[index] = el)}
-                className={`relative flex flex-col md:flex-row items-center mb-20 last:mb-0 ${isLeft ? 'md:flex-row-reverse' : ''}`}
-              >
-                <div className="hidden md:block w-1/2"></div>
-                
-                {/* Node */}
-                <div className="absolute left-8 md:left-1/2 w-5 h-5 rounded-full bg-gray-300 dark:bg-gray-700 border-4 border-[#FAFAFA] dark:border-[#09090B] -translate-x-1/2 z-20 timeline-dot transition-colors duration-500"></div>
-                
-                {/* Content Card */}
-                <div className={`w-full md:w-1/2 pl-20 pr-0 md:px-12 py-2`}>
-                  <motion.div 
-                    whileHover={{ scale: 1.02 }}
-                    className="relative bg-white/40 dark:bg-[#111111]/40 backdrop-blur-md p-6 rounded-2xl border border-gray-200 dark:border-gray-800 hover:border-blue-500/50 dark:hover:border-blue-500/50 transition-colors shadow-sm"
-                  >
-                    <span className="text-6xl font-black text-gray-100 dark:text-gray-800/50 absolute top-2 right-4 -z-10 pointer-events-none">
-                      {milestone.id}
+          {/* LEFT: Sticky Project Timeline */}
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+            className="w-full lg:w-[30%] lg:sticky lg:top-28 flex flex-col gap-6"
+          >
+
+            <div className="bg-white border border-black/5 rounded-2xl p-6 md:p-8 shadow-sm">
+            {experiences.map((exp) => {
+              const isActive = activeId === exp.id;
+              return (
+                <div
+                  key={exp.id}
+                  className={`relative w-full text-left  py-4 transition-all duration-300 group focus:outline-none flex justify-between items-center bg-white`}
+                >
+                  {isActive && (
+                    <motion.div 
+                      layoutId="activeIndicator"
+                      className="absolute left-[-1px] top-0 bottom-0 w-[2px] bg-primary"
+                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                    />
+                  )}
+                  
+                  <div className="flex flex-col">
+                    <span className={`text-[11px] font-mono mb-1 ${isActive ? 'text-primary' : 'text-secondary/50'}`}>
+                      {exp.index}
                     </span>
-                    <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-                      {milestone.title}
-                    </h4>
-                    <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-                      {milestone.description}
-                    </p>
-                  </motion.div>
+                    <span className={`font-medium tracking-tight mb-1 transition-colors ${isActive ? 'text-primary text-[17px]' : 'text-secondary text-base group-hover:text-primary'}`}>
+                      {exp.company}
+                    </span>
+                    <span className={`text-[13px] ${isActive ? 'text-secondary' : 'text-secondary/60'}`}>
+                      {/* {exp.designation} */}
+                      {activeExp.startDate} — {activeExp.endDate}
+                    </span>
+                  </div>
+                </div>
+              );
+            })}
+              <h4 className="text-[11px] font-bold tracking-[0.2em] text-secondary uppercase mb-8">
+                Projects Timeline
+              </h4>
+              
+              <div className="relative ml-2">
+                {/* Background Line */}
+                <div className="absolute left-[4px] top-2 bottom-2 w-[2px] bg-black/5 rounded-full" />
+                
+                {/* Scroll-linked Animated Progress Line */}
+                <motion.div 
+                  className="absolute left-[4px] top-2 bottom-2 w-[2px] bg-primary rounded-full origin-top"
+                  style={{ scaleY: scrollYProgress }}
+                />
+
+                {/* Timeline Project Items */}
+                <div className="flex flex-col gap-8 relative">
+                  {activeExp?.projects.map((project, index) => {
+                    const isActive = activeProjectIndex === index;
+                    
+                    return (
+                      <a
+                        key={index}
+                        href={`#project-${index}`}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          document.getElementById(`project-${index}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }}
+                        className="relative pl-8 group block focus:outline-none"
+                      >
+                        {/* Floating Animated Timeline Dot */}
+                        <div 
+                          className={`absolute left-[-1px] top-1.5 w-3 h-3 rounded-full border-[2.5px] transition-all duration-500 z-10 ${
+                            isActive 
+                              ? 'border-blue-600 bg-blue-600 scale-[1.3]' 
+                              : 'bg-white border-black/15 group-hover:border-blue-400'
+                          }`} 
+                        />
+                        
+                        <span className={`block text-[15px] font-medium mb-1 transition-colors duration-300 ${
+                          isActive ? 'text-blue-600' : 'text-primary group-hover:text-blue-500'
+                        }`}>
+                          {project.title}
+                        </span>
+                        <span className="block text-[12px] text-secondary/70 leading-snug line-clamp-1">
+                          {project.subtitle}
+                        </span>
+                      </a>
+                    );
+                  })}
                 </div>
               </div>
-            );
-          })}
-        </div>
+            </div>
+          </motion.div>
 
-        {/* --- ENGINEERING RESPONSIBILITIES --- */}
-        <div className="mb-32">
-          <h3 className="text-2xl font-bold mb-8 text-center">Engineering Responsibilities</h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {responsibilities.map((res, i) => (
-              <motion.div
-                key={i}
-                whileHover={{ y: -5, boxShadow: '0 10px 30px -10px rgba(59, 130, 246, 0.3)' }}
-                className="flex flex-col items-center justify-center p-6 bg-white dark:bg-[#111111] rounded-2xl border border-gray-200 dark:border-white/5 group transition-all"
-              >
-                <div className="text-gray-400 group-hover:text-blue-500 mb-4 transition-colors">
-                  {res.icon}
-                </div>
-                <span className="text-sm font-semibold text-center group-hover:text-blue-500 transition-colors">
-                  {res.name}
-                </span>
-              </motion.div>
-            ))}
+          {/* RIGHT: Detail View */}
+          <div className="w-full lg:w-[70%] min-h-[500px]">
+            <AnimatePresence mode="wait">
+              {activeExp && (
+                <motion.div
+                  key={activeExp.id}
+                  variants={staggerContainer}
+                  initial="hidden"
+                  animate="show"
+                  exit={{ opacity: 0, y: -10, transition: { duration: 0.2 } }}
+                  className="flex flex-col gap-12 md:gap-16"
+                >
+                  {/* Detail Header */}
+                  <motion.div variants={fadeUpVariant} className="pb-8 border-b border-black/5">
+                    <h3 className="text-2xl md:text-3xl font-medium tracking-tight text-primary mb-4">
+                      {activeExp.designation}
+                    </h3>
+                    <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-secondary">
+                      {/* <span className="font-medium text-primary">{activeExp.company}</span> */}
+                      <span>•</span>
+                      {/* <span>{activeExp.startDate} — {activeExp.endDate}</span> */}
+                      {/* <span>•</span> */}
+                      <span>{activeExp.location}</span>
+                      {activeExp.current && (
+                        <>
+                          <span>•</span>
+                          <span className="inline-flex items-center px-2.5 py-1 rounded-full border border-blue-200 bg-blue-50 text-[10px] font-bold text-blue-700 tracking-widest uppercase">
+                            Current
+                          </span>
+                        </>
+                      )}
+                    </div>
+                  </motion.div>
+
+                  {/* Role */}
+                  <motion.div variants={fadeUpVariant}>
+                    <h4 className="text-[11px] font-bold tracking-[0.2em] text-secondary uppercase mb-4">Role</h4>
+                    <p className="text-lg md:text-xl text-primary leading-relaxed font-light">
+                      {activeExp.role}
+                    </p>
+                  </motion.div>
+
+                  {/* Responsibilities */}
+                  <motion.div 
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <h4 className="text-[11px] font-bold tracking-[0.2em] text-secondary uppercase mb-6">Responsibilities</h4>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8">
+                      {activeExp.responsibilities.map((resp, i) => (
+                        <div key={i} className="flex items-center gap-3 text-[15px] text-secondary group/item hover:text-primary transition-colors">
+                          <span className="w-1.5 h-1.5 rounded-full bg-black/10 group-hover/item:bg-blue-500 transition-colors shrink-0" />
+                          <span>{resp}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </motion.div>
+
+                  {/* Selected Projects - WITH SCROLL REF ATTACHED */}
+                  <div ref={projectsContainerRef} className="scroll-mt-24">
+                    <motion.h4 
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      viewport={{ once: true }}
+                      className="text-[11px] font-bold tracking-[0.2em] text-secondary uppercase mb-6"
+                    >
+                      Selected Projects
+                    </motion.h4>
+                    <div className="flex flex-col gap-8">
+                      {activeExp.projects.map((project, i) => (
+                        <motion.div 
+                          key={i} 
+                          id={`project-${i}`}
+                          initial={{ opacity: 0, y: 30 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true, margin: "-50px" }}
+                          transition={{ duration: 0.5, delay: 0.1 }}
+                          className="group/panel border border-black/5 rounded-2xl p-6 md:p-8 bg-white hover:border-black/15 transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-md scroll-mt-32"
+                        >
+                          <div className="mb-6">
+                            <h5 className="text-xl font-medium tracking-tight text-primary mb-1">
+                              {project.title}
+                            </h5>
+                            <p className="text-sm text-secondary">
+                              {project.subtitle}
+                            </p>
+                          </div>
+                          
+                          <p className="text-[15px] text-secondary leading-relaxed mb-8 max-w-3xl">
+                            {project.description}
+                          </p>
+
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                            <div>
+                              <h6 className="text-[10px] font-bold uppercase tracking-wider text-secondary mb-3">Key Engineering Areas</h6>
+                              <ul className="flex flex-col gap-2">
+                                {project.areas.map((area, j) => (
+                                  <li key={j} className="text-[13px] text-secondary flex items-start gap-2">
+                                    <span className="mt-1.5 w-1 h-1 rounded-full bg-black/20 shrink-0" />
+                                    {area}
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                            <div>
+                              <h6 className="text-[10px] font-bold uppercase tracking-wider text-secondary mb-3">Engineering Impact</h6>
+                              <ul className="flex flex-col gap-2">
+                                {project.impact.map((imp, j) => (
+                                  <li key={j} className="text-[13px] text-secondary flex items-start gap-2">
+                                    <span className="mt-1.5 w-1 h-1 rounded-full bg-black/20 shrink-0" />
+                                    {imp}
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          </div>
+
+                          <div>
+                            <h6 className="text-[10px] font-bold uppercase tracking-wider text-secondary mb-3">Technology</h6>
+                            <div className="flex flex-wrap gap-2">
+                              {project.technologies.map((tech, j) => (
+                                <span key={j} className="px-2.5 py-1 text-[11px] font-medium border border-black/5 bg-black/[0.02] text-secondary rounded-md">
+                                  {tech}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Engineering Stack */}
+                  <motion.div 
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <h4 className="text-[11px] font-bold tracking-[0.2em] text-secondary uppercase mb-6">Engineering Stack</h4>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 p-6 md:p-8 bg-white border border-black/5 rounded-2xl">
+                      {activeExp.technologies.map((techGroup, i) => (
+                        <div key={i} className="flex flex-col">
+                          <h5 className="text-[12px] uppercase tracking-wider font-semibold text-primary mb-3">
+                            {techGroup.category}
+                          </h5>
+                          <div className="flex flex-col gap-1.5">
+                            {techGroup.items.map((item, j) => (
+                              <span key={j} className="text-[14px] text-secondary">
+                                {item}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </motion.div>
+
+                  {/* Engineering Impact */}
+                  <motion.div 
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <h4 className="text-[11px] font-bold tracking-[0.2em] text-secondary uppercase mb-6">Core Engineering Impact</h4>
+                    <ul className="flex flex-col gap-3">
+                      {activeExp.impact.map((imp, i) => (
+                        <li key={i} className="flex items-start gap-3 text-[15px] text-secondary">
+                          <ArrowRight strokeWidth={2} className="w-4 h-4 mt-0.5 shrink-0 text-black/20" />
+                          <span>{imp}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </motion.div>
+                  
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         </div>
-
-        {/* --- TECH STACK (FLOATING CLOUD) --- */}
-        <div className="mb-32 flex flex-col items-center">
-          <h3 className="text-2xl font-bold mb-8 text-center">Technology Ecosystem</h3>
-          <div className="flex flex-wrap justify-center gap-4 max-w-3xl">
-            {techStack.map((tech, i) => (
-              <motion.div
-                key={i}
-                whileHover={{ scale: 1.1, rotate: Math.random() > 0.5 ? 2 : -2 }}
-                className="px-6 py-3 bg-white/80 dark:bg-[#111111]/80 backdrop-blur-sm border border-gray-200 dark:border-gray-800 rounded-xl shadow-sm text-sm font-mono font-medium hover:border-blue-500 hover:text-blue-500 dark:hover:text-blue-400 transition-colors cursor-default"
-              >
-                {tech}
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-        {/* --- ENGINEERING IMPACT --- */}
-        <div className="mb-20">
-          <h3 className="text-2xl font-bold mb-8 text-center">System Impact & Achievements</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
-            {impacts.map((impact, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                whileHover={{ x: 5 }}
-                className="flex items-center gap-4 p-4 bg-white/50 dark:bg-[#111111]/50 border border-gray-100 dark:border-white/5 rounded-2xl shadow-sm hover:bg-white dark:hover:bg-[#151515] transition-all"
-              >
-                <div className="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center shrink-0">
-                  <CheckCircle2 size={18} className="text-blue-600 dark:text-blue-400" />
-                </div>
-                <span className="font-medium text-gray-800 dark:text-gray-200 text-sm md:text-base">
-                  {impact}
-                </span>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
       </div>
     </section>
   );
