@@ -16,19 +16,19 @@ const HomeAbout = () => {
           </div>
 
           <h2 className="text-5xl md:text-5xl font-[400] whitespace-nowrap text-gray-950 dark:text-white leading-[1.05] mb-8 tracking-tight">
-            Backend Software Engineer.
+            Software Engineer.
           </h2>
 
           <p className="text-gray-700 dark:text-gray-300 text-md leading-relaxed mb-10 max-w-xl">
-            I'm <strong>Parthiban</strong>, a Backend Software Engineer with
+            I'm <strong>Parthiban</strong>, a Full Stack Software Engineer with
             <strong> 1.6+ years of experience</strong> building scalable SaaS
             applications using{" "}
             <strong>
-              Node.js, NestJS, Express.js, TypeScript, PostgreSQL, and Sequelize
+              React.js, Node.js, NestJS, Express.js, TypeScript, PostgreSQL, and Sequelize
             </strong>
-            . I specialize in designing REST APIs, multi-tenant architectures,
-            authentication systems, and clean backend solutions for enterprise
-            applications.
+            . I specialize in building responsive frontend applications, scalable REST
+            APIs, multi-tenant architectures, authentication systems, and clean
+            full-stack solutions for enterprise applications.
           </p>
 
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
@@ -51,7 +51,7 @@ const HomeAbout = () => {
 
             <div className="flex items-center gap-2.5 text-base text-gray-700 dark:text-gray-300">
               <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-              Open to Full-Time Backend Opportunities
+              Open to Full-Time Frontend & Backend Opportunities
             </div>
           </div>
         </div>

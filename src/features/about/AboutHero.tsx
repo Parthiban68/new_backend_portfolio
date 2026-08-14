@@ -564,6 +564,18 @@ import image from "../../assets/about2.png";
 // ==========================================
 const techStackData = [
   {
+    name: "React",
+    icon: SiReact,
+    color: "#61DAFB",
+    desc: "Frontend Integration",
+  },
+  {
+    name: "Next.js",
+    icon: SiNextdotjs,
+    color: "",
+    desc: "Fullstack Framework",
+  },
+  {
     name: "NestJS",
     icon: SiNestjs,
     color: "#E0234E",
@@ -602,20 +614,8 @@ const techStackData = [
   {
     name: "GitHub",
     icon: SiGithub,
-    color: "", // Handled via class for dark mode compatibility below
+    color: "",
     desc: "Version Control & CI/CD",
-  },
-  {
-    name: "React",
-    icon: SiReact,
-    color: "#61DAFB",
-    desc: "Frontend Integration",
-  },
-  {
-    name: "Next.js",
-    icon: SiNextdotjs,
-    color: "", // Handled via class for dark mode compatibility below
-    desc: "Fullstack Framework",
   },
 ];
 
@@ -737,21 +737,21 @@ export default function AboutHero() {
                 className="text-xl sm:text-2xl font-medium text-slate-700 dark:text-slate-300 pt-1 leading-snug"
               >
                 <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-600 dark:from-blue-400 dark:via-indigo-400 dark:to-cyan-400 bg-clip-text text-transparent font-bold">
-                  Backend Engineer
+                  Software Engineer
                 </span>
                 <span className="text-slate-500 dark:text-slate-400 font-normal"> — </span>
-                Building scalable backend systems, enterprise SaaS platforms, and distributed architectures.
-              </motion.div>
+                Building scalable full-stack applications, enterprise SaaS platforms, and robust backend architectures.              </motion.div>
             </div>
 
             {/* Editorial Description */}
+        
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.35 }}
               className="text-slate-600 dark:text-slate-400 text-base sm:text-lg leading-relaxed max-w-2xl font-normal"
             >
-              I specialize in designing secure, scalable backend architectures that power modern business applications. From authentication systems and multi-tenant SaaS platforms to accounting engines and REST APIs, I enjoy building software that is reliable, maintainable, and built for scale. My focus is writing clean architecture, solving complex backend challenges, and engineering systems that continue to perform as products grow.
+             I specialize in building scalable full-stack applications, combining modern React frontends with robust backend systems. From REST APIs and authentication to multi-tenant SaaS platforms, I focus on writing clean, maintainable software and solving complex engineering challenges.
             </motion.p>
 
             {/* Small Info Bar */}
@@ -773,7 +773,7 @@ export default function AboutHero() {
               <span className="text-slate-300 dark:text-slate-600">•</span>
               <div className="flex items-center gap-1.5">
                 <Zap className="w-3.5 h-3.5 text-amber-500" />
-                <span>Backend Architecture</span>
+                <span>Full-Stack Architecture</span>
               </div>
             </motion.div>
 
@@ -801,7 +801,7 @@ export default function AboutHero() {
               transition={{ duration: 0.8, delay: 0.65 }}
               className="pt-2"
             >
-              <div className="text-xs font-mono font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-2">
+              <div className="text-xs font-mono font-semibold text-slate-400 dark:text-slate-300 uppercase tracking-wider mb-2">
                 Core Stack & Infrastructure
               </div>
               <TechStackBar />

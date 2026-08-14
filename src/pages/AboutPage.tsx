@@ -15,7 +15,7 @@ const AboutPage = () => {
        <AboutHero/>
 
         {/* 2. QUOTE SECTION */}
-        <section className="max-w-4xl mx-auto text-center ">
+        <section className="max-w-4xl mx-auto text-center dark:bg-neutral-950">
           <div className="text-orange-500 text-6xl font-serif leading-none">"</div>
 
           <blockquote className="text-3xl md:text-5xl font-medium tracking-tight leading-tight">
