@@ -32,11 +32,11 @@ const AppRoute = () => {
 console.log(isLoading);
 
   return (
-    <div className=" w-screen h-screen bg-white dark:bg-black transition-colors duration-300">
+    <div className="min-h-screen w-full bg-white dark:bg-black transition-colors duration-300">
       {isLoading ? (
         <Loader onComplete={() => setIsLoading(false)} />
       ) : (
-        <div className="w-full h-full flex flex-col">
+        <div className="w-full flex flex-col ">
           <Navbar />
           <Routes>
             <Route path="/" element={<HomePage />} />
