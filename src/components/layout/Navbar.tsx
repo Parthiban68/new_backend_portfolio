@@ -460,6 +460,7 @@ import {
   BriefcaseBusiness,
   Home,
 } from "lucide-react";
+import { NavLink } from "react-router-dom";
 
 // ============================================================================
 // 1. TYPES & CONFIGURATION
@@ -502,13 +503,13 @@ export const NAV_SECTIONS: NavSection[] = [
   {
     id: "home",
     label: "Home",
-    href: "#",
+    href: "/",
     icon: Home,
   },
   {
     id: "projects",
     label: "Projects",
-    href: "#projects",
+    href: "projects",
     icon: FolderGit2,
   },
   {
@@ -1014,10 +1015,11 @@ const MobileDrawer: React.FC<MobileDrawerProps> = ({
               {NAV_SECTIONS.map((section) => {
                 const Icon = section.icon;
                 const isActive = activeSection === section.id;
+                
                 return (
-                  <a
+                  <NavLink 
                     key={section.id}
-                    href={section.href}
+                    to={section.href}
                     onClick={onClose}
                     className={`flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-all ${
                       isActive
@@ -1037,7 +1039,7 @@ const MobileDrawer: React.FC<MobileDrawerProps> = ({
                     {isActive && (
                       <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
                     )}
-                  </a>
+                  </NavLink >
                 );
               })}
             </div>

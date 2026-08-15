@@ -1,6 +1,6 @@
 import React from "react";
 import Hero from "../features/home/hero/Hero";
-import Ticker from "../components/Ticker";
+import Ticker from "../features/home/techstack/Ticker";
 import SocialBar from "../components/SocialBar";
 import Offering from "../components/Offering";
 import Experience from "../components/Experience";
@@ -9,6 +9,7 @@ import SystemTopology from "../components/SystemTopology";
 import { Contact } from "lucide-react";
 import Footer from "../components/Footer";
 import Stats from "../components/Stats";
+import HomeAbout from "../features/home/about/HomeAbout";
 
 const HomePage = () => {
   return (
@@ -16,7 +17,8 @@ const HomePage = () => {
       <main>
         <Hero />
         <Ticker />
-        <SocialBar />
+        {/* <SocialBar /> */}
+        <HomeAbout />
         <Offering />
         <Experience />
         <CaseStudy />
