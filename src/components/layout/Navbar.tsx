@@ -32,7 +32,7 @@ import {
   BriefcaseBusiness,
   Home,
 } from "lucide-react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 // ============================================================================
 // 1. TYPES & CONFIGURATION
@@ -667,6 +667,23 @@ export const Navbar: React.FC = () => {
   const [activeSection, setActiveSection] = useState<string>("home");
   const [isPaletteOpen, setIsPaletteOpen] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const location = useLocation();
+
+  // Route-aware active section: derive the active nav item from the URL
+  useEffect(() => {
+    const path = location.pathname;
+    const hash = location.hash;
+
+    const match = NAV_SECTIONS.find((section) => {
+      if (section.href.startsWith("#")) {
+        return path === "/" && hash === section.href;
+      }
+      const target = section.href === "/" ? "/" : `/${section.href.replace(/^\//, "")}`;
+      return path === target;
+    });
+
+    setActiveSection(match ? match.id : "home");
+  }, [location]);
 
   // Scroll shrink observer
   useEffect(() => {
