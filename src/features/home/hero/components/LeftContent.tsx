@@ -144,7 +144,7 @@ export default function LeftContent() {
         className="flex items-center flex-wrap gap-2 sm:gap-2.5 mb-4 md:mb-5 text-[14px] sm:text-[15px] md:text-[17px] text-zinc-600 dark:text-zinc-400 font-medium transition-colors duration-300"
       >
         <div className="w-2.5 h-2.5 bg-emerald-400 rounded-full shadow-[0_0_8px_rgba(52,211,153,0.6)] shrink-0"></div>
-        <span>Backend Engineering</span>
+        <span>Software Engineering</span>
         <span className="text-zinc-300 dark:text-zinc-600 font-light text-xl px-0.5">×</span>
         <span>Distributed Systems</span>
       </motion.div>

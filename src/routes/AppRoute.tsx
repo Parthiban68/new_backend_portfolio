@@ -19,12 +19,22 @@
 // export default AppRoute;
 
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import Navbar from "../components/layout/Navbar";
 import HomePage from "../pages/HomePage";
 import AboutPage from "../pages/AboutPage";
 import Loader from "../components/layout/Loader";
+
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+};
 
 const AppRoute = () => {
   const location = useLocation();
@@ -32,11 +42,12 @@ const AppRoute = () => {
 console.log(isLoading);
 
   return (
-    <div className=" w-screen h-screen bg-white dark:bg-black transition-colors duration-300">
+    <div className="min-h-screen w-full  bg-white dark:bg-black transition-colors duration-300">
+      <ScrollToTop />
       {isLoading ? (
         <Loader onComplete={() => setIsLoading(false)} />
       ) : (
-        <div className="w-full h-full flex flex-col">
+        <div className="w-full flex flex-col ">
           <Navbar />
           <Routes>
             <Route path="/" element={<HomePage />} />

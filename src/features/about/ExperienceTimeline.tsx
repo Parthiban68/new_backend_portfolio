@@ -832,7 +832,7 @@ export default function Experience() {
   }, [activeExp]);
 
   return (
-    <section className="w-full bg-[#fcfcfd] text-primary dark:bg-black py-24 px-6 md:px-12 lg:px-24 border-black/5" id="experience">
+    <section className="w-full bg-[#fcfcfd] text-primary dark:bg-black pb-24 pt-5 px-6 md:px-12 lg:px-24 border-black/5" id="experience">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <motion.div 
@@ -890,7 +890,7 @@ export default function Experience() {
                     </span>
                     <span className={`text-[13px] ${isActive ? 'text-secondary' : 'text-secondary/60'}`}>
                       {/* {exp.designation} */}
-                      {activeExp.startDate} — {activeExp.endDate}
+                      {exp.startDate} — {exp.endDate}
                     </span>
                   </div>
                 </div>

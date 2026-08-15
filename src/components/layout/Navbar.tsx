@@ -1,431 +1,3 @@
-// import React, { useState, useEffect } from "react";
-// import { Shield, Radio, Activity, Sun, Moon, FileText } from "lucide-react";
-// import toast from "react-hot-toast";
-
-// const Navbar: React.FC = () => {
-//   const [time, setTime] = useState(new Date().toLocaleTimeString());
-//   const [isDark, setIsDark] = useState(
-//     document.documentElement.classList.contains("dark"),
-//   );
-
-//   useEffect(() => {
-//     const timer = setInterval(
-//       () => setTime(new Date().toLocaleTimeString()),
-//       1000,
-//     );
-//     return () => clearInterval(timer);
-//   }, []);
-
-//   const toggleTheme = () => {
-//     if (document.documentElement.classList.contains("dark")) {
-//       document.documentElement.classList.remove("dark");
-//       localStorage.theme = "light";
-//       setIsDark(false);
-//     } else {
-//       document.documentElement.classList.add("dark");
-//       localStorage.theme = "dark";
-//       setIsDark(true);
-//     }
-//   };
-
-//   const downloadResume = () => {
-//     const downloadPromise = new Promise<void>((resolve) => {
-//       setTimeout(() => {
-//         const link = document.createElement("a");
-//         link.href = "/resume.pdf";
-//         link.download = "Parthiban_Resume.pdf";
-//         document.body.appendChild(link);
-//         link.click();
-//         document.body.removeChild(link);
-
-//         resolve();
-//       }, 3000);
-//     });
-
-//     toast.promise(
-//       downloadPromise,
-//       {
-//         loading: (
-//           <span className="flex items-center gap-2">Downloading...</span>
-//         ),
-//         success: "Download successful!",
-//         error: "Download failed. Please try again.",
-//       },
-//       {
-//         position: "top-center",
-//       },
-//     );
-//   };
-
-//   return (
-//     <div className="fixed top-0 left-0 w-full z-[100] pointer-events-none">
-//       <div className="bg-white/90 dark:bg-black/95 backdrop-blur-xl border-b border-black/5 dark:border-white/10 px-4 md:px-6 py-2 flex justify-between items-center pointer-events-auto overflow-hidden transition-colors duration-300">
-//         {/* Left: System Status - Hidden on small mobile */}
-//         <div className="hidden sm:flex items-center space-x-6">
-//           <div className="flex items-center space-x-2">
-//             <Activity className="w-3 h-3 text-green-500 animate-pulse" />
-//             <span className="text-[8px] md:text-[9px] font-black uppercase tracking-[0.2em] md:tracking-[0.3em] mono text-green-600 dark:text-green-500 whitespace-nowrap">
-//               STABLE
-//             </span>
-//           </div>
-//           <div className="hidden lg:flex items-center space-x-3 text-[9px] mono text-black/30 dark:text-white/30 uppercase tracking-widest">
-//             <Radio className="w-3 h-3" />
-//             <span>CONNECTED</span>
-//           </div>
-//         </div>
-
-//         {/* Center: Brand */}
-//         <div className="flex flex-col items-center flex-1 sm:flex-none">
-//           <span className="text-[10px] md:text-xs font-black uppercase tracking-tighter mono glitch-text cursor-pointer leading-none text-black dark:text-white text-center">
-//             PARTHIBAN_ARCHITECTURE_CORE_v2.0
-//           </span>
-//           <span className="text-[7px] md:text-[8px] mono text-black/20 dark:text-white/20 uppercase tracking-[0.3em] md:tracking-[0.5em] mt-1 whitespace-nowrap">
-//             Industrial Backend Engineer
-//           </span>
-//         </div>
-
-//         {/* Right: Diagnostics, Toggle & Download */}
-//         <div className="flex items-center space-x-2 md:space-x-4">
-//           <button
-//             onClick={() => {
-//               downloadResume();
-//             }}
-//             className="hidden md:flex items-center space-x-2 bg-black dark:bg-white text-white dark:text-black px-3 py-1.5 border border-transparent hover:bg-transparent hover:text-black dark:hover:text-white dark:hover:bg-black hover:border-black/20 dark:hover:border-white/20 transition-all group"
-//           >
-//             <FileText className="w-3 h-3" />
-//             <span className="text-[9px] font-black mono uppercase tracking-widest">
-//               RESUME
-//             </span>
-//           </button>
-
-//           <button
-//             onClick={toggleTheme}
-//             className="p-1.5 md:p-2 border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5 transition-all text-black dark:text-white flex items-center space-x-2"
-//           >
-//             {isDark ? (
-//               <Sun className="w-3 h-3" />
-//             ) : (
-//               <Moon className="w-3 h-3" />
-//             )}
-//           </button>
-//           <div className="flex items-center space-x-1.5 md:space-x-2 bg-blue-600/10 border border-blue-500/20 px-2 md:px-3 py-1 rounded-sm">
-//             <Shield className="w-2.5 h-2.5 md:w-3 md:h-3 text-blue-500" />
-//             <span className="text-[8px] md:text-[9px] font-bold mono text-blue-500 uppercase">
-//               {time.split(" ")[0]}
-//             </span>
-//           </div>
-//         </div>
-//       </div>
-
-//       <nav className="max-w-7xl mx-auto flex justify-center mt-3 md:mt-4 px-4">
-//         <div className="bg-white/40 dark:bg-white/5 backdrop-blur-md border border-black/5 dark:border-white/10 px-4 md:px-8 py-2 rounded-full flex space-x-6 md:space-x-12 text-[9px] md:text-[10px] font-bold uppercase tracking-[0.15em] md:tracking-[0.2em] mono text-black/65 dark:text-white/40 pointer-events-auto shadow-2xl transition-colors duration-300">
-//           <a
-//             href="#work"
-//             className="hover:text-blue-600 dark:hover:text-blue-500 hover:scale-110 transition-all"
-//           >
-//             ./work
-//           </a>
-//           <a
-//             href="#services"
-//             className="hover:text-blue-600 dark:hover:text-blue-500 hover:scale-110 transition-all"
-//           >
-//             ./stack
-//           </a>
-//           <a
-//             href="#experience"
-//             className="hover:text-blue-600 dark:hover:text-blue-500 hover:scale-110 transition-all"
-//           >
-//             ./logs
-//           </a>
-//           <a
-//             href="#contact"
-//             className="hover:text-black dark:hover:text-white transition-all text-black/90 dark:text-white/80"
-//           >
-//             ./ping
-//           </a>
-//         </div>
-//       </nav>
-//     </div>
-//   );
-// };
-
-// export default Navbar;
-
-// <button
-//   onClick={toggleTheme}
-//   className="p-2 border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors text-zinc-700 dark:text-zinc-300 rounded-lg lg:rounded-full group"
-//   aria-label="Toggle Theme"
-// >
-//   {isDark ? (
-//     <Sun className="w-4 h-4 group-hover:rotate-45 transition-transform duration-300" />
-//   ) : (
-//     <Moon className="w-4 h-4 group-hover:-rotate-12 transition-transform duration-300" />
-//   )}
-// </button>
-
-// import React, { useState, useEffect } from "react";
-// import { motion, AnimatePresence } from "framer-motion";
-// import gsap from "gsap";
-// import {
-//   Activity,
-//   Sun,
-//   Moon,
-//   Terminal,
-//   Download,
-//   Cpu,
-//   Command,
-//   Sparkles,
-//   ExternalLink,
-//   Menu,
-//   X
-// } from "lucide-react";
-// import toast from "react-hot-toast";
-
-// const Navbar: React.FC = () => {
-//   const [time, setTime] = useState(new Date().toLocaleTimeString());
-//   const [isDark, setIsDark] = useState(
-//     document.documentElement.classList.contains("dark")
-//   );
-//   const [activeTab, setActiveTab] = useState("work");
-//   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-//   useEffect(() => {
-//     const timer = setInterval(
-//       () => setTime(new Date().toLocaleTimeString()),
-//       1000
-//     );
-//     return () => clearInterval(timer);
-//   }, []);
-
-//   // GSAP subtle intro animation for the main floating dock
-//   useEffect(() => {
-//     gsap.fromTo(
-//       ".dock-container",
-//       { y: -50, opacity: 0, scale: 0.95 },
-//       { y: 0, opacity: 1, scale: 1, duration: 1.2, ease: "power4.out", delay: 0.2 }
-//     );
-//   }, []);
-
-//   const toggleTheme = () => {
-//     if (document.documentElement.classList.contains("dark")) {
-//       document.documentElement.classList.remove("dark");
-//       localStorage.theme = "light";
-//       setIsDark(false);
-//     } else {
-//       document.documentElement.classList.add("dark");
-//       localStorage.theme = "dark";
-//       setIsDark(true);
-//     }
-//   };
-
-//   const downloadResume = () => {
-//     const downloadPromise = new Promise<void>((resolve) => {
-//       setTimeout(() => {
-//         const link = document.createElement("a");
-//         link.href = "/resume.pdf";
-//         link.download = "Parthiban_Resume.pdf";
-//         document.body.appendChild(link);
-//         link.click();
-//         document.body.removeChild(link);
-//         resolve();
-//       }, 2500);
-//     });
-
-//     toast.promise(
-//       downloadPromise,
-//       {
-//         loading: <span className=" text-[10px] uppercase tracking-widest">Compiling Resume...</span>,
-//         success: <span className=" text-[10px] uppercase tracking-widest text-emerald-500">Extraction Complete</span>,
-//         error: <span className=" text-[10px] uppercase tracking-widest text-rose-500">Process Failed</span>,
-//       },
-//       {
-//         style: {
-//           background: isDark ? '#09090b' : '#ffffff',
-//           color: isDark ? '#f4f4f5' : '#18181b',
-//           backdropFilter: 'blur(16px)',
-//           border: '1px solid ' + (isDark ? '#27272a' : '#e4e4e7'),
-//           borderRadius: '14px',
-//           boxShadow: '0 20px 25px -5px rgb(0 0 0 / 0.1)',
-//         }
-//       }
-//     );
-//   };
-
-//   const navItems = [
-//     { id: "work", label: "work", index: "01" },
-//     { id: "services", label: "stack", index: "02" },
-//     { id: "experience", label: "logs", index: "03" },
-//     { id: "lab", label: "projects", index: "04" },
-//   ];
-
-//   return (
-//     <>
-//       <header className="fixed top-0 inset-x-0 z-[100] flex justify-center p-4 md:p-6 pointer-events-none">
-//         <div className="dock-container w-full max-w-6xl pointer-events-auto">
-
-//           {/* Main Floating Glass Dock */}
-//           <div className="relative flex items-center justify-between px-4 py-2.5 md:px-5 md:py-3 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-2xl border border-zinc-200/80 dark:border-zinc-800/80 rounded-2xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.08)] dark:shadow-[0_10px_40px_-10px_rgba(0,0,0,0.6)]">
-
-//             {/* Left: Brand Identity Matrix */}
-//             <div className="flex items-center gap-3">
-//               <div className="relative flex items-center justify-center w-9 h-9 rounded-xl bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 shadow-md">
-//                 <Terminal className="w-4 h-4" />
-//                 <span className="absolute -bottom-1 -right-1 w-2.5 h-2.5 bg-emerald-500 border-2 border-white dark:border-zinc-950 rounded-full animate-pulse" />
-//               </div>
-
-//               <div className="flex flex-col">
-//                 <div className="flex items-center gap-1.5">
-//                   <span className="text-[11px] font-black tracking-wider  text-zinc-900 dark:text-white uppercase">
-//                     Parthiban
-//                   </span>
-//                   <span className="text-[9px]  px-1.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-900 text-zinc-500 dark:text-zinc-400">
-//                     v2.0
-//                   </span>
-//                 </div>
-//                 <span className="text-[9px]  text-zinc-500 dark:text-zinc-400 tracking-widest uppercase flex items-center gap-1">
-//                   <Cpu className="w-2.5 h-2.5 text-amber-500" /> Backend Core
-//                 </span>
-//               </div>
-//             </div>
-
-//             {/* Center: Desktop Navigation Dock */}
-//             <nav className="hidden lg:flex items-center gap-1 bg-zinc-100/80 dark:bg-zinc-900/60 p-1.5 rounded-xl border border-zinc-200/50 dark:border-zinc-800/50">
-//               {navItems.map((item) => {
-//                 const isActive = activeTab === item.id;
-//                 return (
-//                   <a
-//                     key={item.id}
-//                     href={`#${item.id}`}
-//                     onClick={() => setActiveTab(item.id)}
-//                     className="relative px-3.5 py-1.5 rounded-lg  text-[10px] uppercase tracking-wider transition-colors duration-200 group"
-//                   >
-//                     <span className={`relative z-10 flex items-center gap-1.5 ${isActive ? 'text-zinc-900 dark:text-white font-bold' : 'text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white'}`}>
-//                       <span className="text-[8px] text-zinc-400 dark:text-zinc-600 ">{item.index}.</span>
-//                       {item.label}
-//                     </span>
-
-//                     {/* Framer Motion Layout Shared Background Pill */}
-//                     {isActive && (
-//                       <motion.div
-//                         layoutId="activePill"
-//                         className="absolute inset-0 bg-white dark:bg-zinc-800 rounded-lg shadow-sm border border-zinc-200/60 dark:border-zinc-700/60"
-//                         transition={{ type: "spring", stiffness: 400, damping: 30 }}
-//                       />
-//                     )}
-//                   </a>
-//                 );
-//               })}
-//             </nav>
-
-//             {/* Right: Actions & Utilities */}
-//             <div className="flex items-center gap-2">
-
-//               {/* System Time Live Widget (Desktop) */}
-//               <div className="hidden xl:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-zinc-100/50 dark:bg-zinc-900/30 border border-zinc-200/50 dark:border-zinc-800/50  text-[9px] text-zinc-600 dark:text-zinc-400">
-//                 <Activity className="w-3 h-3 text-emerald-500 animate-pulse" />
-//                 <span>{time}</span>
-//               </div>
-
-//               {/* Theme Toggle */}
-//               <button
-//               onClick={toggleTheme}
-//               className="p-2 border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors text-zinc-700 dark:text-zinc-300 rounded-lg lg:rounded-full group"
-//               aria-label="Toggle Theme"
-//             >
-//               {isDark ? (
-//                 <Sun className="w-4 h-4 group-hover:rotate-45 transition-transform duration-300" />
-//               ) : (
-//                 <Moon className="w-4 h-4 group-hover:-rotate-12 transition-transform duration-300" />
-//               )}
-//             </button>
-
-//               {/* Download Resume Button */}
-//               <button
-//                 onClick={downloadResume}
-//                 className="hidden sm:flex items-center gap-1.5 px-3 py-2 rounded-xl bg-zinc-100/80 dark:bg-zinc-900/80 border border-zinc-200/60 dark:border-zinc-800/60 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-800  text-[10px] uppercase tracking-wider transition-colors"
-//               >
-//                 <Download className="w-3.5 h-3.5" />
-//                 <span>Resume</span>
-//               </button>
-
-//               {/* CTA Action Button */}
-//               <a
-//                 href="#contact"
-//                 onClick={() => setActiveTab("contact")}
-//                 className="relative group overflow-hidden px-4 py-2 rounded-xl bg-zinc-900 dark:bg-white text-white dark:text-zinc-900  text-[10px] font-bold uppercase tracking-[0.2em] shadow-lg transition-transform active:scale-95"
-//               >
-//                 <span className="relative z-10 flex items-center gap-1.5">
-//                   <Sparkles className="w-3 h-3 text-amber-400 dark:text-amber-600 animate-spin" />
-//                   <span>Connect</span>
-//                 </span>
-//                 <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-//               </a>
-
-//               {/* Mobile Hamburger Menu Toggle */}
-//               <button
-//                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-//                 className="lg:hidden p-2 rounded-xl bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-white"
-//               >
-//                 {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
-//               </button>
-
-//             </div>
-
-//           </div>
-
-//           {/* Mobile Navigation Dropdown Menu with Framer Motion */}
-//           <AnimatePresence>
-//             {mobileMenuOpen && (
-//               <motion.div
-//                 initial={{ opacity: 0, y: -10, scale: 0.98 }}
-//                 animate={{ opacity: 1, y: 0, scale: 1 }}
-//                 exit={{ opacity: 0, y: -10, scale: 0.98 }}
-//                 transition={{ duration: 0.2 }}
-//                 className="lg:hidden mt-2 p-3 bg-white/95 dark:bg-zinc-950/95 backdrop-blur-2xl border border-zinc-200 dark:border-zinc-800 rounded-2xl shadow-2xl flex flex-col gap-1.5"
-//               >
-//                 {navItems.map((item) => (
-//                   <a
-//                     key={item.id}
-//                     href={`#${item.id}`}
-//                     onClick={() => {
-//                       setActiveTab(item.id);
-//                       setMobileMenuOpen(false);
-//                     }}
-//                     className={`flex items-center justify-between px-4 py-2.5 rounded-xl  text-xs uppercase tracking-wider ${
-//                       activeTab === item.id
-//                         ? "bg-zinc-100 dark:bg-zinc-900 font-bold text-zinc-900 dark:text-white"
-//                         : "text-zinc-600 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-900/50"
-//                     }`}
-//                   >
-//                     <span className="flex items-center gap-2">
-//                       <span className="text-[10px] text-zinc-400">{item.index}.</span>
-//                       {item.label}
-//                     </span>
-//                     <ExternalLink className="w-3 h-3 opacity-40" />
-//                   </a>
-//                 ))}
-//                 <button
-//                   onClick={() => {
-//                     downloadResume();
-//                     setMobileMenuOpen(false);
-//                   }}
-//                   className="w-full mt-1 flex items-center justify-center gap-2 py-2.5 rounded-xl bg-zinc-100 dark:bg-zinc-900  text-xs uppercase tracking-wider text-zinc-900 dark:text-white"
-//                 >
-//                   <Download className="w-3.5 h-3.5" />
-//                   <span>Download Resume</span>
-//                 </button>
-//               </motion.div>
-//             )}
-//           </AnimatePresence>
-
-//         </div>
-//       </header>
-//     </>
-//   );
-// };
-
-// export default Navbar;
-
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
 import {
@@ -460,7 +32,7 @@ import {
   BriefcaseBusiness,
   Home,
 } from "lucide-react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 // ============================================================================
 // 1. TYPES & CONFIGURATION
@@ -475,29 +47,51 @@ export interface NavSection {
   icon: React.ComponentType<{ className?: string; size?: number }>;
 }
 
+/** this nav secction is for next phase */
 // export const NAV_SECTIONS: NavSection[] = [
-//   { id: "home", label: "Home", href: "#", icon: HomeIcon },
+//   {
+//     id: "home",
+//     label: "Home",
+//     href: "/",
+//     icon: Home,
+//   },
+//   {
+//     id: "projects",
+//     label: "Projects",
+//     href: "projects",
+//     icon: FolderGit2,
+//   },
+//   {
+//     id: "case-studies",
+//     label: "Case Studies",
+//     href: "#case-studies",
+//     icon: BriefcaseBusiness,
+//   },
 //   {
 //     id: "architecture",
 //     label: "Architecture",
 //     href: "#architecture",
 //     icon: Cpu,
 //   },
-//   { id: "projects", label: "Projects", href: "#projects", icon: FolderGit2 },
 //   {
-//     id: "experience",
-//     label: "Experience",
-//     href: "#experience",
-//     icon: Briefcase,
+//     id: "engineering-notes",
+//     label: "Engineering Notes",
+//     href: "#engineering-notes",
+//     icon: NotebookPen,
 //   },
-//   { id: "stack", label: "Stack", href: "#stack", icon: Layers },
-//   { id: "blog", label: "Blog", href: "#blog", icon: BookOpen },
-//   { id: "contact", label: "Contact", href: "#contact", icon: Mail },
+//   {
+//     id: "playground",
+//     label: "Playground",
+//     href: "#playground",
+//     icon: FlaskConical,
+//   },
+//   {
+//     id: "contact",
+//     label: "Contact",
+//     href: "#contact",
+//     icon: Mail,
+//   },
 // ];
-
-// ============================================================================
-// 2. SCROLL PROGRESS BAR (Top Edge)
-// ============================================================================
 
 export const NAV_SECTIONS: NavSection[] = [
   {
@@ -506,42 +100,18 @@ export const NAV_SECTIONS: NavSection[] = [
     href: "/",
     icon: Home,
   },
+   {
+    id: "about",
+    label: "About",
+    href: "about-me",
+    icon: FolderGit2,
+  },
   {
     id: "projects",
     label: "Projects",
     href: "projects",
     icon: FolderGit2,
   },
-  {
-    id: "case-studies",
-    label: "Case Studies",
-    href: "#case-studies",
-    icon: BriefcaseBusiness,
-  },
-  {
-    id: "architecture",
-    label: "Architecture",
-    href: "#architecture",
-    icon: Cpu,
-  },
-  {
-    id: "engineering-notes",
-    label: "Engineering Notes",
-    href: "#engineering-notes",
-    icon: NotebookPen,
-  },
-  {
-    id: "playground",
-    label: "Playground",
-    href: "#playground",
-    icon: FlaskConical,
-  },
-  // {
-  //   id: "resume",
-  //   label: "Resume",
-  //   href: "#resume",
-  //   icon: FileText,
-  // },
   {
     id: "contact",
     label: "Contact",
@@ -612,7 +182,7 @@ const SegmentedThemeToggle: React.FC = () => {
   const [theme, setTheme] = useState<ThemeMode>("light");
 
   useEffect(() => {
-    const saved = (localStorage.getItem("app-theme") as ThemeMode) || "system";
+    const saved = (localStorage.getItem("app-theme") as ThemeMode) || "light";
     applyTheme(saved);
   }, []);
 
@@ -844,7 +414,7 @@ const CommandPalette = ({
             className="relative w-full max-w-xl overflow-hidden rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-2xl text-zinc-900 dark:text-zinc-100 font-sans z-10"
           >
             {/* Search Input Bar */}
-            <div className="flex items-center gap-3 px-4 py-3 border-b border-zinc-200 dark:border-zinc-800 bg-zinc-50/80 dark:bg-zinc-900/80">
+            {/* <div className="flex items-center gap-3 px-4 py-3 border-b border-zinc-200 dark:border-zinc-800 bg-zinc-50/80 dark:bg-zinc-900/80">
               <Search size={16} className="text-zinc-400 dark:text-zinc-500" />
               <input
                 autoFocus
@@ -857,7 +427,7 @@ const CommandPalette = ({
               <span className="text-[10px] text-zinc-500 px-1.5 py-0.5 rounded border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950">
                 ESC
               </span>
-            </div>
+            </div> */}
 
             {/* List Items */}
             <div className="max-h-[300px] overflow-y-auto p-2 space-y-1">
@@ -1097,6 +667,23 @@ export const Navbar: React.FC = () => {
   const [activeSection, setActiveSection] = useState<string>("home");
   const [isPaletteOpen, setIsPaletteOpen] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const location = useLocation();
+
+  // Route-aware active section: derive the active nav item from the URL
+  useEffect(() => {
+    const path = location.pathname;
+    const hash = location.hash;
+
+    const match = NAV_SECTIONS.find((section) => {
+      if (section.href.startsWith("#")) {
+        return path === "/" && hash === section.href;
+      }
+      const target = section.href === "/" ? "/" : `/${section.href.replace(/^\//, "")}`;
+      return path === target;
+    });
+
+    setActiveSection(match ? match.id : "home");
+  }, [location]);
 
   // Scroll shrink observer
   useEffect(() => {
@@ -1269,7 +856,7 @@ export const Navbar: React.FC = () => {
                 const isActive = activeSection === section.id;
                 const Icon = section.icon;
 
-                return (
+                return section.href.startsWith("#") ? (
                   <a
                     key={section.id}
                     href={section.href}
@@ -1298,6 +885,36 @@ export const Navbar: React.FC = () => {
                       />
                     )}
                   </a>
+                ) : (
+                  <NavLink
+                    key={section.id}
+                    to={section.href}
+                    end={section.href === "/"}
+                    className={`relative px-3 py-1.5 text-xs tracking-tight transition-colors flex items-center gap-1.5 ${
+                      isActive
+                        ? "text-zinc-950 dark:text-white font-bold"
+                        : "dark:text-zinc-300 font-light hover:text-zinc-600 hover:font-medium dark:hover:text-zinc-300"
+                    }`}
+                  >
+                    <Icon
+                      size={13}
+                      className={isActive ? "text-emerald-500" : "opacity-60 "}
+                    />
+                    <span>{section.label}</span>
+
+                    {/* Smooth Animated Active Underline */}
+                    {isActive && (
+                      <motion.div
+                        layoutId="nav-active-underline"
+                        className="absolute bottom-[-2px] left-0 right-0 h-[2px] bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-full"
+                        transition={{
+                          type: "spring",
+                          stiffness: 380,
+                          damping: 30,
+                        }}
+                      />
+                    )}
+                  </NavLink>
                 );
               })}
 
