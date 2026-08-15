@@ -10,6 +10,7 @@ import { Contact } from "lucide-react";
 import Footer from "../components/Footer";
 import Stats from "../components/Stats";
 import HomeAbout from "../features/home/about/HomeAbout";
+import ProcessTimeline from "../features/home/process/ProcessTimeline";
 
 const HomePage = () => {
   return (
@@ -19,6 +20,7 @@ const HomePage = () => {
         <Ticker />
         {/* <SocialBar /> */}
         <HomeAbout />
+        <ProcessTimeline/>
         <Offering />
         <Experience />
         <CaseStudy />
