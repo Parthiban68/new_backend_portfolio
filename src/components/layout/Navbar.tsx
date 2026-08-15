@@ -115,7 +115,7 @@ export const NAV_SECTIONS: NavSection[] = [
   {
     id: "contact",
     label: "Contact",
-    href: "#contact",
+    href: "contact",
     icon: Mail,
   },
 ];
