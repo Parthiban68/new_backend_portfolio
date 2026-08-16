@@ -11,6 +11,7 @@ import Footer from "../components/Footer";
 import Stats from "../components/Stats";
 import HomeAbout from "../features/home/about/HomeAbout";
 import ProcessTimeline from "../features/home/process/ProcessTimeline";
+import LetsConnect from "../features/home/letsconnect/LetsConnect";
 
 const HomePage = () => {
   return (
@@ -21,6 +22,7 @@ const HomePage = () => {
         {/* <SocialBar /> */}
         <HomeAbout />
         <ProcessTimeline/>
+        <LetsConnect/>
         <Offering />
         <Experience />
         <CaseStudy />
