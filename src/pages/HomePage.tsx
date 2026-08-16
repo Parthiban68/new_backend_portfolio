@@ -12,6 +12,7 @@ import Stats from "../components/Stats";
 import HomeAbout from "../features/home/about/HomeAbout";
 import ProcessTimeline from "../features/home/process/ProcessTimeline";
 import LetsConnect from "../features/home/letsconnect/LetsConnect";
+import SelectedWork from "../features/home/selectedwork/SelectedWork";
 
 const HomePage = () => {
   return (
@@ -22,15 +23,16 @@ const HomePage = () => {
         {/* <SocialBar /> */}
         <HomeAbout />
         <ProcessTimeline/>
+        <SelectedWork/>
         <LetsConnect/>
-        <Offering />
+        {/* <Offering />
         <Experience />
         <CaseStudy />
         <SystemTopology />
         <Stats />
-        <Contact />
+        <Contact /> */}
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };
