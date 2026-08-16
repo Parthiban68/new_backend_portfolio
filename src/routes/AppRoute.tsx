@@ -25,6 +25,7 @@ import Navbar from "../components/layout/Navbar";
 import HomePage from "../pages/HomePage";
 import AboutPage from "../pages/AboutPage";
 import Loader from "../components/layout/Loader";
+import ContactPage from "../pages/ContactPage";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -52,6 +53,7 @@ console.log(isLoading);
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/about-me" element={<AboutPage />} />
+            <Route path="/contact" element={<ContactPage/>}/>
           </Routes>
         </div>
       )}

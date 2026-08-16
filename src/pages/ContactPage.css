@@ -1,0 +1,115 @@
+/* ============================================================
+   Lets Connect — "Connection Field"
+   Component-scoped CSS (imported by ContactPage.tsx).
+   ============================================================ */
+
+@keyframes conn-flow {
+  from { stroke-dashoffset: 420; }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes conn-flow-rev {
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: 520; }
+}
+
+.conn-dash {
+  stroke: rgba(17, 17, 17, 0.09);
+  stroke-dasharray: 2 418;
+  animation: conn-flow 26s linear infinite;
+}
+.dark .conn-dash {
+  stroke: rgba(255, 255, 255, 0.09);
+}
+
+.conn-dash-alt {
+  stroke: rgba(17, 17, 17, 0.08);
+  stroke-dasharray: 2 518;
+  animation: conn-flow-rev 34s linear infinite;
+}
+.dark .conn-dash-alt {
+  stroke: rgba(255, 255, 255, 0.08);
+}
+
+.conn-main {
+  stroke: rgba(17, 17, 17, 0.17);
+  stroke-dasharray: 3 417;
+  animation: conn-flow 30s linear infinite;
+  transition: stroke 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.dark .conn-main {
+  stroke: rgba(255, 255, 255, 0.17);
+}
+.conn-main.is-active {
+  stroke: rgba(17, 17, 17, 0.36);
+}
+.dark .conn-main.is-active {
+  stroke: rgba(255, 255, 255, 0.36);
+}
+
+.conn-lit {
+  stroke: rgba(17, 17, 17, 0.22);
+}
+.dark .conn-lit {
+  stroke: rgba(255, 255, 255, 0.22);
+}
+
+@keyframes avail-ping {
+  0% { transform: scale(1); opacity: 0.45; }
+  80%, 100% { transform: scale(2.6); opacity: 0; }
+}
+.avail-ping {
+  animation: avail-ping 2.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* ---- Editorial form fields ---- */
+.field {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid rgba(17, 17, 17, 0.1);
+  background: #ffffff;
+  padding: 13px 16px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #111111;
+  outline: none;
+  transition: border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.dark .field {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: #f4f4f5;
+}
+.field::placeholder {
+  color: #9a9a9a;
+}
+.dark .field::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+.field:focus {
+  border-color: rgba(17, 17, 17, 0.38);
+  box-shadow: 0 0 0 3px rgba(17, 17, 17, 0.06);
+}
+.dark .field:focus {
+  border-color: rgba(255, 255, 255, 0.38);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.08);
+}
+select.field {
+  cursor: pointer;
+}
+textarea.field {
+  resize: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .conn-dash,
+  .conn-dash-alt,
+  .conn-main {
+    animation: none;
+    stroke-dasharray: none;
+  }
+  .avail-ping {
+    animation: none;
+  }
+}
