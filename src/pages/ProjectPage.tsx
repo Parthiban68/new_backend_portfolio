@@ -181,10 +181,14 @@ export default function ProjectsPage() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="bg-[#F8D59F] text-[#111] px-5 py-1.5 rounded-full text-sm font-semibold tracking-wide mb-8"
+          className=" text-[#111] px-5 py-1.5 rounded-full text-sm font-semibold tracking-wide mb-8"
         >
-          {/* Works from 2022 – Present  */}
-          A Few Things Brewed & Built ☕
+          {/* Works from 2022 – Present  */}<div className="flex items-center gap-3">
+            <span className="w-3 h-3 rounded-full bg-emerald-500"></span>
+            <span className="text-xs font-semibold tracking-[0.3em] text-gray-500 dark:text-gray-400 uppercase">
+               A Few Things Brewed & Built ☕
+            </span>
+          </div>
         </motion.div>
 
         {/* Heading */}

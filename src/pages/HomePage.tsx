@@ -17,7 +17,7 @@ import SelectedWork from "../features/home/selectedwork/SelectedWork";
 const HomePage = () => {
   return (
     <>
-      <main>
+      <main className="overflow-hidden">
         <Hero />
         <Ticker />
         {/* <SocialBar /> */}
