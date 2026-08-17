@@ -62,10 +62,10 @@ const TechnicalBackground = () => (
 
 export default function ContactSection() {
   return (
-    <section className="relative w-full bg-white] overflow-hidden min-h-150 lg:min-h-175">
+    <section className="relative w-full bg-white overflow-hidden min-h-150 lg:min-h-175">
       {/* <TechnicalBackground /> */}
 
-      <div className="relative mx-auto max-w-[1500px] w-full px-6 md:px-12 lg:px-16 py-20 lg:py-32 flex flex-col lg:flex-row items-center z-10">
+      <div className="relative mx-auto max-w-[1500px] w-full px-6 md:px-12 lg:px-16 flex flex-col lg:flex-row items-center z-10">
         {/* NEW LEFT COLUMN DESIGN: Data-driven & Structured */}
         <motion.div
           className="w-full lg:w-[55%] flex flex-col z-20"
