@@ -258,7 +258,7 @@ const ResumeButton: React.FC = () => {
       // Trigger native download action
       const link = document.createElement("a");
       link.href = "/resume.pdf";
-      link.download = "Parthiban_Backend_Engineeer.pdf";
+      link.download = "Parthiban_Software_Engineeer.pdf";
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -618,7 +618,7 @@ const MobileDrawer: React.FC<MobileDrawerProps> = ({
             <div className="pt-6 border-t border-zinc-800 space-y-4">
               <div className="flex items-center justify-between">
                 <span className="text-xs  text-zinc-400">Appearance</span>
-                <SegmentedThemeToggle />
+                {/* <SegmentedThemeToggle /> */}
               </div>
 
               <div className="grid grid-cols-2 gap-2">
@@ -806,7 +806,7 @@ export const Navbar: React.FC = () => {
 
               {/* Theme Toggle */}
               <div className="hidden sm:block">
-                <SegmentedThemeToggle />
+                {/* <SegmentedThemeToggle /> */}
               </div>
 
               {/* Social Icons */}

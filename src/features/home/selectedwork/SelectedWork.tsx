@@ -521,7 +521,7 @@ export default function SelectedWork() {
               </div>
               <div className="mt-auto">
                 <a
-                  href="#busstand"
+                  href="https://thebusstand.com/"
                   className="inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.15em] uppercase text-slate-900 hover:text-indigo-600 transition-colors group"
                 >
                   Explore Project

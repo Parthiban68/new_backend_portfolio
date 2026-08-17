@@ -65,9 +65,13 @@ import {
   ExternalLink,
   Star,
 } from "lucide-react";
-import tbs from "../assets/tbs-1.png";
+import tbs from "../assets/tbs_1.png";
 import cfo from "../assets/cfo.png";
-import crm from "../assets/crm.png";
+import crm from "../assets/crm-tbs.png";
+import aiTextAnalyzer from "../assets/AI.png"
+import cineStreams from "../assets/cine.png"
+import salaryHive  from "../assets/salary_1.png"
+import weatherApp from "../assets/weather.png"
 
 // --- YOUR ORIGINAL MOCK DATA, FORMATTED FOR THE NEW DESIGN ---
 const projectsData = [
@@ -81,7 +85,7 @@ const projectsData = [
       "A multi-tenant accounting and finance platform built for scalable business operations and complex accounting workflows. Engineered to handle high-volume financial data with robust reporting and seamless integration capabilities.",
     stack: ["NestJS", "PostgreSQL", "Sequelize", "React", "TypeScript", "AWS"],
     image: cfo,
-    demoLink: "#",
+    demoLink: null,
     codeLink: null,
   },
   {
@@ -101,8 +105,8 @@ const projectsData = [
       "MongoDB",
     ],
     image: tbs,
-    demoLink: "#",
-    codeLink: "#",
+    demoLink: "https://thebusstand.com/",
+    codeLink: null,
   },
   {
     id: 3,
@@ -121,34 +125,90 @@ const projectsData = [
       "REST API",
     ],
     image: crm,
-    demoLink: "#",
-    codeLink: "#",
+    demoLink: "https://crm.thebusstand.com/",
+    codeLink: null,
   },
   {
     id: 4,
     featured: false,
-    year: "2023",
-    title: "DevNotes - Developer Markdown Manager",
+    year: "2025",
+    title: "AI Text Analyzer - AI-Powered Text Intelligence",
     category: "Personal",
     description:
-      "A minimal, lightning-fast notes app for developers to write, organize, and search markdown notes with ease. Uses local-first architecture with instant full-text search and offline capabilities.",
-    stack: ["React", "Vite", "LocalStorage", "Framer Motion"],
-    image: "image_a17d71.jpg",
-    demoLink: null,
-    codeLink: "#",
+      "A full-stack AI text analysis platform that turns raw text into useful insights through summarization, explanation, analysis, rewriting, extraction, and translation. Built with a React frontend, NestJS API, and OpenRouter-powered Gemma model.",
+    stack: [
+      "React",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS",
+      "NestJS",
+      "OpenRouter",
+      "Gemma 4 32B",
+    ],
+    image: aiTextAnalyzer,
+    demoLink: "https://arivx.vercel.app/",
+    codeLink: "https://github.com/Parthiban68/Ai_text_analyzer",
   },
   {
     id: 5,
-    featured: true,
-    year: "2022",
-    title: "Portfolio v2 - Digital Experience",
+    featured: false,
+    year: "2025",
+    title: "CineStreams - Movie Streaming Discovery Platform",
     category: "Personal",
     description:
-      "My personal portfolio built with modern UI/UX, buttery smooth physics-based animations, and strict performance metrics in mind. Designed to act as a complete archive of my professional and independent engineering work.",
-    stack: ["Next.js", "Framer Motion", "Tailwind CSS", "Vercel"],
-    image: "image_a17d71.jpg",
-    demoLink: "#",
-    codeLink: "#",
+      "A dark-themed movie streaming discovery platform built around popular and genre-based content, with reusable React components, API-driven movie feeds, and Redux-managed application state.",
+    stack: [
+      "React",
+      "Vite",
+      "Tailwind CSS",
+      "Redux Toolkit",
+      "React Router",
+      "Axios",
+    ],
+    image: cineStreams,
+    demoLink: "https://cinestreamsapp.netlify.app/",
+    codeLink: "https://github.com/Parthiban68/CineStreams",
+  },
+  {
+    id: 6,
+    featured: false,
+    year: "2025",
+    title: "SalaryHive - Salary & Payroll Management Platform",
+    category: "Personal",
+    description:
+      "A modern salary and payroll management interface designed to simplify compensation insights, employee operations, attendance, leave, and payslip workflows through a responsive, component-driven experience.",
+    stack: [
+      "React",
+      "Vite",
+      "Tailwind CSS",
+      "React Router",
+      "Framer Motion",
+      "Recharts",
+      "React PDF",
+    ],
+    image: salaryHive,
+    demoLink: "https://salaryhive.netlify.app/",
+    codeLink: "https://github.com/Parthiban68/payroll-saas",
+  },
+  {
+    id: 7,
+    featured: false,
+    year: "2024",
+    title: "Weather App - Location-Aware Weather Experience",
+    category: "Personal",
+    description:
+      "A Flutter weather application that combines device location with live weather data to provide a focused, responsive view of current conditions.",
+    stack: [
+      "Flutter",
+      "Dart",
+      "BLoC",
+      "Geolocator",
+      "Weather API",
+      "Equatable",
+    ],
+    image: weatherApp,
+    demoLink: null,
+    codeLink: "https://github.com/Parthiban68/Weather_App",
   },
 ];
 
