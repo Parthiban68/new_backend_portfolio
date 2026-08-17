@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const Loader = ({ onComplete } : any) => {
+const Loader = ({ onComplete }: any) => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -26,35 +26,31 @@ const Loader = ({ onComplete } : any) => {
   }, [onComplete]);
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-white overflow-hidden">
-      <div className="w-full max-w-2xl px-8 flex flex-col justify-center">
-        
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-white overflow-hidden p-8">
+      
+      {/* Centered Quote Area */}
+      <div className="w-full max-w-3xl flex flex-col justify-center">
         {/* Quote */}
-        <h1 className="text-3xl md:text-4xl text-gray-900 font-normal tracking-tight leading-snug mb-4">
-          “The journey of a thousand miles begins with one step.”
+        <h1 className="text-3xl md:text-5xl text-gray-900 font-normal tracking-tight leading-snug mb-4">
+          “The journey of a thousand miles <br />begins with one step.”
         </h1>
         
         {/* Author */}
-        <p className="text-xs text-gray-400 uppercase tracking-[0.2em] mb-12">
+        <p className="text-xs text-gray-400 uppercase tracking-[0.2em]">
           — Lao Tzu
         </p>
-
-        {/* Progress Bar Track */}
-        <div className="relative w-full h-[2px] bg-gray-100">
-          {/* Progress Bar Fill */}
-          <div
-            className="absolute top-0 left-0 h-full bg-emerald-400 transition-all duration-200 ease-out"
-            style={{ width: `${progress}%` }}
-          ></div>
-        </div>
-
-        {/* Labels */}
-        <div className="flex justify-between items-center mt-3 text-[10px] text-gray-400 uppercase tracking-widest">
-          <span>Loading</span>
-          <span>{progress}%</span>
-        </div>
-        
       </div>
+
+      {/* Bottom Right Giant Loading Number */}
+      <div className="absolute bottom-8 right-8 md:bottom-12 md:right-12 flex items-baseline">
+        <span className="text-7xl md:text-9xl lg:text-[140px] font-light text-gray-900 tracking-tighter leading-none tabular-nums">
+          {progress}
+        </span>
+        <span className="text-3xl md:text-5xl lg:text-7xl font-light text-gray-300 ml-1 md:ml-3">
+          %
+        </span>
+      </div>
+      
     </div>
   );
 };
