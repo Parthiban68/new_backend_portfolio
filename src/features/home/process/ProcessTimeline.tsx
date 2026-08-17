@@ -350,18 +350,17 @@ const ProcessTimeline: React.FC = () => {
                             group
                           "
                                 >
-                                  {ToolIcon && (
-                                    <ToolIcon
-                                      size={16}
-                                      style={{
-                                        color: tool.color,
-                                      }}
-                                      className="
-                                transition-transform
-                                duration-300
-                                group-hover:scale-110
-                              "
-                                    />
+                                 {ToolIcon && (
+                                    <div style={{ color: tool.color }}>
+                                      <ToolIcon
+                                        size={16}
+                                        className="
+                                          transition-transform
+                                          duration-300
+                                          group-hover:scale-110
+                                        "
+                                      />
+                                    </div>
                                   )}
                                 </motion.button>
 
@@ -561,19 +560,18 @@ const ProcessTimeline: React.FC = () => {
                                 group
                                 "
                               >
-                                {ToolIcon && (
-                                  <ToolIcon
-                                    size={16}
-                                    style={{
-                                      color: tool.color,
-                                    }}
-                                    className="
-                                transition-transform
-                                duration-300
-                                group-hover:scale-110
-                              "
-                                  />
-                                )}
+                               {ToolIcon && (
+                                    <div style={{ color: tool.color }}>
+                                      <ToolIcon
+                                        size={16}
+                                        className="
+                                          transition-transform
+                                          duration-300
+                                          group-hover:scale-110
+                                        "
+                                      />
+                                    </div>
+                                  )}
                               </motion.button>
 
                               <AnimatePresence>
