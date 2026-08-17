@@ -105,6 +105,7 @@
 
 import { motion, Variants } from 'motion/react';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
+import { NavLink } from "react-router-dom";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -183,14 +184,15 @@ export default function LeftContent() {
         </motion.button>
 
         {/* Secondary Explore Button */}
-        <motion.button 
+        <NavLink to={"/projects"}><motion.button 
           whileHover={{ x: 4 }}
           // Aligned nicely for mobile stacking
           className="flex items-center gap-1.5 pb-1 border-b-[1.5px] border-zinc-300 dark:border-zinc-700 text-zinc-900 dark:text-zinc-100 font-medium text-[16px] md:text-[18px] hover:border-zinc-500 dark:hover:border-zinc-400 transition-colors duration-300"
         >
           Explore projects <ArrowUpRight className="w-4 h-4 text-zinc-600 dark:text-zinc-400 mb-0.5" strokeWidth={2} />
         </motion.button>
-
+</NavLink>
+        
       </motion.div>
     </motion.div>
   );

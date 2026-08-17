@@ -53,7 +53,7 @@ export default function RightNetwork() {
         style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
         className="w-full h-full absolute inset-0 flex items-center justify-center"
       >
-        <FloatingTechPills />
+        {/* <FloatingTechPills /> */}
 
         {/* Central Card Image Node */}
         <div
