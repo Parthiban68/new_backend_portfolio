@@ -3,6 +3,7 @@ import AboutHero from "../features/about/AboutHero"
 import EducationTimeline from "../features/about/EducationTimeline"
 import ExperienceTimeline from "../features/about/ExperienceTimeline"
 import GrabMyResume from "../features/about/GrabMyResume"
+import { NavLink } from "react-router-dom";
 
 
 const AboutPage = () => {
@@ -60,12 +61,12 @@ const AboutPage = () => {
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
               Building scalable systems<br/>for enterprise growth
             </h2>
-            <p className="text-zinc-500 text-sm max-w-sm mx-auto">
+            <p className="text-zinc-500 text-sm max-w-sm mx-auto pb-10">
               If you are developing enterprise ERP software and need maintainable backend engineering, let's connect.
             </p>
-            <button className="bg-[#111111] text-white px-8 py-4 rounded-full font-bold text-sm hover:bg-zinc-800 transition">
+            <NavLink to={"/contact"} className="bg-[#111111] text-white px-8 py-4 rounded-full font-bold text-sm hover:bg-zinc-800 transition">
               Get in Touch <span className="ml-2">→</span>
-            </button>
+            </NavLink>
           </div>
         </section>
 
@@ -81,9 +82,9 @@ const AboutPage = () => {
         </div>
         <div>© 2026 Parthiban. Backend Engineer.</div>
         <div className="flex gap-6">
-          <a href="#" className="hover:text-black transition">LinkedIn</a>
-          <a href="#" className="hover:text-black transition">GitHub</a>
-          <a href="#" className="hover:text-black transition">Twitter</a>
+          <a href="https://www.linkedin.com/in/m-parthiban/" className="hover:text-black transition">LinkedIn</a>
+          <a href="https://github.com/Parthiban68" className="hover:text-black transition">GitHub</a>
+          {/* <a href="#" className="hover:text-black transition">Twitter</a> */}
         </div>
       </footer>
 

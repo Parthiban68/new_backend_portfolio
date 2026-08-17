@@ -20,7 +20,7 @@ const EDUCATION_DATA = [
     id: '01',
     year: '2018',
     title: 'Higher Secondary Education',
-    institution: 'Government Higher Secondary School',
+    institution: 'Sri Meenakshi Matric Higher Secondary School',
     description: 'Built a strong academic foundation in Mathematics, Physics, and Computer Science while developing analytical thinking and problem-solving skills.',
     skills: [
       { name: 'Math', icon: Terminal },
@@ -31,8 +31,8 @@ const EDUCATION_DATA = [
   {
     id: '02',
     year: '2020',
-    title: 'Bachelor of Engineering',
-    institution: 'Computer Science and Engineering',
+    title: 'Bachelor of Science (Computer Technology)',
+    institution: 'Sri krishna adithya college of arts & science',
     description: 'Completed my undergraduate degree with a strong focus on software engineering, data structures, algorithms, database systems, and networking.',
     skills: [
       { name: 'C / Java', icon: Code2 },

@@ -141,7 +141,7 @@ export default function Page({ reduced = false }) {
               </a>
 
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/m-parthiban/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-50 transition-transform hover:scale-105 hover:bg-blue-100 dark:bg-blue-900/20 dark:hover:bg-blue-900/40"
@@ -164,7 +164,7 @@ export default function Page({ reduced = false }) {
               </a>
 
               <a
-                href="https://github.com"
+                href="https://github.com/Parthiban68"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 transition-transform hover:scale-105 hover:bg-gray-200 dark:bg-neutral-800 dark:hover:bg-neutral-700"

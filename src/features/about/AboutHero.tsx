@@ -537,6 +537,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { NavLink } from 'react-router-dom';
 import { 
   ShieldCheck, 
   Clock, 
@@ -784,14 +785,15 @@ export default function AboutHero() {
               transition={{ duration: 0.7, delay: 0.55 }}
               className="flex flex-wrap items-center gap-4 pt-2"
             >
-              <motion.button 
+              <NavLink to={"/contact"}><motion.button 
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className="px-6 py-3.5 rounded-2xl bg-white/80 dark:bg-slate-800/80 backdrop-blur-md text-slate-800 dark:text-slate-200 font-semibold text-sm border border-slate-200/90 dark:border-slate-700/90 shadow-sm hover:border-slate-300 dark:hover:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all duration-300 flex items-center gap-2"
               >
                  <MessageSquare className="w-4 h-4 text-blue-600 dark:text-blue-400" />
                 <span>Let's Connect</span>
-              </motion.button>
+              </motion.button></NavLink>
+              
             </motion.div>
 
             {/* Tech Stack Row */}
@@ -876,7 +878,7 @@ export default function AboutHero() {
               {/* Polaroid Footer */}
               <div className="mt-4 flex items-center justify-between px-1">
                 <div>
-                  <div className="font-mono text-xs font-bold text-slate-800 dark:text-slate-200 tracking-tight">parthiban.jpeg</div>
+                  <div className="font-mono text-xs font-bold text-slate-800 dark:text-slate-200 tracking-tight">parthiban.M</div>
                   <div className="text-[10px] text-slate-400 dark:text-slate-500 font-sans">Enterprise Software Specialist</div>
                 </div>
                 <div className="w-7 h-7 rounded-full bg-slate-100 dark:bg-slate-700 flex items-center justify-center">

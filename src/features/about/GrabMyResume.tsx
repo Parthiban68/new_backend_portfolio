@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowRight, ArrowUpRight, FileText, ArrowLeft, Download } from 'lucide-react';
+import { NavLink } from 'react-router-dom';
 
 const GrabMyResume = () => {
   const [showResume, setShowResume] = useState(false);
@@ -129,10 +130,10 @@ const GrabMyResume = () => {
             </p>
             
             <div className="flex flex-wrap items-center gap-4">
-              <button className="flex items-center gap-2 px-6 py-3.5 rounded-full border border-gray-200 text-gray-700 font-medium hover:bg-gray-50 transition-colors">
+              <NavLink to={"/projects"} className="flex items-center gap-2 px-6 py-3.5 rounded-full border border-gray-200 text-gray-700 font-medium hover:bg-gray-50 transition-colors">
                 Explore Projects
                 <ArrowUpRight className="w-4 h-4 text-gray-400" />
-              </button>
+              </NavLink>
               <button 
                 className="flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#0a0a0a] text-white font-medium hover:bg-black transition-colors shadow-lg shadow-black/10"
               >
