@@ -65,9 +65,9 @@ import {
   ExternalLink,
   Star,
 } from "lucide-react";
-import tbs from "../assets/tbs-1.png";
+import tbs from "../assets/tbs_1.png";
 import cfo from "../assets/cfo.png";
-import crm from "../assets/crm.png";
+import crm from "../assets/crm-tbs.png";
 import aiTextAnalyzer from "../assets/AI.png"
 import cineStreams from "../assets/cine.png"
 import salaryHive  from "../assets/salary_1.png"
