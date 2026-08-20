@@ -32,7 +32,7 @@ export default function SelectedWork() {
               Things I've built.
             </h2>
             <div className="w-[900px] mx-auto">
-              <p className="text-2xl md:text-2xl text-[#777777] font-light mt-2">
+              <p className="text-2xl md:text-2xl text-[#777777] dark:text-gray-400 font-light mt-2">
                 From production systems to independent experiments — a selection
                 of work shaped by product thinking, engineering, and attention
                 to detail.
@@ -54,24 +54,24 @@ export default function SelectedWork() {
             className="w-full xl:w-[35%] flex flex-col pt-2"
           >
             <div className="flex items-center gap-4 mb-6">
-              <span className="text-xl ">01</span>
-              <div className="w-px h-4 bg-slate-300"></div>
-              <span className="text-[10px] font-bold tracking-[0.2em] uppercase">
+              <span className="text-xl dark:text-gray-300">01</span>
+              <div className="w-px h-4 bg-slate-300 dark:bg-gray-600"></div>
+              <span className="text-[10px] font-bold tracking-[0.2em] uppercase dark:text-gray-400">
                 Professional
               </span>
             </div>
 
-            <h2 className="text-4xl lg:text-[42px] text-slate-900 mb-6 tracking-tight">
+            <h2 className="text-4xl lg:text-[42px] text-slate-900 dark:text-white mb-6 tracking-tight">
               CFO360.ai
             </h2>
-            <p className="text-[14px] leading-relaxed text-slate-600 mb-10 pr-8">
+            <p className="text-[14px] leading-relaxed text-slate-600 dark:text-gray-400 mb-10 pr-8">
               A multi-tenant accounting and finance platform built for scalable
               business operations.
             </p>
 
-            <div className="flex items-center gap-2 text-[11px] font-bold tracking-widest uppercase text-slate-800 mb-4">
+            <div className="flex items-center gap-2 text-[11px] font-bold tracking-widest uppercase text-slate-800 dark:text-gray-200 mb-4">
               <svg
-                className="w-4 h-4 text-slate-400"
+                className="w-4 h-4 text-slate-400 dark:text-gray-500"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -86,7 +86,7 @@ export default function SelectedWork() {
               Full-Stack Engineer
             </div>
 
-            <div className="text-[10px] font-medium tracking-[0.15em] uppercase text-slate-500 mb-16">
+            <div className="text-[10px] font-medium tracking-[0.15em] uppercase text-slate-500 dark:text-gray-500 mb-16">
               NESTJS <span className="mx-2">·</span> POSTGRESQL{" "}
               <span className="mx-2">·</span> SEQUELIZE{" "}
               <span className="mx-2">·</span> REACT
@@ -95,7 +95,7 @@ export default function SelectedWork() {
             <div className="mt-auto">
               <a
                 href="#cfo360"
-                className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.15em] uppercase text-slate-900 hover:text-indigo-600 transition-colors group"
+                className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.15em] uppercase text-slate-900 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors group"
               >
                 Explore Project
                 <svg
@@ -486,35 +486,35 @@ export default function SelectedWork() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="h-px bg-slate-200 w-full my-20"
+          className="h-px bg-slate-200 dark:bg-gray-700 w-full my-20"
         ></motion.div>
 
         {/* Bottom Section: TheBusStand & TaskFlow */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-px bg-[#fcfcfd] dark:bg-gray-950 border border-slate-200 rounded-2xl overflow-hidden mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-px bg-[#fcfcfd] dark:bg-gray-950 border border-slate-200 dark:border-gray-700 rounded-2xl overflow-hidden mb-12">
           {/* Project 02: TheBusStand */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="bg-[#fcfcfd] p-8 lg:p-12 flex flex-col xl:flex-row gap-8"
+            className="bg-[#fcfcfd] dark:bg-neutral-900 p-8 lg:p-12 flex flex-col xl:flex-row gap-8"
           >
             <div className="flex-1 flex flex-col">
               <div className="flex items-center gap-3 mb-6">
-                <span className="text-lg ">02</span>
-                <div className="w-px h-3 bg-slate-300"></div>
-                <span className="text-[9px] font-bold tracking-[0.2em] uppercase ">
+                <span className="text-lg dark:text-gray-300">02</span>
+                <div className="w-px h-3 bg-slate-300 dark:bg-gray-600"></div>
+                <span className="text-[9px] font-bold tracking-[0.2em] uppercase dark:text-gray-400">
                   Professional
                 </span>
               </div>
-              <h2 className="text-3xl  text-slate-900 mb-4 tracking-tight">
+              <h2 className="text-3xl text-slate-900 dark:text-white mb-4 tracking-tight">
                 TheBusStand
               </h2>
-              <p className="text-[13px] leading-relaxed text-slate-600 mb-8 max-w-[260px]">
+              <p className="text-[13px] leading-relaxed text-slate-600 dark:text-gray-400 mb-8 max-w-[260px]">
                 A bus booking platform connecting users with real-time inventory
                 and seamless booking workflows.
               </p>
-              <div className="text-[9px] font-medium tracking-[0.15em] uppercase text-slate-500 mb-10 leading-loose">
+              <div className="text-[9px] font-medium tracking-[0.15em] uppercase text-slate-500 dark:text-gray-500 mb-10 leading-loose">
                 REACT <span className="mx-1">·</span> NODE.JS
                 <br />
                 EXPRESS <span className="mx-1">·</span> REST APIS
@@ -522,7 +522,7 @@ export default function SelectedWork() {
               <div className="mt-auto">
                 <a
                   href="https://thebusstand.com/"
-                  className="inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.15em] uppercase text-slate-900 hover:text-indigo-600 transition-colors group"
+                  className="inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.15em] uppercase text-slate-900 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors group"
                 >
                   Explore Project
                   <svg
@@ -651,31 +651,31 @@ export default function SelectedWork() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-            className="bg-[#fcfcfd] p-8 border-l lg:p-12 flex flex-col xl:flex-row gap-8"
+            className="bg-[#fcfcfd] dark:bg-neutral-900 p-8 border-l dark:border-gray-700 lg:p-12 flex flex-col xl:flex-row gap-8"
           >
             <div className="flex-1 flex flex-col">
               <div className="flex items-center gap-3 mb-6">
-                <span className="text-lg ">03</span>
-                <div className="w-px h-3 bg-slate-300"></div>
-                <span className="text-[9px] font-bold tracking-[0.2em] uppercase ">
+                <span className="text-lg dark:text-gray-300">03</span>
+                <div className="w-px h-3 bg-slate-300 dark:bg-gray-600"></div>
+                <span className="text-[9px] font-bold tracking-[0.2em] uppercase dark:text-gray-400">
                   Personal
                 </span>
               </div>
-              <h2 className="text-3xl text-slate-900 mb-4 tracking-tight">
+              <h2 className="text-3xl text-slate-900 dark:text-white mb-4 tracking-tight">
                 TaskFlow
               </h2>
-              <p className="text-[13px] leading-relaxed text-slate-600 mb-8 max-w-[260px]">
+              <p className="text-[13px] leading-relaxed text-slate-600 dark:text-gray-400 mb-8 max-w-[260px]">
                 A personal productivity app designed to help teams plan, track,
                 and ship work with clarity.
               </p>
-              <div className="text-[9px] font-medium tracking-[0.15em] uppercase text-slate-500 mb-10 leading-loose">
+              <div className="text-[9px] font-medium tracking-[0.15em] uppercase text-slate-500 dark:text-gray-500 mb-10 leading-loose">
                 NEXT.JS <span className="mx-2">·</span> TYPESCRIPT{" "}
                 <span className="mx-2">·</span> TAILWIND
               </div>
               <div className="mt-auto">
                 <a
                   href="#taskflow"
-                  className="inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.15em] uppercase text-slate-900 hover:text-indigo-600 transition-colors group"
+                  className="inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.15em] uppercase text-slate-900 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors group"
                 >
                   Explore Project
                   <svg
@@ -820,12 +820,12 @@ export default function SelectedWork() {
           >
             <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z" />
           </svg>
-          <h3 className="text-[14px] font-semibold text-slate-900 mb-4 tracking-wide">
+          <h3 className="text-[14px] font-semibold text-slate-900 dark:text-white mb-4 tracking-wide">
             See everything I've built.
           </h3>
           <NavLink
             to={"/projects"}
-            className="inline-flex items-center gap-1 text-[11px] font-bold tracking-[0.15em] uppercase text-slate-900 border-b-2 border-indigo-200 hover:border-indigo-600 pb-1 transition-colors group"
+            className="inline-flex items-center gap-1 text-[11px] font-bold tracking-[0.15em] uppercase text-slate-900 dark:text-white border-b-2 border-indigo-200 dark:border-indigo-800 hover:border-indigo-600 dark:hover:border-indigo-400 pb-1 transition-colors group"
           >
             View All Work
             <svg
