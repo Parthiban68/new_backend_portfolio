@@ -246,7 +246,7 @@ const ProcessContourBackground = () => (
 const ProcessTimeline: React.FC = () => {
   const [hoveredTool, setHoveredTool] = useState<string | null>(null);
   return (
-    <section className="relative w-full overflow-x-hidden bg-[#FFFFFF] py-10 text-[#111111]">
+    <section className="relative w-full overflow-x-hidden bg-[#FFFFFF] dark:bg-[#0A0A0A] py-10 text-[#111111] dark:text-gray-100 transition-colors duration-300">
       {/* <ProcessContourBackground /> */}
 
       <div className="relative z-10 w-full max-w-full mx-auto px-8 md:px-0 flex flex-col items-center">
@@ -262,7 +262,7 @@ const ProcessTimeline: React.FC = () => {
           <h2 className="text-5xl md:text-5xl font-normal whitespace-nowrap text-gray-950 dark:text-white leading-[1.05] tracking-tight">
            Ideas are only the beginning.
           </h2>
-          <p className="text-2xl md:text-3xl font-serif italic text-[#777777] font-light mt-2">
+          <p className="text-2xl md:text-3xl font-serif italic text-[#777777] dark:text-gray-400 font-light mt-2">
             The interesting part is making them real.
           </p>
         </div>
@@ -270,7 +270,7 @@ const ProcessTimeline: React.FC = () => {
         {/* Timeline Container */}
         <div className="relative w-full mx-auto">
           {/* Central Spine */}
-          <div className="absolute left-[20px] md:left-1/2 top-0 bottom-0 w-[1px] bg-[#E8E8E8] md:-translate-x-1/2 z-0" />
+          <div className="absolute left-[20px] md:left-1/2 top-0 bottom-0 w-[1px] bg-[#E8E8E8] dark:bg-gray-700 md:-translate-x-1/2 z-0" />
 
           {/* Steps */}
           <div className="flex flex-col space-y-[60px] md:space-y-[85px] w-full relative z-10 pb-10">
@@ -291,10 +291,10 @@ const ProcessTimeline: React.FC = () => {
                   >
                     {!isRight && (
                       <div className="flex flex-col items-end text-right w-[465px]">
-                        <h3 className="text-[18px] font-medium text-[#111111] mb-1.5 leading-[1.3] transition-transform duration-700 ease-out group-hover:-translate-y-1">
+                        <h3 className="text-[18px] font-medium text-[#111111] dark:text-gray-100 mb-1.5 leading-[1.3] transition-transform duration-700 ease-out group-hover:-translate-y-1">
                           {step.title}
                         </h3>
-                        <p className="text-[14px] text-[#777777] leading-[1.45] mb-3">
+                        <p className="text-[14px] text-[#777777] dark:text-gray-400 leading-[1.45] mb-3">
                           {step.description}
                         </p>
                         <div className="flex flex-wrap justify-start gap-x-2 gap-y-1.5">
@@ -482,10 +482,10 @@ const ProcessTimeline: React.FC = () => {
 
                   {/* CENTER ICON NODE */}
                   <div className="absolute left-[20px] md:left-1/2 -translate-x-1/2 flex flex-col items-center">
-                    <div className="w-[30px] h-[30px] flex items-center justify-center bg-[rgba(255,255,255,0.95)] border border-[#EEEEEE] rounded-[3px] shadow-[0_1px_5px_rgba(0,0,0,0.03)] z-10 transition-transform duration-500 group-hover:scale-105">
+                    <div className="w-[30px] h-[30px] flex items-center justify-center bg-[rgba(255,255,255,0.95)] dark:bg-[rgba(30,30,30,0.95)] border border-[#EEEEEE] dark:border-gray-700 rounded-[3px] shadow-[0_1px_5px_rgba(0,0,0,0.03)] dark:shadow-[0_1px_5px_rgba(0,0,0,0.3)] z-10 transition-transform duration-500 group-hover:scale-105 transition-colors duration-300">
                       <Icon size={18} strokeWidth={1.5} />
                     </div>
-                    <span className="text-[12px] text-[#999999] tracking-[0.05em] mt-1.5 uppercase font-medium">
+                    <span className="text-[12px] text-[#999999] dark:text-gray-500 tracking-[0.05em] mt-1.5 uppercase font-medium">
                       {step.number}
                     </span>
                   </div>
@@ -501,10 +501,10 @@ const ProcessTimeline: React.FC = () => {
                     <div
                       className={`flex flex-col items-start text-left w-full max-w-[465px] ${!isRight ? "block md:hidden" : ""}`}
                     >
-                      <h3 className="text-[16px] font-medium text-[#111111] mb-1.5 leading-[1.3] transition-transform duration-700 ease-out group-hover:-translate-y-1">
+                      <h3 className="text-[16px] font-medium text-[#111111] dark:text-gray-100 mb-1.5 leading-[1.3] transition-transform duration-700 ease-out group-hover:-translate-y-1">
                         {step.title}
                       </h3>
-                      <p className="text-[14px] text-[#777777] leading-[1.45] mb-3">
+                      <p className="text-[14px] text-[#777777] dark:text-gray-400 leading-[1.45] mb-3">
                         {step.description}
                       </p>
                       <div className="flex flex-wrap justify-start gap-x-2 gap-y-1.5">

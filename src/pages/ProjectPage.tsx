@@ -233,7 +233,7 @@ export default function ProjectsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAFAFA] text-[#111111] overflow-hidden selection:bg-[#111] selection:text-white mt-20">
+    <div className="min-h-screen bg-[#FAFAFA] dark:bg-[#0A0A0A] text-[#111111] dark:text-white overflow-hidden selection:bg-[#111] selection:text-white mt-20 transition-colors duration-300">
       {/* 1. HERO SECTION (Untouched) */}
       <main className="max-w-[1440px] mx-auto pt-16 pb-10 flex flex-col items-center text-center relative px-4">
         {/* Top Pill Badge */}
@@ -256,7 +256,7 @@ export default function ProjectsPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-6xl md:text-7xl font-[400] leading-[1.05] tracking-tight max-w-6xl mb-6 relative z-10"
+          className="text-6xl md:text-7xl font-[400] leading-[1.05] tracking-tight max-w-6xl mb-6 relative z-10 text-gray-900 dark:text-white"
         >
           Crafting digital products with 
           <br className="hidden md:block" />coffee & code.
@@ -269,7 +269,7 @@ export default function ProjectsPage() {
           transition={{ delay: 0.8 }}
           className="absolute right-[10%] md:right-[15%] top-[54%] hidden lg:flex flex-col items-center transform rotate-6"
         >
-          <span className="font-['Caveat',_cursive] text-2xl text-[#333] mb-2 transform -rotate-12">
+          <span className="font-['Caveat',_cursive] text-2xl text-[#333] dark:text-gray-300 mb-2 transform -rotate-12">
             Explore the Projects
           </span>
           <svg
@@ -281,13 +281,15 @@ export default function ProjectsPage() {
             <path
               d="M20,20 Q80,20 80,80"
               fill="none"
-              stroke="#333"
+              stroke="currentColor"
+              className="text-[#333] dark:text-gray-300"
               strokeWidth="2"
             />
             <path
               d="M70,80 L80,80 L80,70"
               fill="none"
-              stroke="#333"
+              stroke="currentColor"
+              className="text-[#333] dark:text-gray-300"
               strokeWidth="2"
             />
           </svg>
@@ -298,7 +300,7 @@ export default function ProjectsPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-[17px] md:text-[19px] text-[#6B6B6B] font-ligth leading-relaxed max-w-2xl mb-16 relative z-10"
+          className="text-[17px] md:text-[19px] text-[#6B6B6B] dark:text-gray-400 font-ligth leading-relaxed max-w-2xl mb-16 relative z-10"
         >
           An archive of my professional software engineering engagements,
           open-source contributions, and experimental side projects.
@@ -308,7 +310,7 @@ export default function ProjectsPage() {
       {/* 2. CONTROLS SECTION */}
       <section className="max-w-[1440px] mx-auto px-6 mb-12">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="flex items-center p-1 bg-white border border-[#E5E5E5] rounded-full shadow-sm w-full md:w-max">
+          <div className="flex items-center p-1 bg-white dark:bg-neutral-900 border border-[#E5E5E5] dark:border-gray-700 rounded-full shadow-sm w-full md:w-max">
             {[
               { label: "All Projects", key: "All", count: counts.All },
               {
@@ -323,8 +325,8 @@ export default function ProjectsPage() {
                 onClick={() => setFilter(tab.key)}
                 className={`flex items-center gap-1.5 px-6 py-2.5 rounded-full text-[14px] font-medium transition-all duration-300 w-full justify-center md:w-auto ${
                   filter === tab.key
-                    ? "bg-[#111] text-white shadow-md"
-                    : "text-[#444] hover:bg-gray-50"
+                    ? "bg-[#111] dark:bg-white text-white dark:text-[#111] shadow-md"
+                    : "text-[#444] dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800"
                 }`}
               >
                 {tab.label}{" "}
@@ -334,23 +336,23 @@ export default function ProjectsPage() {
           </div>
 
           <div className="flex items-center gap-4 w-full md:w-auto justify-between md:justify-end">
-            <div className="flex items-center gap-2 text-[14px] text-[#555]">
+            <div className="flex items-center gap-2 text-[14px] text-[#555] dark:text-gray-400">
               <span>Sort by:</span>
-              <div className="flex items-center gap-1 font-semibold text-[#111] cursor-pointer hover:opacity-70">
+              <div className="flex items-center gap-1 font-semibold text-[#111] dark:text-white cursor-pointer hover:opacity-70">
                 Newest <ChevronDown size={16} strokeWidth={2.5} />
               </div>
             </div>
 
-            <div className="flex items-center p-1 bg-white border border-[#E5E5E5] rounded-lg shadow-sm">
+            <div className="flex items-center p-1 bg-white dark:bg-neutral-900 border border-[#E5E5E5] dark:border-gray-700 rounded-lg shadow-sm">
               <button
                 onClick={() => setView("grid")}
-                className={`p-2 rounded-md transition-all ${view === "grid" ? "bg-[#111] text-white" : "text-[#666] hover:bg-gray-100"}`}
+                className={`p-2 rounded-md transition-all ${view === "grid" ? "bg-[#111] dark:bg-white text-white dark:text-[#111]" : "text-[#666] dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"}`}
               >
                 <Grid size={18} strokeWidth={2} />
               </button>
               <button
                 onClick={() => setView("list")}
-                className={`p-2 rounded-md transition-all ${view === "list" ? "bg-[#111] text-white" : "text-[#666] hover:bg-gray-100"}`}
+                className={`p-2 rounded-md transition-all ${view === "list" ? "bg-[#111] dark:bg-white text-white dark:text-[#111]" : "text-[#666] dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"}`}
               >
                 <List size={18} strokeWidth={2} />
               </button>
@@ -391,7 +393,7 @@ function ProjectCard({ project, view }: any) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.95 }}
       transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-      className={`group bg-white rounded-[24px] border border-[#E5E5E5] overflow-hidden transition-all duration-300 hover:shadow-xl hover:border-[#D0D0D0] flex ${
+      className={`group bg-white dark:bg-neutral-900 rounded-[24px] border border-[#E5E5E5] dark:border-gray-700 overflow-hidden transition-all duration-300 hover:shadow-xl hover:border-[#D0D0D0] dark:hover:border-gray-600 flex ${
         isGrid ? "flex-col h-full" : "flex-col md:flex-row"
       }`}
     >
@@ -428,11 +430,11 @@ function ProjectCard({ project, view }: any) {
       {/* 2. BOTTOM CONTENT */}
       <div className="p-6 lg:p-8 flex flex-col flex-1">
         <div>
-          <h3 className="font-bold text-[#111] text-[19px] lg:text-[21px] leading-snug mb-3 pr-4">
+          <h3 className="font-bold text-[#111] dark:text-white text-[19px] lg:text-[21px] leading-snug mb-3 pr-4">
             {project.title}
           </h3>
 
-          <p className="text-[#555] text-[14px] leading-[1.65] mb-6">
+          <p className="text-[#555] dark:text-gray-400 text-[14px] leading-[1.65] mb-6">
             {project.description}
           </p>
 
@@ -441,7 +443,7 @@ function ProjectCard({ project, view }: any) {
             {project.stack.map((tech: any) => (
               <span
                 key={tech}
-                className="text-[11px] font-medium text-[#444] px-3.5 py-1.5 rounded-full border border-[#E5E5E5] bg-transparent hover:bg-gray-50 transition-colors cursor-default"
+                className="text-[11px] font-medium text-[#444] dark:text-gray-300 px-3.5 py-1.5 rounded-full border border-[#E5E5E5] dark:border-gray-700 bg-transparent hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors cursor-default"
               >
                 {tech}
               </span>
@@ -455,7 +457,7 @@ function ProjectCard({ project, view }: any) {
             {project.demoLink && (
               <a
                 href={project.demoLink}
-                className="bg-[#111] text-white px-4 py-2.5 rounded-full text-[13px] font-semibold flex items-center gap-2 hover:bg-gray-800 transition-colors"
+                className="bg-[#111] dark:bg-white text-white dark:text-[#111] px-4 py-2.5 rounded-full text-[13px] font-semibold flex items-center gap-2 hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
               >
                 Live demo <ExternalLink size={15} />
               </a>
@@ -464,14 +466,14 @@ function ProjectCard({ project, view }: any) {
             {project.codeLink && (
               <a
                 href={project.codeLink}
-                className="bg-white border border-[#E5E5E5] text-[#111] px-4 py-2.5 rounded-full text-[13px] font-semibold flex items-center gap-2 hover:bg-gray-50 transition-colors"
+                className="bg-white dark:bg-neutral-800 border border-[#E5E5E5] dark:border-gray-700 text-[#111] dark:text-white px-4 py-2.5 rounded-full text-[13px] font-semibold flex items-center gap-2 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
               >
                 <Github size={15} /> Code
               </a>
             )}
           </div>
 
-          <div className="w-8 h-8 flex items-center justify-center text-gray-400 group-hover:text-black transition-colors transform group-hover:translate-x-1 group-hover:-translate-y-1">
+          <div className="w-8 h-8 flex items-center justify-center text-gray-400 dark:text-gray-500 group-hover:text-black dark:group-hover:text-white transition-colors transform group-hover:translate-x-1 group-hover:-translate-y-1">
             <ArrowUpRight size={20} strokeWidth={2.5} />
           </div>
         </div>

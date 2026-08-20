@@ -159,7 +159,7 @@ const Ticker: React.FC = () => {
 
   // A simple minimalist dot separator matching the reference image exactly
   const Separator = () => (
-    <span className="w-1 md:w-1.5 h-1 md:h-1.5 rounded-full bg-gray-300 mx-6 md:mx-10 shrink-0"></span>
+    <span className="w-1 md:w-1.5 h-1 md:h-1.5 rounded-full bg-gray-300 dark:bg-gray-600 mx-6 md:mx-10 shrink-0"></span>
   );
 
   return (

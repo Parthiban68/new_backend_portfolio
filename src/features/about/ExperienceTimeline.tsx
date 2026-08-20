@@ -832,7 +832,7 @@ export default function Experience() {
   }, [activeExp]);
 
   return (
-    <section className="w-full bg-[#fcfcfd] text-primary dark:bg-black pb-24 pt-5 px-6 md:px-12 lg:px-24 border-black/5" id="experience">
+    <section className="w-full bg-[#fcfcfd] text-primary dark:bg-black dark:text-white pb-24 pt-5 px-6 md:px-12 lg:px-24 border-black/5 dark:border-white/5 transition-colors duration-300" id="experience">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <motion.div 
@@ -842,13 +842,13 @@ export default function Experience() {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="mb-16 md:mb-24"
         >
-          <span className="text-[11px] font-bold tracking-[0.2em] text-secondary uppercase mb-4 block">
+          <span className="text-[11px] font-bold tracking-[0.2em] text-secondary dark:text-gray-400 uppercase mb-4 block">
             Experience
           </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter text-primary mb-6">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter text-primary dark:text-white mb-6">
             Engineering Journey
           </h2>
-          <p className="text-lg text-secondary leading-relaxed max-w-2xl font-light">
+          <p className="text-lg text-secondary dark:text-gray-400 leading-relaxed max-w-2xl font-light">
             From backend development to enterprise system architecture, my experience has been shaped by building financial systems, APIs, integrations, and scalable SaaS infrastructure.
           </p>
         </motion.div>
@@ -865,13 +865,13 @@ export default function Experience() {
             className="w-full lg:w-[30%] lg:sticky lg:top-28 flex flex-col gap-6"
           >
 
-            <div className="bg-white border border-black/5 rounded-2xl p-6 md:p-8 shadow-sm">
+            <div className="bg-white dark:bg-neutral-900 border border-black/5 dark:border-white/10 rounded-2xl p-6 md:p-8 shadow-sm">
             {experiences.map((exp) => {
               const isActive = activeId === exp.id;
               return (
                 <div
                   key={exp.id}
-                  className={`relative w-full text-left  py-4 transition-all duration-300 group focus:outline-none flex justify-between items-center bg-white`}
+                  className={`relative w-full text-left  py-4 transition-all duration-300 group focus:outline-none flex justify-between items-center bg-white dark:bg-neutral-900`}
                 >
                   {isActive && (
                     <motion.div 
@@ -882,13 +882,13 @@ export default function Experience() {
                   )}
                   
                   <div className="flex flex-col">
-                    <span className={`text-[11px] font-mono mb-1 ${isActive ? 'text-primary' : 'text-secondary/50'}`}>
+                    <span className={`text-[11px] font-mono mb-1 ${isActive ? 'text-primary dark:text-white' : 'text-secondary/50 dark:text-gray-500'}`}>
                       {exp.index}
                     </span>
-                    <span className={`font-medium tracking-tight mb-1 transition-colors ${isActive ? 'text-primary text-[17px]' : 'text-secondary text-base group-hover:text-primary'}`}>
+                    <span className={`font-medium tracking-tight mb-1 transition-colors ${isActive ? 'text-primary dark:text-white text-[17px]' : 'text-secondary dark:text-gray-300 text-base group-hover:text-primary dark:group-hover:text-white'}`}>
                       {exp.company}
                     </span>
-                    <span className={`text-[13px] ${isActive ? 'text-secondary' : 'text-secondary/60'}`}>
+                    <span className={`text-[13px] ${isActive ? 'text-secondary dark:text-gray-300' : 'text-secondary/60 dark:text-gray-500'}`}>
                       {/* {exp.designation} */}
                       {exp.startDate} — {exp.endDate}
                     </span>
@@ -896,13 +896,13 @@ export default function Experience() {
                 </div>
               );
             })}
-              <h4 className="text-[11px] font-bold tracking-[0.2em] text-secondary uppercase mb-8">
+              <h4 className="text-[11px] font-bold tracking-[0.2em] text-secondary dark:text-gray-400 uppercase mb-8">
                 Projects Timeline
               </h4>
               
               <div className="relative ml-2">
                 {/* Background Line */}
-                <div className="absolute left-[4px] top-2 bottom-2 w-[2px] bg-black/5 rounded-full" />
+                <div className="absolute left-[4px] top-2 bottom-2 w-[2px] bg-black/5 dark:bg-white/10 rounded-full" />
                 
                 {/* Scroll-linked Animated Progress Line */}
                 <motion.div 
@@ -930,16 +930,16 @@ export default function Experience() {
                           className={`absolute left-[-1px] top-1.5 w-3 h-3 rounded-full border-[2.5px] transition-all duration-500 z-10 ${
                             isActive 
                               ? 'border-blue-600 bg-blue-600 scale-[1.3]' 
-                              : 'bg-white border-black/15 group-hover:border-blue-400'
+                              : 'bg-white dark:bg-neutral-900 border-black/15 dark:border-white/20 group-hover:border-blue-400'
                           }`} 
                         />
                         
                         <span className={`block text-[15px] font-medium mb-1 transition-colors duration-300 ${
-                          isActive ? 'text-blue-600' : 'text-primary group-hover:text-blue-500'
+                          isActive ? 'text-blue-600' : 'text-primary dark:text-gray-200 group-hover:text-blue-500'
                         }`}>
                           {project.title}
                         </span>
-                        <span className="block text-[12px] text-secondary/70 leading-snug line-clamp-1">
+                        <span className="block text-[12px] text-secondary/70 dark:text-gray-500 leading-snug line-clamp-1">
                           {project.subtitle}
                         </span>
                       </a>
@@ -963,11 +963,11 @@ export default function Experience() {
                   className="flex flex-col gap-12 md:gap-16"
                 >
                   {/* Detail Header */}
-                  <motion.div variants={fadeUpVariant} className="pb-8 border-b border-black/5">
-                    <h3 className="text-2xl md:text-3xl font-medium tracking-tight text-primary mb-4">
+                  <motion.div variants={fadeUpVariant} className="pb-8 border-b border-black/5 dark:border-white/10">
+                    <h3 className="text-2xl md:text-3xl font-medium tracking-tight text-primary dark:text-white mb-4">
                       {activeExp.designation}
                     </h3>
-                    <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-secondary">
+                    <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-secondary dark:text-gray-400">
                       {/* <span className="font-medium text-primary">{activeExp.company}</span> */}
                       <span>•</span>
                       {/* <span>{activeExp.startDate} — {activeExp.endDate}</span> */}
@@ -976,7 +976,7 @@ export default function Experience() {
                       {activeExp.current && (
                         <>
                           <span>•</span>
-                          <span className="inline-flex items-center px-2.5 py-1 rounded-full border border-blue-200 bg-blue-50 text-[10px] font-bold text-blue-700 tracking-widest uppercase">
+                          <span className="inline-flex items-center px-2.5 py-1 rounded-full border border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-900/30 text-[10px] font-bold text-blue-700 dark:text-blue-300 tracking-widest uppercase">
                             Current
                           </span>
                         </>
@@ -986,8 +986,8 @@ export default function Experience() {
 
                   {/* Role */}
                   <motion.div variants={fadeUpVariant}>
-                    <h4 className="text-[11px] font-bold tracking-[0.2em] text-secondary uppercase mb-4">Role</h4>
-                    <p className="text-lg md:text-xl text-primary leading-relaxed font-light">
+                    <h4 className="text-[11px] font-bold tracking-[0.2em] text-secondary dark:text-gray-400 uppercase mb-4">Role</h4>
+                    <p className="text-lg md:text-xl text-primary dark:text-white leading-relaxed font-light">
                       {activeExp.role}
                     </p>
                   </motion.div>
@@ -999,11 +999,11 @@ export default function Experience() {
                     viewport={{ once: true, margin: "-50px" }}
                     transition={{ duration: 0.5 }}
                   >
-                    <h4 className="text-[11px] font-bold tracking-[0.2em] text-secondary uppercase mb-6">Responsibilities</h4>
+                    <h4 className="text-[11px] font-bold tracking-[0.2em] text-secondary dark:text-gray-400 uppercase mb-6">Responsibilities</h4>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8">
                       {activeExp.responsibilities.map((resp, i) => (
-                        <div key={i} className="flex items-center gap-3 text-[15px] text-secondary group/item hover:text-primary transition-colors">
-                          <span className="w-1.5 h-1.5 rounded-full bg-black/10 group-hover/item:bg-blue-500 transition-colors shrink-0" />
+                        <div key={i} className="flex items-center gap-3 text-[15px] text-secondary dark:text-gray-300 group/item hover:text-primary dark:hover:text-white transition-colors">
+                          <span className="w-1.5 h-1.5 rounded-full bg-black/10 dark:bg-white/20 group-hover/item:bg-blue-500 transition-colors shrink-0" />
                           <span>{resp}</span>
                         </div>
                       ))}
@@ -1016,7 +1016,7 @@ export default function Experience() {
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
                       viewport={{ once: true }}
-                      className="text-[11px] font-bold tracking-[0.2em] text-secondary uppercase mb-6"
+                      className="text-[11px] font-bold tracking-[0.2em] text-secondary dark:text-gray-400 uppercase mb-6"
                     >
                       Selected Projects
                     </motion.h4>
@@ -1029,39 +1029,39 @@ export default function Experience() {
                           whileInView={{ opacity: 1, y: 0 }}
                           viewport={{ once: true, margin: "-50px" }}
                           transition={{ duration: 0.5, delay: 0.1 }}
-                          className="group/panel border border-black/5 rounded-2xl p-6 md:p-8 bg-white hover:border-black/15 transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-md scroll-mt-32"
+                          className="group/panel border border-black/5 dark:border-white/10 rounded-2xl p-6 md:p-8 bg-white dark:bg-neutral-900 hover:border-black/15 dark:hover:border-white/20 transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-md scroll-mt-32"
                         >
                           <div className="mb-6">
-                            <h5 className="text-xl font-medium tracking-tight text-primary mb-1">
+                            <h5 className="text-xl font-medium tracking-tight text-primary dark:text-white mb-1">
                               {project.title}
                             </h5>
-                            <p className="text-sm text-secondary">
+                            <p className="text-sm text-secondary dark:text-gray-400">
                               {project.subtitle}
                             </p>
                           </div>
                           
-                          <p className="text-[15px] text-secondary leading-relaxed mb-8 max-w-3xl">
+                          <p className="text-[15px] text-secondary dark:text-gray-400 leading-relaxed mb-8 max-w-3xl">
                             {project.description}
                           </p>
 
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                             <div>
-                              <h6 className="text-[10px] font-bold uppercase tracking-wider text-secondary mb-3">Key Engineering Areas</h6>
+                              <h6 className="text-[10px] font-bold uppercase tracking-wider text-secondary dark:text-gray-400 mb-3">Key Engineering Areas</h6>
                               <ul className="flex flex-col gap-2">
                                 {project.areas.map((area, j) => (
-                                  <li key={j} className="text-[13px] text-secondary flex items-start gap-2">
-                                    <span className="mt-1.5 w-1 h-1 rounded-full bg-black/20 shrink-0" />
+                                  <li key={j} className="text-[13px] text-secondary dark:text-gray-400 flex items-start gap-2">
+                                    <span className="mt-1.5 w-1 h-1 rounded-full bg-black/20 dark:bg-white/20 shrink-0" />
                                     {area}
                                   </li>
                                 ))}
                               </ul>
                             </div>
                             <div>
-                              <h6 className="text-[10px] font-bold uppercase tracking-wider text-secondary mb-3">Engineering Impact</h6>
+                              <h6 className="text-[10px] font-bold uppercase tracking-wider text-secondary dark:text-gray-400 mb-3">Engineering Impact</h6>
                               <ul className="flex flex-col gap-2">
                                 {project.impact.map((imp, j) => (
-                                  <li key={j} className="text-[13px] text-secondary flex items-start gap-2">
-                                    <span className="mt-1.5 w-1 h-1 rounded-full bg-black/20 shrink-0" />
+                                  <li key={j} className="text-[13px] text-secondary dark:text-gray-400 flex items-start gap-2">
+                                    <span className="mt-1.5 w-1 h-1 rounded-full bg-black/20 dark:bg-white/20 shrink-0" />
                                     {imp}
                                   </li>
                                 ))}
@@ -1070,10 +1070,10 @@ export default function Experience() {
                           </div>
 
                           <div>
-                            <h6 className="text-[10px] font-bold uppercase tracking-wider text-secondary mb-3">Technology</h6>
+                            <h6 className="text-[10px] font-bold uppercase tracking-wider text-secondary dark:text-gray-400 mb-3">Technology</h6>
                             <div className="flex flex-wrap gap-2">
                               {project.technologies.map((tech, j) => (
-                                <span key={j} className="px-2.5 py-1 text-[11px] font-medium border border-black/5 bg-black/[0.02] text-secondary rounded-md">
+                                <span key={j} className="px-2.5 py-1 text-[11px] font-medium border border-black/5 dark:border-white/10 bg-black/[0.02] dark:bg-white/[0.05] text-secondary dark:text-gray-300 rounded-md">
                                   {tech}
                                 </span>
                               ))}
@@ -1091,16 +1091,16 @@ export default function Experience() {
                     viewport={{ once: true, margin: "-50px" }}
                     transition={{ duration: 0.5 }}
                   >
-                    <h4 className="text-[11px] font-bold tracking-[0.2em] text-secondary uppercase mb-6">Engineering Stack</h4>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 p-6 md:p-8 bg-white border border-black/5 rounded-2xl">
+                    <h4 className="text-[11px] font-bold tracking-[0.2em] text-secondary dark:text-gray-400 uppercase mb-6">Engineering Stack</h4>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 p-6 md:p-8 bg-white dark:bg-neutral-900 border border-black/5 dark:border-white/10 rounded-2xl">
                       {activeExp.technologies.map((techGroup, i) => (
                         <div key={i} className="flex flex-col">
-                          <h5 className="text-[12px] uppercase tracking-wider font-semibold text-primary mb-3">
+                          <h5 className="text-[12px] uppercase tracking-wider font-semibold text-primary dark:text-white mb-3">
                             {techGroup.category}
                           </h5>
                           <div className="flex flex-col gap-1.5">
                             {techGroup.items.map((item, j) => (
-                              <span key={j} className="text-[14px] text-secondary">
+                              <span key={j} className="text-[14px] text-secondary dark:text-gray-400">
                                 {item}
                               </span>
                             ))}
@@ -1117,11 +1117,11 @@ export default function Experience() {
                     viewport={{ once: true, margin: "-50px" }}
                     transition={{ duration: 0.5 }}
                   >
-                    <h4 className="text-[11px] font-bold tracking-[0.2em] text-secondary uppercase mb-6">Core Engineering Impact</h4>
+                    <h4 className="text-[11px] font-bold tracking-[0.2em] text-secondary dark:text-gray-400 uppercase mb-6">Core Engineering Impact</h4>
                     <ul className="flex flex-col gap-3">
                       {activeExp.impact.map((imp, i) => (
-                        <li key={i} className="flex items-start gap-3 text-[15px] text-secondary">
-                          <ArrowRight strokeWidth={2} className="w-4 h-4 mt-0.5 shrink-0 text-black/20" />
+                        <li key={i} className="flex items-start gap-3 text-[15px] text-secondary dark:text-gray-300">
+                          <ArrowRight strokeWidth={2} className="w-4 h-4 mt-0.5 shrink-0 text-black/20 dark:text-white/20" />
                           <span>{imp}</span>
                         </li>
                       ))}

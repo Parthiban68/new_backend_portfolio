@@ -34,7 +34,7 @@ const GrabMyResume = () => {
   };
 
   return (
-    <div className="min-h-screen w-full bg-[#fdfdfd] flex items-center justify-center p-6 overflow-hidden relative">
+    <div className="min-h-screen w-full bg-[#fdfdfd] dark:bg-[#0A0A0A] flex items-center justify-center p-6 overflow-hidden relative transition-colors duration-300">
       {/* Subtle background lines/texture simulation */}
       <div
         className="absolute inset-0 opacity-[0.03] pointer-events-none"
@@ -48,18 +48,18 @@ const GrabMyResume = () => {
         {/* Left Side: Stacked Resumes */}
         <div className="relative w-full max-w-[400px] aspect-[1/1.4] mx-auto hidden md:block">
           {/* Bottom Layer */}
-          <div className="absolute inset-0 bg-white shadow-xl rounded-sm border border-gray-100 transform -rotate-6 origin-bottom-left transition-transform duration-500 hover:-rotate-12"></div>
+          <div className="absolute inset-0 bg-white dark:bg-neutral-900 shadow-xl rounded-sm border border-gray-100 dark:border-gray-800 transform -rotate-6 origin-bottom-left transition-transform duration-500 hover:-rotate-12"></div>
           {/* Middle Layer */}
-          <div className="absolute inset-0 bg-white shadow-xl rounded-sm border border-gray-100 transform -rotate-2 origin-bottom-left transition-transform duration-500 hover:-rotate-4 p-8">
-            <div className="w-1/2 h-4 bg-gray-100 mb-6 rounded-full"></div>
-            <div className="w-full h-2 bg-gray-50 mb-3 rounded-full"></div>
-            <div className="w-5/6 h-2 bg-gray-50 mb-3 rounded-full"></div>
-            <div className="w-4/6 h-2 bg-gray-50 mb-10 rounded-full"></div>
+          <div className="absolute inset-0 bg-white dark:bg-neutral-900 shadow-xl rounded-sm border border-gray-100 dark:border-gray-800 transform -rotate-2 origin-bottom-left transition-transform duration-500 hover:-rotate-4 p-8">
+            <div className="w-1/2 h-4 bg-gray-100 dark:bg-gray-800 mb-6 rounded-full"></div>
+            <div className="w-full h-2 bg-gray-50 dark:bg-gray-800 mb-3 rounded-full"></div>
+            <div className="w-5/6 h-2 bg-gray-50 dark:bg-gray-800 mb-3 rounded-full"></div>
+            <div className="w-4/6 h-2 bg-gray-50 dark:bg-gray-800 mb-10 rounded-full"></div>
           </div>
           {/* Top Layer */}
-          <div className="absolute inset-0 bg-[#fdfdfd] shadow-2xl rounded-sm border border-white/20 transform rotate-3 origin-bottom-right transition-transform duration-500 hover:rotate-6 overflow-hidden flex flex-col p-4 md:p-5">
+          <div className="absolute inset-0 bg-[#fdfdfd] dark:bg-neutral-800 shadow-2xl rounded-sm border border-white/20 dark:border-gray-700 transform rotate-3 origin-bottom-right transition-transform duration-500 hover:rotate-6 overflow-hidden flex flex-col p-4 md:p-5">
             {/* Subtle top glare */}
-            <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-white/60 to-transparent pointer-events-none z-10"></div>
+            <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-white/60 dark:from-neutral-800/60 to-transparent pointer-events-none z-10"></div>
 
             <div className="w-full h-full flex flex-col gap-3 relative z-0">
               {/* Mini Header Section */}
@@ -152,11 +152,11 @@ const GrabMyResume = () => {
 
         {/* Right Side: Content */}
         <div className="flex flex-col items-start justify-center max-w-lg">
-          <FileText className="w-10 h-10 text-gray-300 mb-6" strokeWidth={1} />
-          <h1 className="text-5xl md:text-6xl font-medium tracking-tight text-gray-900 mb-6">
+          <FileText className="w-10 h-10 text-gray-300 dark:text-gray-600 mb-6" strokeWidth={1} />
+          <h1 className="text-5xl md:text-6xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-6">
             Grab my resume!
           </h1>
-          <p className="text-lg text-gray-600 mb-10 leading-relaxed">
+          <p className="text-lg text-gray-600 dark:text-gray-400 mb-10 leading-relaxed">
             A compact view of my scalable backend architecture, infrastructure
             health management, database optimization, tools, and the projects
             I'm building next.
@@ -165,14 +165,14 @@ const GrabMyResume = () => {
           <div className="flex flex-wrap items-center gap-4">
             <NavLink
               to={"/projects"}
-              className="flex items-center gap-2 px-6 py-3.5 rounded-full border border-gray-200 text-gray-700 font-medium hover:bg-gray-50 transition-colors"
+              className="flex items-center gap-2 px-6 py-3.5 rounded-full border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
             >
               Explore Projects
-              <ArrowUpRight className="w-4 h-4 text-gray-400" />
+              <ArrowUpRight className="w-4 h-4 text-gray-400 dark:text-gray-500" />
             </NavLink>
             <button
               onClick={handleDownload}
-              className="flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#0a0a0a] text-white font-medium hover:bg-black transition-colors shadow-lg shadow-black/10"
+              className="flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#0a0a0a] dark:bg-white text-white dark:text-[#0a0a0a] font-medium hover:bg-black dark:hover:bg-gray-200 transition-colors shadow-lg shadow-black/10"
             >
               Download Me
               <ArrowRight className="w-4 h-4" />
