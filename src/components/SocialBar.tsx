@@ -2,7 +2,7 @@ import React from "react";
 
 const SocialBar: React.FC = () => {
   return (
-    <div className="max-w-7xl mx-auto px-6 py-12 flex flex-wrap justify-between items-center text-xs font-bold uppercase tracking-widest text-gray-500 border-b border-gray-100">
+    <div className="max-w-7xl mx-auto px-6 py-12 flex flex-wrap justify-between items-center text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400 border-b border-gray-100 dark:border-gray-800 transition-colors duration-300">
       <div className="flex space-x-8">
         <a
           href="https://www.linkedin.com/in/m-parthiban"
@@ -21,7 +21,7 @@ const SocialBar: React.FC = () => {
       </div>
 
       <div className="flex items-center space-x-2 group cursor-pointer">
-        <span className="text-gray-400">Email:</span>
+        <span className="text-gray-400 dark:text-gray-500">Email:</span>
         <span className="text-black dark:text-white border-b border-transparent group-hover:border-black dark:group-hover:border-white transition-all">
           PARTHIBANM1268@GMAIL.COM
         </span>

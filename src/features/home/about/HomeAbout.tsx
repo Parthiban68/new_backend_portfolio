@@ -5,7 +5,7 @@ const HomeAbout = () => {
   return (
     <section className="bg-[#fcfcfd] dark:bg-gray-950 transition-colors duration-300">
       {/* Main Container */}
-      <div className="max-w-full w-full relative z-10 bg-white/60 dark:bg-neutral-950 p-16 flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
+        <div className="max-w-full w-full relative z-10 bg-white/60 dark:bg-neutral-900/60 p-16 flex flex-col lg:flex-row gap-16 lg:gap-24 items-center transition-colors duration-300">
         {/* Left Column */}
         <div className="w-full lg:w-1/8 flex flex-col justify-center">
           <div className="flex items-center gap-3 mb-6">
