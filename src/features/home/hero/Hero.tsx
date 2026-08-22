@@ -9,7 +9,7 @@ export default function Hero() {
       // Locked to h-screen to perfectly fit the viewport.
       // Overflow-hidden ensures background elements don't create unwanted scrollbars.
       // UPDATED: Replaced 'bg-bg-base' with explicit light/dark mode background and text colors
-      className="relative h-screen flex mt-10 flex-col justify-center pt-24 md:pt-32 pb-12 md:pb-20 w-full max-w-full mx-auto overflow-hidden transition-colors duration-300 bg-white dark:bg-neutral-950 text-zinc-900 dark:text-zinc-50"
+      className="relative min-h-screen sm:h-screen flex mt-10 flex-col justify-center pt-24 md:pt-32 pb-12 md:pb-20 w-full max-w-full mx-auto overflow-hidden transition-colors duration-300 bg-white dark:bg-neutral-950 text-zinc-900 dark:text-zinc-50"
     >
       {/* Static Background - Removed scroll-linked y transform */}
       <div className="absolute inset-0 z-0">

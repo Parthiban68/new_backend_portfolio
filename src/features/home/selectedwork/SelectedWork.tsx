@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function SelectedWork() {
   return (
-    <div className="min-h-screen bg-[#FFFFFF] dark:bg-gray-950 text-slate-800 p-8 overflow-hidden">
+    <div className="min-h-screen bg-[#FFFFFF] dark:bg-gray-950 text-slate-800 p-5 sm:p-8 overflow-hidden">
       {/* Top Navigation */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
@@ -28,11 +28,11 @@ export default function SelectedWork() {
             </div>
           </div>
           <div className="text-center mb-20">
-            <h2 className="text-5xl md:text-5xl font-normal whitespace-nowrap text-gray-950 dark:text-white leading-[1.05] tracking-tight">
+            <h2 className="text-3xl sm:text-5xl font-normal whitespace-normal sm:whitespace-nowrap text-gray-950 dark:text-white leading-[1.05] tracking-tight">
               Things I've built.
             </h2>
-            <div className="w-[900px] mx-auto">
-              <p className="text-2xl md:text-2xl text-[#777777] dark:text-gray-400 font-light mt-2">
+            <div className="w-full max-w-[900px] mx-auto px-2">
+              <p className="text-lg sm:text-2xl md:text-2xl text-[#777777] dark:text-gray-400 font-light mt-2">
                 From production systems to independent experiments — a selection
                 of work shaped by product thinking, engineering, and attention
                 to detail.
@@ -44,7 +44,7 @@ export default function SelectedWork() {
 
       <div className="max-w-[1440px] mx-auto">
         {/* Top Section: Intro & CFO360 */}
-        <div className="w-full lg:w-full flex flex-col xl:flex-row px-10 pb-10">
+        <div className="w-full lg:w-full flex flex-col xl:flex-row px-2 sm:px-6 xl:px-10 pb-10">
           {/* Project Details */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -415,7 +415,7 @@ export default function SelectedWork() {
             </div>
 
             {/* Bottom Metadata Badges */}
-            <div className="absolute -bottom-20 right-0 flex gap-6 text-[11px] font-medium text-slate-600 hidden md:flex">
+            <div className="absolute -bottom-20 right-0 hidden md:flex gap-6 text-[11px] font-medium text-slate-600">
               <div className="flex items-center gap-2">
                 <svg
                   className="w-5 h-5 text-indigo-500"

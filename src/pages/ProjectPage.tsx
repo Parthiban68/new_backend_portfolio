@@ -310,7 +310,7 @@ export default function ProjectsPage() {
       {/* 2. CONTROLS SECTION */}
       <section className="max-w-[1440px] mx-auto px-6 mb-12">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="flex items-center p-1 bg-white dark:bg-neutral-900 border border-[#E5E5E5] dark:border-gray-700 rounded-full shadow-sm w-full md:w-max">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center p-1 bg-white dark:bg-neutral-900 border border-[#E5E5E5] dark:border-gray-700 rounded-2xl sm:rounded-full shadow-sm w-full sm:w-max">
             {[
               { label: "All Projects", key: "All", count: counts.All },
               {
@@ -323,7 +323,7 @@ export default function ProjectsPage() {
               <button
                 key={tab.key}
                 onClick={() => setFilter(tab.key)}
-                className={`flex items-center gap-1.5 px-6 py-2.5 rounded-full text-[14px] font-medium transition-all duration-300 w-full justify-center md:w-auto ${
+                className={`flex items-center gap-1.5 px-6 py-2 sm:py-2.5 rounded-xl sm:rounded-full text-[13px] sm:text-[14px] font-medium transition-all duration-300 w-full justify-center sm:w-auto ${
                   filter === tab.key
                     ? "bg-[#111] dark:bg-white text-white dark:text-[#111] shadow-md"
                     : "text-[#444] dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800"
