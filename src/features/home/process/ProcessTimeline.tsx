@@ -258,11 +258,11 @@ const ProcessTimeline: React.FC = () => {
               {/* THE WAY I WORK */}
             </span>
           </div>
-        <div className="text-center mb-20">
-          <h2 className="text-5xl md:text-5xl font-normal whitespace-nowrap text-gray-950 dark:text-white leading-[1.05] tracking-tight">
+        <div className="text-center mb-20 px-6 sm:px-0">
+          <h2 className="text-3xl sm:text-5xl font-normal whitespace-normal sm:whitespace-nowrap text-gray-950 dark:text-white leading-[1.05] tracking-tight">
            Ideas are only the beginning.
           </h2>
-          <p className="text-2xl md:text-3xl font-serif italic text-[#777777] dark:text-gray-400 font-light mt-2">
+          <p className="text-lg sm:text-2xl md:text-3xl font-serif italic text-[#777777] dark:text-gray-400 font-light mt-2">
             The interesting part is making them real.
           </p>
         </div>
@@ -290,7 +290,7 @@ const ProcessTimeline: React.FC = () => {
                     }`}
                   >
                     {!isRight && (
-                      <div className="flex flex-col items-end text-right w-[465px]">
+                      <div className="flex flex-col items-end text-right w-full max-w-[465px]">
                         <h3 className="text-[18px] font-medium text-[#111111] dark:text-gray-100 mb-1.5 leading-[1.3] transition-transform duration-700 ease-out group-hover:-translate-y-1">
                           {step.title}
                         </h3>

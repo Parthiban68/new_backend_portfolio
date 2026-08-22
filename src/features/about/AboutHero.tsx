@@ -817,7 +817,7 @@ export default function AboutHero() {
             {/* Engineering Interactive Diagram Backdrop (Behind Photo) */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
               <div className="w-[340px] h-[340px] rounded-full border border-dashed border-blue-500/20 dark:border-blue-500/30 animate-[spin_60s_linear_infinite]" />
-              <div className="absolute w-[420px] h-[420px] rounded-full border border-slate-200/50 dark:border-slate-700/50" />
+              <div className="absolute w-[340px] h-[340px] sm:w-[420px] sm:h-[420px] rounded-full border border-slate-200/50 dark:border-slate-700/50" />
             </div>
 
             {/* Floating Architecture Glass Cards (Top Right & Bottom Left) */}

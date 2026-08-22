@@ -90,7 +90,7 @@ export default function ContactSection() {
           {/* Main Heading: Stacked & Massive */}
           <motion.h2
             variants={itemVariants}
-            className="text-[56px] leading-[0.95] lg:text-[60px] lg:leading-[0.9] tracking-tighter font-semibold text-[#0A0A0A] dark:text-white mb-10"
+            className="text-[40px] sm:text-[56px] leading-[0.95] lg:text-[60px] lg:leading-[0.9] tracking-tighter font-semibold text-[#0A0A0A] dark:text-white mb-10"
           >
             Lets's Connect
           </motion.h2>
@@ -198,7 +198,7 @@ export default function ContactSection() {
           </div>
 
           {/* Badge 4: Central LinkedIn with Ripples */}
-          <div className="absolute top-[60%] left-[24%] -rotate-[4deg] z-20 cursor-pointer">
+          <div className="absolute top-[60%] left-[10%] sm:left-[24%] -rotate-[4deg] z-20 cursor-pointer">
             
             {/* Connecting Path */}
             <svg className="absolute -top-[55px] -right-[50px] w-32 h-32 pointer-events-none" style={{ transform: 'rotate(4deg)' }}>
@@ -247,11 +247,11 @@ export default function ContactSection() {
           </div>
 
           {/* Helper Texts */}
-          <div className="absolute top-[44%] right-[25%] z-0">
+          <div className="absolute top-[44%] right-[25%] hidden sm:block z-0">
             <span className="text-[10px] font-bold tracking-wider text-gray-600 dark:text-gray-400">CONNECT WITH ME →</span>
           </div>
 
-          <div className="absolute bottom-[25%] left-[8%] z-0">
+          <div className="absolute bottom-[25%] left-[4%] sm:left-[8%] z-0">
             <span className="text-[10px] font-bold tracking-wider text-gray-600 dark:text-gray-400">PICK A WAY TO CONNECT →</span>
           </div>
 
