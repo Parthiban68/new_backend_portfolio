@@ -45,7 +45,7 @@ export default function Page({ reduced = false }) {
         </motion.div>
 
         {/* Main Heading */}
-        <h2 className="mt-8 max-w-[22ch] text-7xl font-normal leading-[0.95] tracking-[-0.045em] text-[#111] dark:text-neutral-50 md:mt-10">
+        <h2 className="mt-8 max-w-[22ch] text-4xl sm:text-6xl md:text-7xl font-normal leading-[0.95] tracking-[-0.045em] text-[#111] dark:text-neutral-50 md:mt-10">
           <RevealLine delay={0.1}>
             Let's turn complex ideas into
           </RevealLine>{" "}
@@ -75,7 +75,7 @@ export default function Page({ reduced = false }) {
           className="mt-12 flex flex-col items-center gap-5 md:mt-16"
         >
           {/* Social Connect Pill */}
-          <div className="flex items-center justify-between gap-6 rounded-2xl border border-gray-200 bg-white p-2 pl-6 pr-2 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] dark:border-neutral-800 dark:bg-neutral-900 md:gap-12">
+          <div className="flex items-center justify-between gap-4 sm:gap-6 rounded-2xl border border-gray-200 bg-white p-2 pl-4 pr-2 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] dark:border-neutral-800 dark:bg-neutral-900 md:gap-12 sm:pl-6">
             {/* Left Side: Label */}
             <div className="flex items-center gap-3">
               <svg
@@ -104,7 +104,7 @@ export default function Page({ reduced = false }) {
             </div>
 
             {/* Right Side: Social Icons */}
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1.5 sm:gap-2">
               <a
                 href="https://instagram.com"
                 target="_blank"
@@ -240,7 +240,7 @@ export default function Page({ reduced = false }) {
       {/* --- CONTACT SECTION --- */}
       <section
         id="contact-section"
-        className="mx-auto max-w-full px-20 py-12"
+        className="mx-auto max-w-full px-5 sm:px-10 lg:px-20 py-12"
       >
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-24">
           {/* Left Column: Info */}

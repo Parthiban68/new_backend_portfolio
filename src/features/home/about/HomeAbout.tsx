@@ -5,7 +5,7 @@ const HomeAbout = () => {
   return (
     <section className="bg-[#fcfcfd] dark:bg-gray-950 transition-colors duration-300">
       {/* Main Container */}
-        <div className="max-w-full w-full relative z-10 bg-white/60 dark:bg-neutral-900/60 p-16 flex flex-col lg:flex-row gap-16 lg:gap-24 items-center transition-colors duration-300">
+        <div className="max-w-full w-full relative z-10 bg-white/60 dark:bg-neutral-900/60 p-6 sm:p-10 lg:p-16 flex flex-col lg:flex-row gap-12 sm:gap-16 lg:gap-24 items-center transition-colors duration-300">
         {/* Left Column */}
         <div className="w-full lg:w-1/8 flex flex-col justify-center">
           <div className="flex items-center gap-3 mb-6">
@@ -15,7 +15,7 @@ const HomeAbout = () => {
             </span>
           </div>
 
-          <h2 className="text-5xl md:text-5xl font-[400] whitespace-nowrap text-gray-950 dark:text-white leading-[1.05] mb-8 tracking-tight">
+          <h2 className="text-3xl sm:text-5xl md:text-5xl font-[400] whitespace-normal sm:whitespace-nowrap text-gray-950 dark:text-white leading-[1.05] mb-8 tracking-tight">
             Software Engineer.
           </h2>
 
@@ -58,41 +58,41 @@ const HomeAbout = () => {
 
         {/* Right Column */}
         <div className="w-full lg:w-1/2 flex items-center justify-center lg:justify-end">
-          <div className="flex items-center gap-10 md:gap-16 text-center">
+          <div className="flex items-center justify-between sm:justify-center w-full sm:w-auto gap-4 sm:gap-10 md:gap-16 text-center">
             {/* Experience */}
             <div className="flex flex-col items-center">
-              <h3 className="text-5xl md:text-6xl lg:text-7xl font-medium text-gray-950 dark:text-white mb-2.5 tracking-tight">
+              <h3 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-medium text-gray-950 dark:text-white mb-2.5 tracking-tight">
                 1.6+
               </h3>
-              <p className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-[0.2em] leading-tight">
+              <p className="text-[9px] sm:text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-[0.2em] leading-tight">
                 YEARS OF
                 <br />
                 EXPERIENCE
               </p>
             </div>
 
-            <div className="h-32 lg:h-44 w-px bg-gray-200 dark:bg-gray-800"></div>
+            <div className="hidden sm:block h-20 sm:h-32 lg:h-44 w-px bg-gray-200 dark:bg-gray-800 shrink-0"></div>
 
             {/* Projects */}
             <div className="flex flex-col items-center">
-              <h3 className="text-5xl md:text-6xl lg:text-7xl font-medium text-gray-950 dark:text-white mb-2.5 tracking-tight">
+              <h3 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-medium text-gray-950 dark:text-white mb-2.5 tracking-tight">
                 10+
               </h3>
-              <p className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-[0.2em] leading-tight">
+              <p className="text-[9px] sm:text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-[0.2em] leading-tight">
                 BACKEND
                 <br />
                 PROJECTS
               </p>
             </div>
 
-            <div className="h-32 lg:h-44 w-px bg-gray-200 dark:bg-gray-800"></div>
+            <div className="hidden sm:block h-20 sm:h-32 lg:h-44 w-px bg-gray-200 dark:bg-gray-800 shrink-0"></div>
 
             {/* Technologies */}
             <div className="flex flex-col items-center">
-              <h3 className="text-5xl md:text-6xl lg:text-7xl font-medium text-gray-950 dark:text-white mb-2.5 tracking-tight">
+              <h3 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-medium text-gray-950 dark:text-white mb-2.5 tracking-tight">
                 15+
               </h3>
-              <p className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-[0.2em] leading-tight">
+              <p className="text-[9px] sm:text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-[0.2em] leading-tight">
                 TECHNOLOGIES
                 <br />
                 USED
