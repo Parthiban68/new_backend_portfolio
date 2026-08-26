@@ -543,7 +543,7 @@ const MobileDrawer: React.FC<MobileDrawerProps> = ({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm"
+            className="fixed inset-0 bg-black/40 backdrop-blur-sm dark:bg-black/60"
           />
 
           {/* Slide Drawer */}
@@ -552,26 +552,26 @@ const MobileDrawer: React.FC<MobileDrawerProps> = ({
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", damping: 28, stiffness: 220 }}
-            className="fixed top-0 right-0 h-full w-[300px] bg-zinc-950 border-l border-zinc-800 p-6 flex flex-col shadow-2xl text-zinc-100"
+            className="fixed top-0 right-0 h-full w-[300px] bg-white dark:bg-zinc-950 border-l border-zinc-200 dark:border-zinc-800 p-6 flex flex-col shadow-2xl text-zinc-900 dark:text-zinc-100"
           >
             {/* Header */}
-            <div className="flex items-center justify-between border-b border-zinc-800 pb-4 mb-6">
+            <div className="flex items-center justify-between border-b border-zinc-200 dark:border-zinc-800 pb-4 mb-6">
               <div className="flex items-center gap-2  text-xs font-bold tracking-tight">
                 <Terminal size={14} className="text-emerald-500" />
                 <span>SYSTEM_MENU.SH</span>
               </div>
               <button
                 onClick={onClose}
-                className="p-1 rounded-md border border-zinc-800 text-zinc-400 hover:text-white hover:bg-zinc-900 transition-colors"
+                className="p-1 rounded-md border border-zinc-200 dark:border-zinc-800 text-zinc-500 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors"
               >
                 <X size={16} />
               </button>
             </div>
 
             {/* Profile Info */}
-            <div className="mb-6 p-3 rounded-lg bg-zinc-900/60 border border-zinc-800">
-              <div className="font-bold text-sm text-white">PARTHIBAN</div>
-              <div className="text-[11px]  text-zinc-400 mt-0.5">
+            <div className="mb-6 p-3 rounded-lg bg-zinc-50 dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800">
+              <div className="font-bold text-sm text-zinc-900 dark:text-white">PARTHIBAN</div>
+              <div className="text-[11px] text-zinc-500 dark:text-zinc-400 mt-0.5">
                 Backend Systems Engineer
               </div>
               <div className="text-[10px]  text-emerald-400 mt-2 flex items-center gap-1">
@@ -593,15 +593,15 @@ const MobileDrawer: React.FC<MobileDrawerProps> = ({
                     onClick={onClose}
                     className={`flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-all ${
                       isActive
-                        ? "bg-zinc-800 text-emerald-400 border border-zinc-700/50"
-                        : "text-zinc-400 hover:text-white hover:bg-zinc-900"
+                        ? "bg-zinc-100 dark:bg-zinc-800 text-emerald-600 dark:text-emerald-400 border border-zinc-200 dark:border-zinc-700/50"
+                        : "text-zinc-500 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-900"
                     }`}
                   >
                     <div className="flex items-center gap-3">
                       <Icon
                         size={16}
                         className={
-                          isActive ? "text-emerald-400" : "text-zinc-500"
+                          isActive ? "text-emerald-600 dark:text-emerald-400" : "text-zinc-400 dark:text-zinc-500"
                         }
                       />
                       <span>{section.label}</span>
@@ -615,9 +615,9 @@ const MobileDrawer: React.FC<MobileDrawerProps> = ({
             </div>
 
             {/* Bottom Actions */}
-            <div className="pt-6 border-t border-zinc-800 space-y-4">
+            <div className="pt-6 border-t border-zinc-200 dark:border-zinc-800 space-y-4">
               <div className="flex items-center justify-between">
-                <span className="text-xs  text-zinc-400">Appearance</span>
+                <span className="text-xs text-zinc-500 dark:text-zinc-400">Appearance</span>
                 <SegmentedThemeToggle />
               </div>
 
@@ -626,7 +626,7 @@ const MobileDrawer: React.FC<MobileDrawerProps> = ({
                   href="https://github.com"
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center justify-center gap-2 p-2 rounded-lg bg-zinc-900 border border-zinc-800 text-xs  text-zinc-300 hover:text-white"
+                  className="flex items-center justify-center gap-2 p-2 rounded-lg bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs text-zinc-600 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white"
                 >
                   <Github size={14} />
                   <span>GitHub</span>
@@ -635,7 +635,7 @@ const MobileDrawer: React.FC<MobileDrawerProps> = ({
                   href="https://linkedin.com"
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center justify-center gap-2 p-2 rounded-lg bg-zinc-900 border border-zinc-800 text-xs  text-zinc-300 hover:text-white"
+                  className="flex items-center justify-center gap-2 p-2 rounded-lg bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs text-zinc-600 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white"
                 >
                   <Linkedin size={14} />
                   <span>LinkedIn</span>
