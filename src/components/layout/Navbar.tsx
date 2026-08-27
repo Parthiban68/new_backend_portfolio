@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useCallback, memo } from "react";
 import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
 import {
   Activity,
@@ -15,22 +15,10 @@ import {
   Monitor,
   Command,
   Check,
-  Globe,
-  Layers,
-  FolderGit2,
-  Briefcase,
-  Code2,
-  BookOpen,
-  Mail,
-  Cpu,
   Radio,
-  ExternalLink,
-  HomeIcon,
-  FileText,
-  FlaskConical,
-  NotebookPen,
-  BriefcaseBusiness,
   Home,
+  FolderGit2,
+  Mail,
 } from "lucide-react";
 import { NavLink, useLocation } from "react-router-dom";
 
@@ -120,7 +108,7 @@ export const NAV_SECTIONS: NavSection[] = [
   },
 ];
 
-const ScrollProgressBar: React.FC = () => {
+const ScrollProgressBar: React.FC = memo(() => {
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 200,
@@ -134,13 +122,13 @@ const ScrollProgressBar: React.FC = () => {
       style={{ scaleX }}
     />
   );
-};
+});
 
 // ============================================================================
 // 3. TELEMETRY & SYSTEM STATUS
 // ============================================================================
 
-const SystemTelemetry: React.FC = () => {
+const SystemTelemetry: React.FC = memo(() => {
   const [latency, setLatency] = useState<number>(14);
 
   useEffect(() => {
@@ -172,13 +160,13 @@ const SystemTelemetry: React.FC = () => {
       </div>
     </div>
   );
-};
+});
 
 // ============================================================================
 // 4. SEGMENTED THEME TOGGLE
 // ============================================================================
 
-const SegmentedThemeToggle: React.FC = () => {
+const SegmentedThemeToggle: React.FC = memo(() => {
   const [theme, setTheme] = useState<ThemeMode>("light");
 
   useEffect(() => {
@@ -236,13 +224,13 @@ const SegmentedThemeToggle: React.FC = () => {
       })}
     </div>
   );
-};
+});
 
 // ============================================================================
 // 5. RESUME DOWNLOAD BUTTON
 // ============================================================================
 
-const ResumeButton: React.FC = () => {
+const ResumeButton: React.FC = memo(() => {
   const [downloading, setDownloading] = useState(false);
   const [downloaded, setDownloaded] = useState(false);
 
@@ -314,7 +302,9 @@ const ResumeButton: React.FC = () => {
       </div>
     </button>
   );
-};
+});
+
+ResumeButton.displayName = 'ResumeButton';
 
 // ============================================================================
 // 6. RAYCAST-STYLE COMMAND PALETTE (⌘K)

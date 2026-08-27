@@ -77,6 +77,10 @@ export default function RightNetwork() {
               <img
                 src={image}
                 alt="Profile Center Node"
+                width={300}
+                height={400}
+                loading="eager"
+                decoding="async"
                 className="w-full h-full object-cover"
               />
             </div>

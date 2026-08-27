@@ -1,4 +1,3 @@
-import React from "react";
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 
@@ -638,6 +637,10 @@ export default function SelectedWork() {
                 <img
                   src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=300&q=80"
                   alt="Luxury Bus Front"
+                  width={128}
+                  height={96}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover opacity-90"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0B1221] via-transparent to-transparent"></div>

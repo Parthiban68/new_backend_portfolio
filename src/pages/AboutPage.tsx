@@ -1,4 +1,3 @@
-import React from "react";
 import AboutHero from "../features/about/AboutHero"
 import EducationTimeline from "../features/about/EducationTimeline"
 import ExperienceTimeline from "../features/about/ExperienceTimeline"
@@ -26,7 +25,11 @@ const AboutPage = () => {
           <div className="flex items-center justify-center gap-4 pt-6 ">
             <img
               src="https://images.openai.com/static-rsc-4/B4vKVl0UzVhk7VaH6Bp6k_HefERCj7J6-dI0juWMiIoGVfLfVGy4FPzp3nBImc5QR_HVz_XoGHF4iOuIrtS8-3OfTcZ8HvWyJcQJZu21vnYENPMBXFaMzcmP2O9xeehvDOQ-XXUKSTzKoN3b-fLBFH4zQZg6Vl4GhpMgDlt5xSs?purpose=inline"
-              alt="Martin Fowler"
+              alt="Linus Torvalds"
+              width={48}
+              height={48}
+              loading="lazy"
+              decoding="async"
               className="w-12 h-12 rounded-full object-cover"
             />
 

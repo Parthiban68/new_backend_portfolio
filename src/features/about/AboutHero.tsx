@@ -859,9 +859,13 @@ export default function AboutHero() {
             >
               {/* Image Container with Framing */}
               <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-700 border border-slate-100 dark:border-slate-600">
-                <img 
-                  src={image} 
-                  alt="Parthiban - Backend Engineer" 
+                <img
+                  src={image}
+                  alt="Parthiban - Backend Engineer"
+                  width={400}
+                  height={500}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                 />
                 

@@ -409,6 +409,10 @@ function ProjectCard({ project, view }: any) {
         <img
           src={project.image}
           alt={project.title}
+          width={400}
+          height={240}
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover object-top opacity-80 group-hover:scale-105 group-hover:opacity-100 transition-all duration-700 ease-out"
         />
 

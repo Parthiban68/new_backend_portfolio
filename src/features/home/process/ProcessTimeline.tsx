@@ -1,13 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, memo } from "react";
 import {
   SiReact,
   SiTypescript,
   SiNodedotjs,
   SiNestjs,
   SiOpenid,
-  SiPostgresql,
-  SiJest,
-  SiDocker,
 } from "react-icons/si";
 
 import {
@@ -243,7 +240,7 @@ const ProcessContourBackground = () => (
   </div>
 );
 
-const ProcessTimeline: React.FC = () => {
+const ProcessTimeline: React.FC = memo(() => {
   const [hoveredTool, setHoveredTool] = useState<string | null>(null);
   return (
     <section className="relative w-full overflow-x-hidden bg-[#FFFFFF] dark:bg-[#0A0A0A] py-10 text-[#111111] dark:text-gray-100 transition-colors duration-300">
@@ -689,6 +686,7 @@ const ProcessTimeline: React.FC = () => {
       </div>
     </section>
   );
-};
+});
 
+ProcessTimeline.displayName = 'ProcessTimeline';
 export default ProcessTimeline;

@@ -1,12 +1,13 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: 'Inter', sans-serif;
+  --font-sans: 'Space Grotesk', sans-serif;
   --font-display: 'Space Grotesk', sans-serif;
-  
+  --font-mono: 'JetBrains Mono', monospace;
+
   --color-primary: #0A0A0A;
   --color-secondary: #666666;
-  --color-accent: #000000; /* Use black as accent for a sharper theme, or keep green? Let's use a stark black/white theme with tiny hints of color */
+  --color-accent: #000000;
   --color-bg-base: #FFFFFF;
   --color-bg-subtle: #F5F5F5;
 }
