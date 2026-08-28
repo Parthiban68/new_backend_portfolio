@@ -1,5 +1,4 @@
 import { motion } from "motion/react";
-import { useMemo } from "react";
 
 const techStack = [
   "NestJS",
@@ -15,24 +14,31 @@ const techStack = [
   "gRPC",
 ];
 
-export default function FloatingTechPills() {
-  const pills = useMemo(() => {
-    return techStack.map((tech, i) => {
-      // distribute them randomly but safely within a radius
-      const angle = (i / techStack.length) * Math.PI * 2;
-      const radius = 350 + Math.random() * 50;
-      const x = Math.cos(angle) * radius;
-      const y = Math.sin(angle) * radius;
+interface Pill {
+  tech: string;
+  x: number;
+  y: number;
+  delay: number;
+  duration: number;
+}
 
-      return {
-        tech,
-        x,
-        y,
-        delay: i * 0.2,
-        duration: 10 + Math.random() * 5,
-      };
-    });
-  }, []);
+const pills: Pill[] = techStack.map((tech, i) => {
+  // distribute them randomly but safely within a radius
+  const angle = (i / techStack.length) * Math.PI * 2;
+  const radius = 350 + Math.random() * 50;
+  const x = Math.cos(angle) * radius;
+  const y = Math.sin(angle) * radius;
+
+  return {
+    tech,
+    x,
+    y,
+    delay: i * 0.2,
+    duration: 10 + Math.random() * 5,
+  };
+});
+
+export default function FloatingTechPills() {
 
   return (
     <div

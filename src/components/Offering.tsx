@@ -2,12 +2,6 @@
 import React from 'react';
 import { Layers, Smartphone, Zap, Activity, Server, Layout, MousePointer2 } from 'lucide-react';
 
-interface OfferingCardProps
-  extends React.HTMLAttributes<HTMLDivElement> {
-  title: string;
-  icon: React.ReactNode;
-}
-
 const Offering: React.FC = () => {
   const modules = [
     { 

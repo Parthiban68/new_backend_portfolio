@@ -1,16 +1,9 @@
 import React, { useState } from "react";
-import {
-  ArrowRight,
-  ArrowUpRight,
-  FileText,
-  ArrowLeft,
-  Download,
-} from "lucide-react";
+import { ArrowRight, ArrowUpRight, FileText } from "lucide-react";
 import { NavLink } from "react-router-dom";
 
 const GrabMyResume = () => {
   const [downloading, setDownloading] = useState(false);
-  const [downloaded, setDownloaded] = useState(false);
 
   const handleDownload = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -19,7 +12,6 @@ const GrabMyResume = () => {
     setDownloading(true);
     setTimeout(() => {
       setDownloading(false);
-      setDownloaded(true);
 
       // Trigger native download action
       const link = document.createElement("a");
@@ -28,8 +20,6 @@ const GrabMyResume = () => {
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
-
-      setTimeout(() => setDownloaded(false), 3000);
     }, 1200);
   };
 

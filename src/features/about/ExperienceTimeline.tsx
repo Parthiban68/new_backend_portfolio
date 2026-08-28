@@ -688,10 +688,11 @@
 
 
 import { useState, useRef, useEffect } from 'react';
+import type { Variants } from 'framer-motion';
 import { motion, AnimatePresence, useScroll } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
-export const experiences = [
+const experiences = [
   {
     id: 'nubiznez',
     index: '01',
@@ -781,12 +782,12 @@ export const experiences = [
 ];
 
 // Motion variants
-const staggerContainer : any = {
+const staggerContainer: Variants = {
   hidden: { opacity: 0 },
   show: { opacity: 1, transition: { staggerChildren: 0.1 } }
 };
 
-const fadeUpVariant : any = {
+const fadeUpVariant: Variants = {
   hidden: { opacity: 0, y: 20 },
   show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } }
 };

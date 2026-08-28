@@ -68,7 +68,7 @@ const SystemTopology: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-8 relative z-10">
-            {infrastructure.map((node, i) => (
+            {infrastructure.map((node) => (
               <div key={node.id} className="group flex flex-col items-center">
                 <div className="w-full bg-black/[0.02] dark:bg-white/[0.02] border border-black/5 dark:border-white/10 p-6 md:p-8 hover:bg-white dark:hover:bg-black hover:border-blue-600/30 transition-all duration-500 relative">
                   <div className="absolute top-0 left-0 w-full h-[2px] bg-black/5 dark:bg-white/5 overflow-hidden">

@@ -1,8 +1,9 @@
+import type { Variants } from "framer-motion";
 import { motion } from "framer-motion";
 import { Mail, ArrowUpRight } from "lucide-react";
 import { NavLink } from "react-router-dom";
 // --- Animation Variants ---
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -10,7 +11,7 @@ const containerVariants = {
   },
 };
 
-const itemVariants: any = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
@@ -18,46 +19,6 @@ const itemVariants: any = {
     transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
   },
 };
-
-// --- Background & Right Side (Kept intact from the premium concept) ---
-
-const TechnicalBackground = () => (
-  <div
-    className="absolute inset-0 z-0 pointer-events-none opacity-[0.25]"
-    aria-hidden="true"
-  >
-    <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <pattern
-          id="tech-grid"
-          width="64"
-          height="64"
-          patternUnits="userSpaceOnUse"
-        >
-          <path
-            d="M 64 0 L 0 0 0 64"
-            fill="none"
-            stroke="#000000"
-            strokeWidth="0.5"
-            strokeOpacity="0.06"
-          />
-          <path
-            d="M -2 0 L 2 0 M 0 -2 L 0 2"
-            stroke="#000000"
-            strokeWidth="1"
-            strokeOpacity="0.1"
-          />
-        </pattern>
-        <radialGradient id="fade-out" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0" />
-          <stop offset="100%" stopColor="#FFFFFF" stopOpacity="1" />
-        </radialGradient>
-      </defs>
-      <rect width="100%" height="100%" fill="url(#tech-grid)" />
-      <rect width="100%" height="100%" fill="url(#fade-out)" />
-    </svg>
-  </div>
-);
 
 export default function ContactSection() {
   return (

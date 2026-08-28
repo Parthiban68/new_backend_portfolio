@@ -4,34 +4,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-     <link rel="icon" type="image/svg+xml" href="./src//assets/avatar.png" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <title>Parthiban-Backend Architect</title>
-    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;700&family=Outfit:wght@900&display=swap" rel="stylesheet">
     <script>
-      tailwind.config = {
-        darkMode: 'class',
-        theme: {
-          extend: {
-            colors: {
-              terminal: {
-                green: '#00FF41',
-                blue: '#0066FF',
-                red: '#FF3131',
-              }
-            }
-          }
+      // Initialize theme (single source of truth: localStorage "app-theme")
+      ;(function () {
+        var saved = localStorage.getItem('app-theme');
+        var isDark;
+        if (saved === 'dark') {
+          isDark = true;
+        } else if (saved === 'system') {
+          isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        } else {
+          isDark = false;
         }
-      }
-      
-      // Initialize theme
-      if (localStorage.theme === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)) {
-        document.documentElement.classList.remove('dark')
-      } else {
-        document.documentElement.classList.add('dark')
-      }
+        if (!isDark) document.documentElement.classList.remove('dark');
+      })();
     </script>
     <style>
       :root {
@@ -82,7 +73,7 @@
         bottom: -50%;
         width: 200%;
         height: 200vh;
-        background: transparent url('http://assets.iceable.com/img/noise-transparent.png') repeat 0 0;
+        background: transparent url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E") repeat 0 0;
         background-repeat: repeat;
         animation: noise 0.2s infinite;
         opacity: .08;
@@ -156,17 +147,6 @@
       ::-webkit-scrollbar-track { background: transparent; }
       ::-webkit-scrollbar-thumb { background: #0066FF; border-radius: 0; }
     </style>
-    <script type="importmap">
-    {
-      "imports": {
-        "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-        "react/": "https://esm.sh/react@^19.2.3/",
-        "react": "https://esm.sh/react@^19.2.3",
-        "lucide-react": "https://esm.sh/lucide-react@^0.562.0"
-      }
-    }
-    </script>
-  <link rel="stylesheet" href="/index.css">
 </head>
   <body class="antialiased selection:bg-[#0066FF] selection:text-white scanline">
     <div class="noise"></div>

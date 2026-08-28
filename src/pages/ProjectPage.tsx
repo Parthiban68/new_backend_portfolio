@@ -74,7 +74,20 @@ import salaryHive  from "../assets/salary_1.png"
 import weatherApp from "../assets/weather.png"
 
 // --- YOUR ORIGINAL MOCK DATA, FORMATTED FOR THE NEW DESIGN ---
-const projectsData = [
+interface Project {
+  id: number;
+  featured: boolean;
+  year: string;
+  title: string;
+  category: "Professional" | "Personal";
+  description: string;
+  stack: string[];
+  image: string;
+  demoLink: string | null;
+  codeLink: string | null;
+}
+
+const projectsData: Project[] = [
   {
     id: 1,
     featured: true,
@@ -215,7 +228,7 @@ const projectsData = [
 export default function ProjectsPage() {
   const [filter, setFilter] = useState("All");
   const [view, setView] = useState("grid"); // 'grid' | 'list'
-  const [sort, setSort] = useState("newest");
+  const [sort] = useState("newest");
 
   // Filter & Sort Logic
   const filteredProjects = projectsData
@@ -225,7 +238,7 @@ export default function ProjectsPage() {
       return parseInt(a.year) - parseInt(b.year);
     });
 
-  const counts: any = {
+  const counts: Record<"All" | "Professional" | "Personal", number> = {
     All: projectsData.length,
     Professional: projectsData.filter((p) => p.category === "Professional")
       .length,
@@ -383,7 +396,7 @@ export default function ProjectsPage() {
 }
 
 // --- PIXEL-PERFECT CARD COMPONENT ---
-function ProjectCard({ project, view }: any) {
+function ProjectCard({ project, view }: { project: Project; view: string }) {
   const isGrid = view === "grid";
 
   return (
@@ -444,7 +457,7 @@ function ProjectCard({ project, view }: any) {
 
           {/* Tag Cloud */}
           <div className="flex flex-wrap gap-2 mb-8">
-            {project.stack.map((tech: any) => (
+            {project.stack.map((tech) => (
               <span
                 key={tech}
                 className="text-[11px] font-medium text-[#444] dark:text-gray-300 px-3.5 py-1.5 rounded-full border border-[#E5E5E5] dark:border-gray-700 bg-transparent hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors cursor-default"

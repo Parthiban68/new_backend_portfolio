@@ -1,24 +1,26 @@
 import { motion } from 'motion/react';
-import { useEffect, useState } from 'react';
 
-const generateParticles = (count: number) => {
-  return Array.from({ length: count }).map((_, i) => ({
-    id: i,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    duration: 15 + Math.random() * 20,
-    delay: Math.random() * 5,
-    text: ['0101', '1101', 'GET /api/v1/health', 'POST /auth', '200 OK', '1010'][Math.floor(Math.random() * 6)],
-  }));
-};
+interface Particle {
+  id: number;
+  x: number;
+  y: number;
+  duration: number;
+  delay: number;
+  text: string;
+}
+
+const PARTICLE_TEXTS = ['0101', '1101', 'GET /api/v1/health', 'POST /auth', '200 OK', '1010'];
+
+const particles: Particle[] = Array.from({ length: 20 }).map((_, i) => ({
+  id: i,
+  x: Math.random() * 100,
+  y: Math.random() * 100,
+  duration: 15 + Math.random() * 20,
+  delay: Math.random() * 5,
+  text: PARTICLE_TEXTS[Math.floor(Math.random() * PARTICLE_TEXTS.length)],
+}));
 
 export default function BackgroundElements() {
-  const [particles, setParticles] = useState<{id: number, x: number, y: number, duration: number, delay: number, text: string}[]>([]);
-
-  useEffect(() => {
-    setParticles(generateParticles(20));
-  }, []);
-
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none transition-colors duration-300">
       {/* Soft gradient background - Updated to support dark mode */}

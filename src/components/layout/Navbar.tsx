@@ -3,7 +3,6 @@ import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
 import {
   Activity,
   Terminal,
-  Search,
   ArrowRight,
   Download,
   Menu,
@@ -81,7 +80,7 @@ export interface NavSection {
 //   },
 // ];
 
-export const NAV_SECTIONS: NavSection[] = [
+const NAV_SECTIONS: NavSection[] = [
   {
     id: "home",
     label: "Home",
@@ -169,11 +168,6 @@ const SystemTelemetry: React.FC = memo(() => {
 const SegmentedThemeToggle: React.FC = memo(() => {
   const [theme, setTheme] = useState<ThemeMode>("light");
 
-  useEffect(() => {
-    const saved = (localStorage.getItem("app-theme") as ThemeMode) || "light";
-    applyTheme(saved);
-  }, []);
-
   const applyTheme = (newTheme: ThemeMode) => {
     setTheme(newTheme);
     localStorage.setItem("app-theme", newTheme);
@@ -186,6 +180,12 @@ const SegmentedThemeToggle: React.FC = memo(() => {
 
     root.classList.toggle("dark", isDark);
   };
+
+  useEffect(() => {
+    const saved = (localStorage.getItem("app-theme") as ThemeMode) || "light";
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- initialize React theme state from persisted localStorage
+    applyTheme(saved);
+  }, []);
 
   const options: { id: ThemeMode; label: string; icon: React.ReactNode }[] = [
     { id: "light", label: "Light", icon: <Sun size={11} /> },
@@ -310,12 +310,6 @@ ResumeButton.displayName = 'ResumeButton';
 // 6. RAYCAST-STYLE COMMAND PALETTE (⌘K)
 // ============================================================================
 
-interface CommandPaletteProps {
-  isOpen: boolean;
-  onClose: () => void;
-  activeSection: string;
-}
-
 const CommandPalette = ({
   isOpen,
   onClose,
@@ -325,7 +319,7 @@ const CommandPalette = ({
   onClose: () => void;
   activeSection: string;
 }) => {
-  const [query, setQuery] = useState("");
+  const [query] = useState("");
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   // SCROLL LOCK LOGIC
@@ -353,10 +347,6 @@ const CommandPalette = ({
     },
     [onClose],
   );
-
-  useEffect(() => {
-    setSelectedIndex(0);
-  }, [query]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -672,6 +662,7 @@ export const Navbar: React.FC = () => {
       return path === target;
     });
 
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- sync active nav to route on navigation
     setActiveSection(match ? match.id : "home");
   }, [location]);
 

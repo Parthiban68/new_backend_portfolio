@@ -1,18 +1,9 @@
-import React, { useRef, useState, useEffect } from "react";
-import {
-  motion,
-  useMotionValue,
-  useSpring,
-  useTransform,
-  AnimatePresence,
-} from "motion/react";
-// import NetworkNode from './NetworkNode';
-import FloatingTechPills from "./FloatingTechPills";
+import React, { useRef } from "react";
+import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 import image from "../../../../assets/new_5.png";
 
 export default function RightNetwork() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [activeNode, setActiveNode] = useState<string | null>(null);
 
   // Mouse tracking for 3D rotation
   const mouseX = useMotionValue(0);
@@ -61,14 +52,7 @@ export default function RightNetwork() {
           style={{ transform: "translateZ(30px)" }}
         >
           <motion.div
-            className={`h-full max-h-[800px] aspect-[2/3] rounded-2xl bg-transparent p-2.5 cursor-pointer transition-all duration-300 flex flex-col items-center justify-center ${
-              activeNode === "gateway"
-                ? "ring-4 ring-zinc-900 dark:ring-zinc-100"
-                : "hover:scale-105"
-            }`}
-            // onClick={() =>
-            //   setActiveNode(activeNode === "gateway" ? null : "gateway")
-            // }
+            className="h-full max-h-[600px] aspect-[2/3] rounded-2xl bg-transparent p-2.5 cursor-pointer transition-all duration-300 flex flex-col items-center justify-center hover:scale-105"
             initial={{ scale: 0, rotateZ: -2 }}
             animate={{ scale: 1, rotateZ: 0 }}
             transition={{ type: "spring", bounce: 0.5 }}

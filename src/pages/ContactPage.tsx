@@ -1,6 +1,14 @@
+import type { ReactNode } from "react";
+import type { Easing } from "framer-motion";
 import { motion } from "framer-motion";
 
-const RevealLine = ({ children, delay, className }: any) => (
+interface RevealLineProps {
+  children: ReactNode;
+  delay?: number;
+  className?: string;
+}
+
+const RevealLine = ({ children, delay, className }: RevealLineProps) => (
   <span className={`inline-block ${className || ""}`}>
     <motion.span
       initial={{ opacity: 0, y: 20 }}
@@ -13,8 +21,12 @@ const RevealLine = ({ children, delay, className }: any) => (
   </span>
 );
 
-export default function Page({ reduced = false }) {
-  const EASE: any = [0.25, 0.1, 0.25, 1];
+interface PageProps {
+  reduced?: boolean;
+}
+
+export default function Page({ reduced = false }: PageProps) {
+  const EASE: Easing = [0.25, 0.1, 0.25, 1];
 
   const scrollToContact = () => {
     document.getElementById("contact-section")?.scrollIntoView({

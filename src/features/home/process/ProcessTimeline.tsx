@@ -32,7 +32,6 @@ interface ToolMark {
 }
 
 interface ProcessStep {
-  [x: string]: any;
   number: string;
   title: string;
   description: string;
@@ -203,42 +202,6 @@ const processSteps: ProcessStep[] = [
     ],
   },
 ];
-
-const ProcessContourBackground = () => (
-  <div className="absolute inset-0 overflow-hidden bg-black pointer-events-none select-none z-0">
-    <svg
-      aria-hidden="true"
-      className="absolute min-w-[200vw] md:min-w-[150vw] min-h-[150vh] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.12]"
-      viewBox="0 0 1200 1200"
-      preserveAspectRatio="none"
-    >
-      <g fill="none" stroke="#D9D9D9" strokeWidth="0.8">
-        {/* Organic generative-style contour paths */}
-        <path d="M-100,100 C200,300 400,-100 700,200 S1000,50 1300,300" />
-        <path d="M-100,120 C220,320 420,-80 720,220 S1020,70 1300,320" />
-        <path d="M-100,140 C240,340 440,-60 740,240 S1040,90 1300,340" />
-        <path d="M-100,160 C260,360 460,-40 760,260 S1060,110 1300,360" />
-        <path d="M-100,180 C280,380 480,-20 780,280 S1080,130 1300,380" />
-
-        <path d="M-100,400 Q200,600 600,400 T1300,500" />
-        <path d="M-100,420 Q220,620 620,420 T1300,520" />
-        <path d="M-100,440 Q240,640 640,440 T1300,540" />
-        <path d="M-100,460 Q260,660 660,460 T1300,560" />
-        <path d="M-100,480 Q280,680 680,480 T1300,580" />
-
-        <path d="M300,-100 C150,200 500,400 400,700 S600,1000 400,1300" />
-        <path d="M320,-100 C170,220 520,420 420,720 S620,1020 420,1300" />
-        <path d="M340,-100 C190,240 540,440 440,740 S640,1040 440,1300" />
-        <path d="M360,-100 C210,260 560,460 460,760 S660,1060 460,1300" />
-
-        <path d="M700,-100 Q500,400 800,600 T700,1300" />
-        <path d="M720,-100 Q520,420 820,620 T720,1300" />
-        <path d="M740,-100 Q540,440 840,640 T740,1300" />
-        <path d="M760,-100 Q560,460 860,660 T760,1300" />
-      </g>
-    </svg>
-  </div>
-);
 
 const ProcessTimeline: React.FC = memo(() => {
   const [hoveredTool, setHoveredTool] = useState<string | null>(null);

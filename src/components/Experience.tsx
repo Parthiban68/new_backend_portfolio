@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Terminal, Box, Cpu, ShieldCheck, MessageSquare, Database, MousePointer2 } from 'lucide-react';
+import { Terminal, Box, Cpu, ShieldCheck, MessageSquare, Database } from 'lucide-react';
 
 const Experience: React.FC = () => {
   const achievements = [
