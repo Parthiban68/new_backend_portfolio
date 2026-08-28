@@ -61,7 +61,7 @@ export default function RightNetwork() {
           style={{ transform: "translateZ(30px)" }}
         >
           <motion.div
-            className={`h-full max-h-[600px] aspect-[2/3] rounded-2xl bg-transparent p-2.5 cursor-pointer transition-all duration-300 flex flex-col items-center justify-center ${
+            className={`h-full max-h-[800px] aspect-[2/3] rounded-2xl bg-transparent p-2.5 cursor-pointer transition-all duration-300 flex flex-col items-center justify-center ${
               activeNode === "gateway"
                 ? "ring-4 ring-zinc-900 dark:ring-zinc-100"
                 : "hover:scale-105"
