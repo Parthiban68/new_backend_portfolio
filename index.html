@@ -6,32 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
      <link rel="icon" type="image/svg+xml" href="./src//assets/avatar.png" />
     <title>Parthiban-Backend Architect</title>
-    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;700&family=Outfit:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;700&family=Outfit:wght@900&display=swap" rel="stylesheet">
     <script>
-      tailwind.config = {
-        darkMode: 'class',
-        theme: {
-          extend: {
-            colors: {
-              terminal: {
-                green: '#00FF41',
-                blue: '#0066FF',
-                red: '#FF3131',
-              }
-            }
-          }
-        }
-      }
-      
       // Initialize theme
-      if (localStorage.theme === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)) {
-        document.documentElement.classList.remove('dark')
-      } else {
-        document.documentElement.classList.add('dark')
-      }
+      (() => {
+        const storedTheme = localStorage.getItem('app-theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const isDark =
+          storedTheme === 'dark' ||
+          ((!storedTheme || storedTheme === 'system') && prefersDark);
+        document.documentElement.classList.toggle('dark', isDark);
+        document.documentElement.dataset.theme = isDark ? 'dark' : 'light';
+      })();
     </script>
     <style>
       :root {
@@ -156,17 +144,6 @@
       ::-webkit-scrollbar-track { background: transparent; }
       ::-webkit-scrollbar-thumb { background: #0066FF; border-radius: 0; }
     </style>
-    <script type="importmap">
-    {
-      "imports": {
-        "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-        "react/": "https://esm.sh/react@^19.2.3/",
-        "react": "https://esm.sh/react@^19.2.3",
-        "lucide-react": "https://esm.sh/lucide-react@^0.562.0"
-      }
-    }
-    </script>
-  <link rel="stylesheet" href="/index.css">
 </head>
   <body class="antialiased selection:bg-[#0066FF] selection:text-white scanline">
     <div class="noise"></div>
