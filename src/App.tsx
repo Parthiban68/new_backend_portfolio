@@ -1,7 +1,12 @@
 import AppRoute from "./routes/AppRoute";
+import SmoothScroll from "./components/SmoothScroll";
 
 const App: React.FC = () => {
-  return <AppRoute />;
+  return (
+    <SmoothScroll>
+      <AppRoute />
+    </SmoothScroll>
+  );
 };
 
 export default App;

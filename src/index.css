@@ -37,3 +37,69 @@ html.dark {
     font-family: var(--font-display);
   }
 }
+
+html body {
+  overflow-x: clip;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis:not(.lenis-autoToggle).lenis-stopped {
+  overflow: clip;
+}
+
+.lenis [data-lenis-prevent],
+.lenis [data-lenis-prevent-wheel],
+.lenis [data-lenis-prevent-touch],
+.lenis [data-lenis-prevent-vertical],
+.lenis [data-lenis-prevent-horizontal] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+.lenis,
+.lenis body {
+  scroll-behavior: auto;
+}
+
+.hero-giant {
+  font-family: "Outfit", sans-serif;
+  font-size: clamp(2.6rem, 9.05vw, 10.75rem);
+  font-weight: 900;
+  line-height: 0.82;
+  letter-spacing: -0.06em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.hero-scroll-line {
+  animation: hero-scroll-hint 2.4s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+  transform-origin: top;
+}
+
+@keyframes hero-scroll-hint {
+  0% {
+    opacity: 0.25;
+    transform: scaleY(0.35);
+  }
+  45% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scaleY(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-scroll-line {
+    animation: none;
+  }
+}

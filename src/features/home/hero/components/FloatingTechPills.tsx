@@ -18,9 +18,8 @@ const techStack = [
 export default function FloatingTechPills() {
   const pills = useMemo(() => {
     return techStack.map((tech, i) => {
-      // distribute them randomly but safely within a radius
       const angle = (i / techStack.length) * Math.PI * 2;
-      const radius = 350 + Math.random() * 50;
+      const radius = 350 + (i % 5) * 10;
       const x = Math.cos(angle) * radius;
       const y = Math.sin(angle) * radius;
 
@@ -29,7 +28,7 @@ export default function FloatingTechPills() {
         x,
         y,
         delay: i * 0.2,
-        duration: 10 + Math.random() * 5,
+        duration: 10 + (i % 3) * 1.5,
       };
     });
   }, []);

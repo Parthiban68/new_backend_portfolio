@@ -20,6 +20,7 @@
 
 import { useState, useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
+import { useLenis } from "lenis/react";
 import HomePage from "../pages/HomePage";
 import AboutPage from "../pages/AboutPage";
 import Loader from "../components/layout/Loader";
@@ -29,10 +30,16 @@ import EditorialNavMenu from "../components/navigation/EditorialNavMenu";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
+  const lenis = useLenis();
 
   useEffect(() => {
+    if (lenis) {
+      lenis.scrollTo(0, { immediate: true });
+      return;
+    }
+
     window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-  }, [pathname]);
+  }, [lenis, pathname]);
 
   return null;
 };
