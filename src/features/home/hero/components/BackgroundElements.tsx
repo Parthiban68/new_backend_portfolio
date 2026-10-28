@@ -2,11 +2,11 @@ export default function BackgroundElements() {
   return (
     <div
       aria-hidden="true"
-      className="pointer-events-none absolute inset-0 overflow-hidden bg-[#020202]"
+      className="pointer-events-none absolute inset-0 overflow-hidden bg-white dark:bg-[#020202]"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_115%,rgba(16,185,129,0.18),transparent_55%)]" />
+      {/* <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_115%,rgba(16,185,129,0.18),transparent_55%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_78%_-10%,rgba(255,255,255,0.08),transparent_42%)]" />
-      <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(0,0,0,0.6),transparent_45%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(0,0,0,0.6),transparent_45%)]" /> */}
 
       <div
         className="absolute inset-0 text-white opacity-[0.055]"

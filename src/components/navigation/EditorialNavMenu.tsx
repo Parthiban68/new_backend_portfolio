@@ -369,7 +369,7 @@ export default function EditorialNavMenu() {
   return (
     <>
       <header className="fixed left-0 right-0 top-0 z-[90] px-3 pt-3 sm:px-5 sm:pt-4 lg:px-8 lg:pt-5">
-        <div className="mx-auto flex h-16 w-full max-w-[1600px] items-center justify-between rounded-2xl border border-[#d3d0ca] bg-white/95 px-4 shadow-[0_8px_30px_rgba(21,19,13,0.06)] backdrop-blur-md dark:border-white/10 dark:bg-[#111009]/95 sm:h-20 sm:px-6 lg:h-[70px] lg:px-8">
+        <div className="mx-auto flex h-16 w-full max-w-[1600px] items-center justify-between bg-transparent px-4 dark:bg-transparent sm:h-20 sm:px-6 lg:h-[70px] lg:px-8">
           <a
             href="/"
             onClick={(event) => {
@@ -387,7 +387,7 @@ export default function EditorialNavMenu() {
             }}
             className="shrink-0 font-['Outfit'] text-[13px] font-black uppercase tracking-[0.2em] text-[#15130d] transition-opacity hover:opacity-70 dark:text-[#f5f3ee] sm:text-base sm:tracking-[0.24em]"
           >
-            PARTHIBAN
+            
           </a>
 
           <div className="flex items-center gap-2 sm:gap-3">

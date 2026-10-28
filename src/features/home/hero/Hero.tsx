@@ -15,15 +15,15 @@ const META =
 function PanelBody() {
   return (
     <>
-      <div className="flex items-center justify-between border-b border-black/10 pb-3 font-mono text-[9px] uppercase tracking-[0.26em] text-black/45 max-[360px]:pb-2 sm:pb-4 sm:text-[10px]">
+      {/* <div className="flex items-center justify-between border-b border-black/10 pb-3 font-mono text-[9px] uppercase tracking-[0.26em] text-black/45 max-[360px]:pb-2 sm:pb-4 sm:text-[10px]">
         <span>01 / Introduction</span>
         <span className="hidden sm:inline">Parthiban M — Backend Engineer</span>
         <span className="sm:hidden">PB / 2026</span>
-      </div>
+      </div> */}
 
       <div className="grid min-h-0 flex-1 grid-cols-1 items-center gap-8 py-6 max-[360px]:py-3 sm:py-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(280px,0.85fr)] lg:gap-12">
         <LeftContent />
-        <div className="hidden min-h-0 items-center justify-center lg:flex">
+        <div className="hidden min-h-0 items-center justify-center lg:flex mt-10">
           <RightNetwork />
         </div>
       </div>
@@ -50,7 +50,7 @@ function StaticHero() {
   return (
     <section
       aria-labelledby="hero-heading"
-      className="relative w-full bg-[#f5f3ee] text-[#12100c]"
+      className="relative w-full bg-white text-[#12100c] dark:bg-[#0a0a0a] dark:text-white"
     >
       <div className="mx-auto flex min-h-[100svh] w-full max-w-[1600px] flex-col px-6 pb-6 pt-24 sm:px-10 sm:pb-8 sm:pt-28 lg:px-14 lg:pt-32">
         <PanelBody />
@@ -107,11 +107,11 @@ function ScrollHero() {
 
       const revealItems = gsap.utils.toArray<HTMLElement>(
         "[data-hero-reveal]",
-        section
+        section,
       );
       const media = gsap.utils.toArray<HTMLElement>(
         "[data-hero-media]",
-        section
+        section,
       );
 
       gsap.set(panelContent, { opacity: 0, pointerEvents: "none" });
@@ -137,11 +137,15 @@ function ScrollHero() {
         .to(topMeta, { opacity: 0, duration: 0.12 }, 0.02)
         .to(scrollHint, { opacity: 0, duration: 0.1 }, 0.03)
         .to(zoom, { scale: 3.4, duration: 0.4, ease: "power2.in" }, 0.04)
-        .to(lineOne, { yPercent: -118, duration: 0.34, ease: "power2.in" }, 0.04)
+        .to(
+          lineOne,
+          { yPercent: -118, duration: 0.34, ease: "power2.in" },
+          0.04,
+        )
         .to(
           lineThree,
           { yPercent: 65, opacity: 0.12, duration: 0.38, ease: "power1.in" },
-          0.08
+          0.08,
         )
         .to(centerWord, { opacity: 1, duration: 0.06 }, 0.26)
         .to(
@@ -151,15 +155,11 @@ function ScrollHero() {
             duration: 0.3,
             ease: "power2.in",
           },
-          0.26
+          0.26,
         )
         .to(panelBg, { scaleX: 1, duration: 0.18, ease: "power1.inOut" }, 0.46)
         .set(exitLayer, { opacity: 1 }, 0.62)
-        .set(
-          panelContent,
-          { opacity: 1, pointerEvents: "auto" },
-          0.62
-        )
+        .set(panelContent, { opacity: 1, pointerEvents: "auto" }, 0.62)
         .to(
           revealItems,
           {
@@ -169,7 +169,7 @@ function ScrollHero() {
             stagger: 0.016,
             ease: "power2.out",
           },
-          0.62
+          0.62,
         )
         .to(
           media,
@@ -180,12 +180,12 @@ function ScrollHero() {
             duration: 0.12,
             ease: "power2.out",
           },
-          0.66
+          0.66,
         )
         .to(
           lightLayer,
           { yPercent: -100, duration: 0.07, ease: "power2.inOut" },
-          0.9
+          0.9,
         )
         .to({}, { duration: 0.03 }, 0.97);
 
@@ -210,14 +210,14 @@ function ScrollHero() {
         images.forEach((img) => img.removeEventListener("load", refresh));
       };
     },
-    { scope: sectionRef }
+    { scope: sectionRef },
   );
 
   return (
     <section
       ref={sectionRef}
       aria-labelledby="hero-heading"
-      className="relative h-[380vh] w-full bg-[#020202] md:h-[460vh]"
+      className="relative h-[380vh] w-full bg-[#f7f3ed] dark:bg-[#020202] md:h-[460vh]"
     >
       <div className="sticky top-0 h-[100svh] w-full overflow-hidden">
         <BackgroundElements />
@@ -225,55 +225,46 @@ function ScrollHero() {
         <div
           ref={progressRef}
           aria-hidden="true"
-          className="absolute left-0 top-0 z-40 h-[2px] w-full origin-left bg-emerald-400"
+          className="absolute left-0 top-0 z-40 h-[2px] w-full origin-left bg-emerald-400 dark:bg-emerald-400"
           style={{ transform: "scaleX(0)" }}
         />
 
         <div aria-hidden="true" className="absolute inset-0 z-10">
-          <div className="mx-auto flex h-full w-full max-w-[1600px] flex-col px-5 pb-5 pt-[104px] max-[360px]:pb-4 max-[360px]:pt-[88px] sm:px-8 sm:pb-7 sm:pt-[116px] lg:px-14 lg:pb-9 lg:pt-[128px]">
+          <div className="mx-auto flex h-full w-full max-w-[1600px] flex-col px-5 pb-5 pt-[104px] max-[360px]:pb-4 max-[360px]:pt-[88px] sm:px-8 sm:pb-7 sm:pt-[116px] lg:px-14 lg:pb-9 lg:pt-[40px]">
             <div
               ref={topMetaRef}
-              className={`flex items-start justify-between ${META}`}
-            >
-              <span>Parthiban M</span>
-              <span className="text-right">
-                Backend Engineer
-                <br />
-                Portfolio / 2026
-              </span>
-            </div>
+              className={`flex items-start justify-between ${META.replace("text-white/45", "text-black/60 dark:text-white/45")}`}
+            ></div>
 
             <div
               ref={zoomRef}
               className="flex flex-1 flex-col justify-between py-4 will-change-transform sm:py-6"
             >
               <div>
-                <p ref={lineOneRef} className="hero-giant">
-                  SO I BUILD
+                <p
+                  ref={lineOneRef}
+                  className="font-['Barlow_Condensed'] italic font-black uppercase leading-[0.78] tracking-[-0.04em] text-[#08C9E8] text-[20rem]"
+                >
+                  PARTHI
                 </p>
-                <p className="hero-giant text-emerald-300/90">SECURE APIS</p>
               </div>
 
               <div
                 ref={scrollHintRef}
-                className="flex items-end gap-4"
+                className="flex items-end justify-between gap-4"
               >
-                <span
-                  aria-hidden="true"
-                  className="hero-scroll-line hidden h-10 w-px shrink-0 bg-emerald-400/80 sm:h-14 lg:block"
-                />
+                <div className="flex items-center gap-3 text-black/80 dark:text-white/80 border border-black/60 dark:border-white/60 rounded-full px-4 py-2">
+                  <div className="w-12 h-[1px] bg-black dark:bg-white"></div>
+                  <span className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.28em]">
+                    SCROLL
+                  </span>
+                  <div className="w-12 h-[1px] bg-black dark:bg-white"></div>
+                </div>
                 <p
                   ref={lineThreeRef}
-                  className="hero-giant ml-auto shrink-0 text-right"
+                  className="font-['Barlow_Condensed'] italic font-black uppercase leading-[0.78] tracking-[-0.04em] text-[#08C9E8] text-[20rem] shrink-0 text-right"
                 >
-                  <span className="sm:hidden">
-                    AS THEY
-                    <br />
-                    SHOULD BE
-                  </span>
-                  <span className="hidden whitespace-nowrap sm:inline">
-                    AS THEY SHOULD BE
-                  </span>
+                  BAN
                 </p>
               </div>
             </div>
@@ -286,16 +277,16 @@ function ScrollHero() {
           className="pointer-events-none absolute inset-0 z-[15] flex items-center justify-center opacity-0 will-change-transform"
           style={{ opacity: 0 }}
         >
-          <div className="-translate-y-[4%] text-center font-['Outfit'] text-[clamp(3rem,10.5vw,12rem)] font-black uppercase leading-[0.78] tracking-[-0.07em] text-white">
-            <span className="block">Software</span>
-            <span className="block text-emerald-300">Engineer</span>
+          <div className="-translate-y-[4%] text-center font-['Outfit'] text-[clamp(3rem,10.5vw,12rem)] font-black uppercase leading-[0.78] text-white">
+            <span className="block dark:text-white text-accent">Software</span>
+            <span className="block text-emerald-500">Engineer</span>
           </div>
         </div>
 
         <div
           ref={exitLayerRef}
           aria-hidden="true"
-          className="absolute inset-0 z-[18] bg-[#020202] text-white opacity-0"
+          className="absolute inset-0 z-[18] bg-[#f7f3ed] text-[#12100c] dark:bg-[#020202] dark:text-white opacity-0"
           style={{ opacity: 0 }}
         >
           <div className="mx-auto flex h-full w-full max-w-[1600px] flex-col px-5 pb-5 pt-[104px] max-[360px]:pb-4 max-[360px]:pt-[88px] sm:px-8 sm:pb-7 sm:pt-[116px] lg:px-14 lg:pb-9 lg:pt-[128px]">
@@ -325,9 +316,7 @@ function ScrollHero() {
               </span>
             </div>
 
-            <div
-              className={`flex items-end justify-between gap-4 ${META}`}
-            >
+            <div className={`flex items-end justify-between gap-4 ${META}`}>
               <span className="leading-tight">
                 Available for new backend projects
               </span>
@@ -342,13 +331,13 @@ function ScrollHero() {
         >
           <div
             ref={panelBgRef}
-            className="absolute inset-0 origin-center overflow-hidden bg-[#f5f3ee] will-change-transform"
+            className="absolute inset-0 origin-center overflow-hidden bg-[#f7f3ed] dark:bg-[#0f0f0f] will-change-transform"
             style={{ transform: "scaleX(0)" }}
           >
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_85%_15%,rgba(16,185,129,0.1),transparent_45%)]" />
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_10%_100%,rgba(21,19,13,0.08),transparent_50%)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_85%_15%,rgba(16,185,129,0.1),transparent_45%)] dark:bg-[radial-gradient(ellipse_at_85%_15%,rgba(16,185,129,0.05),transparent_45%)]" />
+            <div className="absolute inset-0 bg-white dark:bg-black" />
             <div
-              className="absolute inset-0 opacity-[0.035]"
+              className="absolute inset-0 opacity-[0.035] dark:opacity-[0.015]"
               style={{
                 backgroundImage:
                   "linear-gradient(#15130d 1px, transparent 1px), linear-gradient(90deg, #15130d 1px, transparent 1px)",
