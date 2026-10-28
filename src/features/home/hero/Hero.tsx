@@ -277,7 +277,7 @@ function ScrollHero() {
           className="pointer-events-none absolute inset-0 z-[15] flex items-center justify-center opacity-0 will-change-transform"
           style={{ opacity: 0 }}
         >
-          <div className="-translate-y-[4%] text-center font-['Outfit'] text-[clamp(3rem,10.5vw,12rem)] font-black uppercase leading-[0.78] text-white">
+          <div className="-translate-y-[4%] text-center font-['Barlow_Condensed'] italic text-[clamp(3rem,10.5vw,12rem)] font-black uppercase leading-[0.78] text-white">
             <span className="block dark:text-white text-accent">Software</span>
             <span className="block text-emerald-500">Engineer</span>
           </div>
