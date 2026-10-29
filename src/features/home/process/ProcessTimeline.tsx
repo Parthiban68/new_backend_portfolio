@@ -75,16 +75,22 @@ export default function ProcessTimeline() {
       const getDistance = () => {
         const trackWidth = track.scrollWidth;
         const viewportWidth = window.innerWidth;
-        return Math.max(0, trackWidth - viewportWidth);
+        if (trackWidth <= viewportWidth) return 0;
+        return trackWidth - viewportWidth;
       };
 
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: trigger,
           start: "top top",
-          end: () => "+=" + getDistance() * 1.2,
-          scrub: 1,
+          end: () => {
+            const dist = getDistance();
+            if (dist <= 0) return "+=100%";
+            return "+=" + dist;
+          },
+          scrub: 0.8,
           pin: true,
+          pinSpacing: true,
           anticipatePin: 1,
           invalidateOnRefresh: true,
         },
@@ -93,7 +99,10 @@ export default function ProcessTimeline() {
       tl.to(
         track,
         {
-          x: () => -getDistance(),
+          x: () => {
+            const dist = getDistance();
+            return -dist;
+          },
           ease: "none",
         },
         0
@@ -106,7 +115,10 @@ export default function ProcessTimeline() {
         0
       );
 
+      ScrollTrigger.refresh();
+
       return () => {
+        tl.scrollTrigger?.kill();
         tl.kill();
       };
     },
@@ -115,7 +127,10 @@ export default function ProcessTimeline() {
 
   if (shouldReduceMotion) {
     return (
-      <section className="relative bg-[#f7f3ed] text-[#0a0a0a] dark:bg-[#050505] dark:text-white">
+      <section
+        ref={sectionRef}
+        className="relative bg-[#f7f3ed] text-[#0a0a0a] dark:bg-[#050505] dark:text-white"
+      >
         <div className="mx-auto max-w-7xl px-6 py-20 sm:px-10 lg:px-14">
           <div className="mb-12">
             <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-[#0a0a0a]/50 dark:text-white/40">
@@ -174,8 +189,8 @@ export default function ProcessTimeline() {
       ref={sectionRef}
       className="relative bg-[#f7f3ed] text-[#0a0a0a] dark:bg-[#050505] dark:text-white"
     >
-      <div ref={triggerRef} className="relative h-[500vh]">
-        <div className="sticky top-0 h-[100svh] overflow-hidden">
+      <div ref={triggerRef} className="relative h-[600vh]">
+        <div className="sticky top-0 h-screen overflow-hidden">
           <div className="absolute inset-0">
             <div className="absolute inset-0 hidden dark:block bg-[radial-gradient(ellipse_at_top,rgba(244,63,94,0.12),transparent_60%)]" />
             <div className="absolute inset-0 hidden dark:block bg-[radial-gradient(ellipse_at_bottom,rgba(244,63,94,0.08),transparent_70%)]" />
