@@ -15,7 +15,7 @@ const HomeAbout = () => {
             </span>
           </div>
 
-          <h2 className="text-3xl sm:text-5xl md:text-5xl font-[400] whitespace-normal sm:whitespace-nowrap text-gray-950 dark:text-white leading-[1.05] mb-8 tracking-tight">
+          <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-['Barlow_Condensed'] font-black uppercase whitespace-normal sm:whitespace-nowrap text-gray-950 dark:text-white leading-[0.9] mb-8 tracking-[-0.02em]">
             Software Engineer.
           </h2>
 
