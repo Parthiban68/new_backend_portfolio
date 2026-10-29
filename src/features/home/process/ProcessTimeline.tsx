@@ -189,17 +189,17 @@ export default function ProcessTimeline() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-[#f7f3ed] text-[#0a0a0a] dark:bg-[#050505] dark:text-white"
+      className="relative bg-white text-[#0a0a0a] dark:bg-[#050505] dark:text-white"
     >
       <div ref={triggerRef} className="relative">
         <div className="sticky top-0 h-screen overflow-hidden">
-          <div className="absolute inset-0">
+          {/* <div className="absolute inset-0">
             <div className="absolute inset-0 hidden dark:block bg-[radial-gradient(ellipse_at_top,rgba(244,63,94,0.12),transparent_60%)]" />
             <div className="absolute inset-0 hidden dark:block bg-[radial-gradient(ellipse_at_bottom,rgba(244,63,94,0.08),transparent_70%)]" />
             <div className="absolute inset-0 dark:hidden bg-[radial-gradient(ellipse_at_top,rgba(244,63,94,0.06),transparent_60%)]" />
-          </div>
+          </div> */}
 
-          <div className="relative z-10 mx-auto flex h-full max-w-[1800px] flex-col px-6 pt-10 sm:px-10 lg:px-14">
+          <div className="relative z-10 mx-auto flex h-full max-w-[1800px] flex-col px-6 pt-10 sm:px-10 lg:px-10">
             <div className="mb-8 flex items-end justify-between gap-6">
               <div>
                 <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-[#0a0a0a]/50 dark:text-white/40">
@@ -232,11 +232,11 @@ export default function ProcessTimeline() {
                   return (
                     <article
                       key={step.number}
-                      className="process-panel relative flex h-[70vh] w-[85vw] max-w-[1100px] flex-shrink-0 flex-col justify-between overflow-hidden rounded-[28px] border border-[#0a0a0a]/10 bg-gradient-to-br from-[#0a0a0a]/[0.02] to-transparent p-8 sm:p-12 lg:p-16 dark:border-white/10 dark:from-white/[0.04]"
+                      className="process-panel relative flex h-[70vh] w-[85vw] max-w-[1100px] flex-shrink-0 flex-col overflow-hidden rounded-[28px] border border-[#0a0a0a]/10 bg-gradient-to-br from-[#0a0a0a]/[0.02] to-transparent p-8 sm:p-12 lg:p-16 dark:border-white/10 dark:from-white/[0.04]"
                     >
                       <div className="absolute inset-0 hidden dark:block bg-[radial-gradient(circle_at_top_right,rgba(244,63,94,0.14),transparent_55%)]" />
                       <div className="absolute inset-0 dark:hidden bg-[radial-gradient(circle_at_top_right,rgba(244,63,94,0.08),transparent_55%)]" />
-                      <div className="relative z-10 flex items-start justify-between">
+                      <div className="relative z-10 flex items-start justify-between -mb-10">
                         <div className="flex items-center gap-4">
                           <span className="flex h-12 w-12 items-center justify-center rounded-full border border-[#0a0a0a]/15 dark:border-white/15">
                             <Icon className="h-5 w-5 text-rose-500 dark:text-rose-400" />
@@ -250,7 +250,7 @@ export default function ProcessTimeline() {
                             </p>
                           </div>
                         </div>
-                        <span className="font-['Barlow_Condensed'] text-[clamp(4rem,12vw,10rem)] font-black leading-none text-[#0a0a0a]/5 dark:text-white/5">
+                        <span className="font-['Barlow_Condensed'] text-[clamp(4rem,12vw,10rem)] font-black leading-none text-[#0a0a0a]/10 dark:text-white/5">
                           {step.number}
                         </span>
                       </div>
