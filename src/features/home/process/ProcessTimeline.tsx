@@ -85,10 +85,10 @@ export default function ProcessTimeline() {
           start: "top top",
           end: () => {
             const dist = getDistance();
-            if (dist <= 0) return "+=100%";
-            return "+=" + dist;
+            if (dist <= 0) return "+=100vh";
+            return "+=" + Math.max(800, dist * 0.8);
           },
-          scrub: 0.8,
+          scrub: true,
           pin: true,
           pinSpacing: true,
           anticipatePin: 1,
@@ -115,9 +115,13 @@ export default function ProcessTimeline() {
         0
       );
 
-      ScrollTrigger.refresh();
+      const onResize = () => {
+        ScrollTrigger.refresh();
+      };
+      window.addEventListener("resize", onResize);
 
       return () => {
+        window.removeEventListener("resize", onResize);
         tl.scrollTrigger?.kill();
         tl.kill();
       };
@@ -189,7 +193,7 @@ export default function ProcessTimeline() {
       ref={sectionRef}
       className="relative bg-[#f7f3ed] text-[#0a0a0a] dark:bg-[#050505] dark:text-white"
     >
-      <div ref={triggerRef} className="relative h-[600vh]">
+      <div ref={triggerRef} className="relative h-[500vh]">
         <div className="sticky top-0 h-screen overflow-hidden">
           <div className="absolute inset-0">
             <div className="absolute inset-0 hidden dark:block bg-[radial-gradient(ellipse_at_top,rgba(244,63,94,0.12),transparent_60%)]" />
