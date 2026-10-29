@@ -13,18 +13,18 @@ const projects = [
       "A multi-tenant accounting and finance platform built for scalable business operations.",
     tech: ["NestJS", "PostgreSQL", "Sequelize", "React"],
     link: "#cfo360",
-    image: "/CFO360-1.png",
+    image: "/src/assets/cfo.png",
   },
   {
     number: "02",
-    title: "Voyce",
+    title: "TreadTrends",
     category: "Professional",
-    role: "Backend Engineer",
+    role: "Full-Stack Engineer",
     description:
-      "An AI-powered voice coaching platform enabling real-time feedback and scalable speech analysis.",
-    tech: ["Node.js", "Express", "MongoDB", "Socket.IO"],
-    link: "#voyce",
-    image: "/voyce.png",
+      "A real-time product tracking and trend analysis platform for smarter decisions.",
+    tech: ["React", "Node.js", "Express", "MongoDB"],
+    link: "#treadtrends",
+    image: "/src/assets/treadtrends.png",
   },
   {
     number: "03",
@@ -35,7 +35,7 @@ const projects = [
       "A personal productivity app designed to help teams plan, track, and ship work with clarity.",
     tech: ["Next.js", "TypeScript", "Tailwind CSS"],
     link: "#taskflow",
-    image: "/taskflow.png",
+    image: "/src/assets/new_5.png",
   },
 ];
 
@@ -44,7 +44,7 @@ export default function SelectedWork() {
   const rest = projects.slice(1);
 
   return (
-    <section className="relative bg-[#f7f3ed] dark:bg-[#050505] text-[#0a0a0a] dark:text-white">
+    <section className="relative bg-white dark:bg-[#050505] text-[#0a0a0a] dark:text-white">
       <div className="mx-auto max-w-[1600px] px-6 py-20 sm:px-10 lg:px-14">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
