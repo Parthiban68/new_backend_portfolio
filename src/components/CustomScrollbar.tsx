@@ -73,8 +73,8 @@ export default function CustomScrollbar() {
     return () => { document.removeEventListener('mousemove', handleMouseMove); document.removeEventListener('mouseup', handleMouseUp); };
   }, [isDragging, lenis]);
   return (
-    <div ref={trackRef} onClick={handleTrackClick} className='fixed right-[6px] top-1/2 -translate-y-1/2 h-[65vh] w-[5px] z-[10000] cursor-pointer hidden lg:block' aria-hidden='true'>
-      <div className='absolute inset-0 bg-[#1a1a1a] dark:bg-white rounded-full' />
+    <div ref={trackRef} onClick={handleTrackClick} className='fixed right-[6px] top-1/2 -translate-y-1/2 h-[25vh] w-[5px] z-[10000] cursor-pointer hidden lg:block' aria-hidden='true'>
+      <div className='absolute inset-0 bg-gray-600 dark:bg-white rounded-full' />
       <div ref={thumbRef} onMouseDown={handleThumbMouseDown} className='absolute left-1/2 -translate-x-1/2 w-[5px] bg-[#08C9E8] rounded-full cursor-grab active:cursor-grabbing shadow-sm' style={{top: 0}} />
     </div>
   );

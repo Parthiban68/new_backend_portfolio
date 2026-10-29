@@ -46,8 +46,8 @@ export default function RightNetwork() {
     <div
       ref={containerRef}
       className="w-full h-full perspective-[200px] flex items-center justify-center relative"
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
+      // onMouseMove={handleMouseMove}
+      // onMouseLeave={handleMouseLeave}
     >
       <motion.div
         style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}

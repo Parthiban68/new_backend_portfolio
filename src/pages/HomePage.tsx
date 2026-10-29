@@ -10,7 +10,7 @@ const HomePage = () => {
     <main className="w-full">
       <Hero />
       <Ticker />
-      <HomeAbout />
+      {/* <HomeAbout /> */}
       <ProcessTimeline />
       <SelectedWork />
       <LetsConnect />

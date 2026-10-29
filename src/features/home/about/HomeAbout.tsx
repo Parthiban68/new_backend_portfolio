@@ -7,7 +7,7 @@ const HomeAbout = () => {
       {/* Main Container */}
         <div className="max-w-full w-full relative z-10 bg-white/60 dark:bg-neutral-900/60 p-6 sm:p-10 lg:p-16 flex flex-col lg:flex-row gap-12 sm:gap-16 lg:gap-24 items-center transition-colors duration-300">
         {/* Left Column */}
-        <div className="w-full lg:w-1/8 flex flex-col justify-center">
+        <div className="w-full flex flex-col justify-center">
           <div className="flex items-center gap-3 mb-6">
             <span className="w-3 h-3 rounded-full bg-emerald-500"></span>
             <span className="text-xs font-semibold tracking-[0.3em] text-gray-500 dark:text-gray-400 uppercase">
@@ -57,7 +57,7 @@ const HomeAbout = () => {
         </div>
 
         {/* Right Column */}
-        <div className="w-full lg:w-1/2 flex items-center justify-center lg:justify-end">
+        <div className="w-full flex items-center justify-center lg:justify-end">
           <div className="flex items-center justify-between sm:justify-center w-full sm:w-auto gap-4 sm:gap-10 md:gap-16 text-center">
             {/* Experience */}
             <div className="flex flex-col items-center">
