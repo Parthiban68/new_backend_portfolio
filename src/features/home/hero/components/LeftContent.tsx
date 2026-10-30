@@ -154,11 +154,11 @@ export default function LeftContent() {
       {/* Headline */}
       <motion.div variants={itemVariants}>
         {/* Uses natural wrap on mobile, forced breaks on sm+ */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[60px] leading-[1.1] sm:leading-[0.92] font-medium tracking-[-0.04em] mb-5 sm:mb-6 md:mb-8 text-zinc-900 dark:text-zinc-50 transition-colors duration-300">
+        <h1 className="font-['Barlow_Condensed'] uppercase tracking-[-0.02em] text-4xl sm:text-5xl md:text-6xl lg:text-[5rem] leading-[1.1] sm:leading-[0.92] font-medium mb-5 sm:mb-6 md:mb-8 text-zinc-900 dark:text-zinc-50 transition-colors duration-300">
           Crafting Secure APIs,
           <br className="hidden sm:block" />
           Distributed Systems,
-          <br className="hidden sm:block" />& Enterprise Software!
+          <br className="hidden sm:block" />& <span className="text-[#E42527]">Enterprise Software!</span> 
         </h1>
       </motion.div>
 
@@ -178,12 +178,16 @@ export default function LeftContent() {
         className="flex flex-col sm:flex-row items-start sm:items-center gap-5 sm:gap-6 md:gap-8"
       >
         {/* Primary Download Button */}
-        <a href="https://github.com/Parthiban68">      <motion.button
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-          // Full width on mobile, auto width on larger screens
-          className="flex items-center justify-between sm:justify-start w-full sm:w-auto gap-4 pl-6 pr-2 py-2 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 rounded-[32px] font-medium text-[16px] md:text-[18px] transition-colors duration-300 shadow-md group"
-        >  <svg
+        <a href="https://github.com/Parthiban68">
+          {" "}
+          <motion.button
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            // Full width on mobile, auto width on larger screens
+            className="flex items-center justify-between sm:justify-start w-full sm:w-auto gap-4 pl-6 pr-2 py-2 bg-[#E42527]  text-white rounded-[32px] font-medium text-[16px] md:text-[18px] transition-colors duration-300 shadow-md group"
+          >
+            {" "}
+            <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
               height="20"
@@ -197,15 +201,15 @@ export default function LeftContent() {
               <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
               <path d="M9 18c-4.51 2-5-2-7-2" />
             </svg>
-          <span>GitHub</span>
-          <div className="bg-zinc-800 dark:bg-zinc-200 group-hover:bg-zinc-700 dark:group-hover:bg-zinc-300 p-2.5 rounded-full flex items-center justify-center transition-colors duration-300">
-            <ArrowRight
-              className="w-5 h-5 text-white dark:text-zinc-900"
-              strokeWidth={2.5}
-            />
-          </div>
-        </motion.button></a>
-  
+            <span>GitHub</span>
+            <div className="bg-[#E42527]  group-hover:bg-[#fd4e51] p-2.5 rounded-full flex items-center justify-center transition-colors duration-300">
+              <ArrowRight
+                className="w-5 h-5 text-white "
+                strokeWidth={2.5}
+              />
+            </div>
+          </motion.button>
+        </a>
 
         {/* Secondary Explore Button */}
         <NavLink to={"/projects"}>

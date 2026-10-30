@@ -138,7 +138,7 @@ export default function ProcessTimeline() {
             <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-[#0a0a0a]/50 dark:text-white/40">
               Behind the Build
             </p>
-            <h2 className="mt-4 font-['Barlow_Condensed'] text-[clamp(3rem,9vw,8rem)] font-black uppercase leading-[0.85] tracking-[-0.02em]">
+            <h2 className="mt-4 font-['Barlow_Condensed'] text-[6rem] font-black uppercase leading-[0.85] tracking-[-0.02em]">
               FROM IDEA TO SYSTEM
             </h2>
           </div>
@@ -156,7 +156,7 @@ export default function ProcessTimeline() {
                         <span className="font-mono text-xs text-[#0a0a0a]/50 dark:text-white/40">
                           {step.number}
                         </span>
-                        <Icon className="h-5 w-5 text-rose-500 dark:text-rose-400" />
+                        <Icon className="h-5 w-5 text-[#E42527]" />
                       </div>
                       <h3 className="mt-4 font-['Barlow_Condensed'] text-[clamp(2rem,6vw,4rem)] font-black uppercase leading-[0.9]">
                         {step.title}
@@ -205,7 +205,7 @@ export default function ProcessTimeline() {
                 <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-[#0a0a0a]/50 dark:text-white/40">
                   Behind the Build
                 </p>
-                <h2 className="mt-3 font-['Barlow_Condensed'] text-[clamp(2.8rem,9vw,7rem)] font-black uppercase leading-[0.85] tracking-[-0.02em]">
+                <h2 className="mt-3 font-['Barlow_Condensed'] text-[6rem] font-black uppercase leading-[0.85] tracking-[-0.02em]">
                   FROM IDEA TO SYSTEM
                 </h2>
               </div>
@@ -216,7 +216,7 @@ export default function ProcessTimeline() {
                 <div className="h-[2px] w-32 overflow-hidden rounded-full bg-[#0a0a0a]/10 dark:bg-white/10">
                   <div
                     ref={progressRef}
-                    className="h-full origin-left scale-x-0 bg-rose-500 dark:bg-rose-400"
+                    className="h-full origin-left scale-x-0 bg-[#E42527] dark:bg-rose-400"
                   />
                 </div>
               </div>
@@ -232,14 +232,14 @@ export default function ProcessTimeline() {
                   return (
                     <article
                       key={step.number}
-                      className="process-panel relative flex h-[70vh] w-[85vw] max-w-[1100px] flex-shrink-0 flex-col overflow-hidden rounded-[28px] border border-[#0a0a0a]/10 bg-gradient-to-br from-[#0a0a0a]/[0.02] to-transparent p-8 sm:p-12 lg:p-16 dark:border-white/10 dark:from-white/[0.04]"
+                      className="process-panel relative flex h-[70vh] w-[55vw] max-w-[1100px] flex-shrink-0 flex-col overflow-hidden rounded-[28px] border border-[#0a0a0a]/10 bg-gradient-to-br from-[#0a0a0a]/[0.02] to-transparent p-8 sm:p-12 lg:p-16 dark:border-white/10 dark:from-white/[0.04]"
                     >
                       <div className="absolute inset-0 hidden dark:block bg-[radial-gradient(circle_at_top_right,rgba(244,63,94,0.14),transparent_55%)]" />
                       <div className="absolute inset-0 dark:hidden bg-[radial-gradient(circle_at_top_right,rgba(244,63,94,0.08),transparent_55%)]" />
                       <div className="relative z-10 flex items-start justify-between -mb-10">
                         <div className="flex items-center gap-4">
                           <span className="flex h-12 w-12 items-center justify-center rounded-full border border-[#0a0a0a]/15 dark:border-white/15">
-                            <Icon className="h-5 w-5 text-rose-500 dark:text-rose-400" />
+                            <Icon className="h-5 w-5 text-[#E42527] dark:text-rose-400" />
                           </span>
                           <div>
                             <p className="font-mono text-xs uppercase tracking-[0.4em] text-[#0a0a0a]/50 dark:text-white/40">
@@ -254,8 +254,8 @@ export default function ProcessTimeline() {
                           {step.number}
                         </span>
                       </div>
-                      <div className="relative z-10">
-                        <h3 className="font-['Barlow_Condensed'] text-[clamp(2.8rem,9vw,7rem)] font-black uppercase leading-[0.88] tracking-[-0.02em]">
+                      <div className="relative z-10 w-125">
+                        <h3 className="font-['Barlow_Condensed']  text-[#E42527] text-[4rem] font-black uppercase leading-[0.88] tracking-[-0.02em]">
                           {step.title}
                         </h3>
                         <p className="mt-6 max-w-2xl text-lg text-[#0a0a0a]/80 sm:text-xl dark:text-white/70">
@@ -269,7 +269,7 @@ export default function ProcessTimeline() {
                     </article>
                   );
                 })}
-                <article className="process-panel relative flex h-[70vh] w-[85vw] max-w-[1100px] flex-shrink-0 flex-col items-center justify-center overflow-hidden rounded-[28px] border border-[#0a0a0a]/10 bg-gradient-to-br from-[#0a0a0a]/[0.02] to-transparent text-center dark:border-white/10 dark:from-white/[0.04]">
+                {/* <article className="process-panel relative flex h-[70vh] w-[85vw] max-w-[1100px] flex-shrink-0 flex-col items-center justify-center overflow-hidden rounded-[28px] border border-[#0a0a0a]/10 bg-gradient-to-br from-[#0a0a0a]/[0.02] to-transparent text-center dark:border-white/10 dark:from-white/[0.04]">
                   <div className="absolute inset-0 hidden dark:block bg-[radial-gradient(circle_at_center,rgba(244,63,94,0.16),transparent_65%)]" />
                   <div className="absolute inset-0 dark:hidden bg-[radial-gradient(circle_at_center,rgba(244,63,94,0.1),transparent_65%)]" />
                   <div className="relative z-10 px-6">
@@ -282,7 +282,7 @@ export default function ProcessTimeline() {
                       READY TO SCALE.
                     </h3>
                   </div>
-                </article>
+                </article> */}
               </div>
             </div>
           </div>

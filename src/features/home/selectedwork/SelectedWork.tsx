@@ -75,7 +75,7 @@ export default function SelectedWork() {
             className="grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:items-center"
           >
             <div className="relative overflow-hidden border border-[#0a0a0a]/10 dark:border-white/10">
-              <div className="absolute left-0 top-0 h-full w-[2px] bg-rose-500" />
+              <div className="absolute left-0 top-0 h-full w-[2px] bg-[#E42527]" />
               <div className="aspect-[16/10] w-full">
                 <img
                   src={featured.image}
@@ -110,7 +110,7 @@ export default function SelectedWork() {
                   <React.Fragment key={tech}>
                     <span>{tech}</span>
                     {idx < featured.tech.length - 1 && (
-                      <span className="text-rose-500">•</span>
+                      <span className="text-[#E42527]">•</span>
                     )}
                   </React.Fragment>
                 ))}
@@ -118,7 +118,7 @@ export default function SelectedWork() {
               <div className="mt-10">
                 <a
                   href={featured.link}
-                  className="group inline-flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.3em] text-[#0a0a0a] transition-colors hover:text-rose-500 dark:text-white dark:hover:text-rose-500"
+                  className="group inline-flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.3em] text-[#0a0a0a] transition-colors hover:text-[#E42527] dark:text-white dark:hover:text-[#E42527]"
                 >
                   <span>Explore Project</span>
                   <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
@@ -175,7 +175,7 @@ export default function SelectedWork() {
                       <React.Fragment key={tech}>
                         <span>{tech}</span>
                         {idx < project.tech.length - 1 && (
-                          <span className="text-rose-500">•</span>
+                          <span className="text-[#E42527]">•</span>
                         )}
                       </React.Fragment>
                     ))}
@@ -183,7 +183,7 @@ export default function SelectedWork() {
                   <div className="mt-8">
                     <a
                       href={project.link}
-                      className="group inline-flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.3em] text-[#0a0a0a] transition-colors hover:text-rose-500 dark:text-white dark:hover:text-rose-500"
+                      className="group inline-flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.3em] text-[#0a0a0a] transition-colors hover:text-[#E42527] dark:text-white dark:hover:text-[#E42527]"
                     >
                       <span>Explore Project</span>
                       <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
@@ -201,13 +201,13 @@ export default function SelectedWork() {
             transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
             className="flex flex-col items-center justify-center text-center"
           >
-            <div className="mb-4 h-1 w-12 bg-rose-500" />
+            <div className="mb-4 h-1 w-12 bg-[#E42527]" />
             <h3 className="font-['Barlow_Condensed'] text-[clamp(2rem,5vw,4rem)] font-black uppercase tracking-[-0.02em]">
               See everything I've built.
             </h3>
             <NavLink
               to={"/projects"}
-              className="group mt-6 inline-flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.3em] text-[#0a0a0a] transition-colors hover:text-rose-500 dark:text-white dark:hover:text-rose-500"
+              className="group mt-6 inline-flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.3em] text-[#0a0a0a] transition-colors hover:text-[#E42527] dark:text-white dark:hover:text-[#E42527]"
             >
               <span>View All Work</span>
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />

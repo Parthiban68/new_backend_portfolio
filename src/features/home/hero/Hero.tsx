@@ -245,7 +245,7 @@ function ScrollHero() {
               <div>
                 <p
                   ref={lineOneRef}
-                  className="font-['Barlow_Condensed'] italic font-black uppercase leading-[0.78] tracking-[-0.04em] text-rose-500 text-[20rem]"
+                  className="font-['Barlow_Condensed'] italic font-black uppercase leading-[0.78] tracking-[-0.04em] text-[#E42527] text-[20rem]"
                 >
                   PARTHI
                 </p>
@@ -257,14 +257,14 @@ function ScrollHero() {
               >
                 <div className="flex items-center gap-3 text-black/80 dark:text-white/80 border border-black/60 dark:border-white/60 rounded-full px-4 py-2">
                   <div className="w-12 h-[1px] bg-black dark:bg-white"></div>
-                  <span               className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.28em] text-rose-500">
+                  <span               className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.28em] text-[#E42527]">
                     SCROLL
                   </span>
                   <div className="w-12 h-[1px] bg-black dark:bg-white"></div>
                 </div>
                 <p
                   ref={lineThreeRef}
-                  className="font-['Barlow_Condensed'] italic font-black uppercase leading-[0.78] tracking-[-0.04em] text-rose-500 text-[20rem] shrink-0 text-right"
+                  className="font-['Barlow_Condensed'] italic font-black uppercase leading-[0.78] tracking-[-0.04em] text-[#E42527] text-[20rem] shrink-0 text-right"
                 >
                   BAN
                 </p>
@@ -283,7 +283,7 @@ function ScrollHero() {
             <span className="block text-[#12100c] dark:text-white">
               Software
             </span>
-            <span className="block text-rose-500">Engineer</span>
+            <span className="block text-[#E42527]">Engineer</span>
           </div>
         </div>
 
@@ -316,7 +316,7 @@ function ScrollHero() {
                         </span>
                       </div>
 
-                      <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-['Barlow_Condensed'] font-black uppercase whitespace-normal sm:whitespace-nowrap text-rose-500 leading-[0.9] mb-8 tracking-[-0.02em]">
+                      <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-['Barlow_Condensed'] font-black uppercase whitespace-normal sm:whitespace-nowrap text-[#E42527] leading-[0.9] mb-8 tracking-[-0.02em]">
                         Software Engineer.
                       </h2>
 

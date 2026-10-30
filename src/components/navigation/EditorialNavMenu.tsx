@@ -395,7 +395,7 @@ export default function EditorialNavMenu() {
               href="/resume.pdf"
               download="Parthiban_Software_Engineer.pdf"
               aria-label="Download Parthiban's resume"
-              className="flex h-9 items-center gap-1.5 rounded-full border border-[#15130d] bg-white px-3.5 font-['Outfit'] text-[10px] font-black uppercase tracking-[0.2em] text-[#15130d] transition-colors hover:bg-[#15130d] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#15130d] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:border-[#f5f3ee] dark:bg-transparent dark:text-[#f5f3ee] dark:hover:bg-[#f5f3ee] dark:hover:text-[#15130d] dark:focus-visible:ring-[#f5f3ee] dark:focus-visible:ring-offset-[#111009] sm:h-10 sm:px-5 sm:text-[11px] sm:tracking-[0.24em]"
+              className="flex h-9 items-center gap-1.5 rounded-full border border-[#15130d] bg-white px-3.5 font-['Outfit'] text-[10px] font-black uppercase tracking-[0.2em] text-[#15130d] transition-colors hover:bg-[#E42527] hover:border-[#E42527] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#15130d] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:border-[#f5f3ee] dark:bg-transparent dark:text-[#f5f3ee] dark:hover:bg-[#E42527] dark:hover:text-white dark:focus-visible:ring-[#f5f3ee] dark:focus-visible:ring-offset-[#111009] sm:h-10 sm:px-5 sm:text-[11px] sm:tracking-[0.24em]"
             >
               <span className="hidden sm:inline">RESUME</span>
               <Download size={15} strokeWidth={1.8} aria-hidden="true" />

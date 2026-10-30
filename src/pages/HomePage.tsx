@@ -9,7 +9,7 @@ const HomePage = () => {
   return (
     <main className="w-full">
       <Hero />
-      <Ticker />
+      {/* <Ticker /> */}
       {/* <HomeAbout /> */}
       <ProcessTimeline />
       <SelectedWork />
