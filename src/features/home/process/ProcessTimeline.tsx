@@ -138,7 +138,7 @@ export default function ProcessTimeline() {
             <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-[#0a0a0a]/50 dark:text-white/40">
               Behind the Build
             </p>
-            <h2 className="mt-4 font-['Barlow_Condensed'] text-[6rem] font-black uppercase leading-[0.85] tracking-[-0.02em]">
+            <h2 className="mt-4 font-['Barlow_Condensed'] text-[5rem] font-black uppercase leading-[0.85] tracking-[-0.02em]">
               FROM IDEA TO SYSTEM
             </h2>
           </div>
@@ -205,7 +205,7 @@ export default function ProcessTimeline() {
                 <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-[#0a0a0a]/50 dark:text-white/40">
                   Behind the Build
                 </p>
-                <h2 className="mt-3 font-['Barlow_Condensed'] text-[6rem] font-black uppercase leading-[0.85] tracking-[-0.02em]">
+                <h2 className="mt-3 font-['Barlow_Condensed'] text-[5rem] font-black uppercase leading-[0.85] tracking-[-0.02em]">
                   FROM IDEA TO SYSTEM
                 </h2>
               </div>
@@ -239,7 +239,7 @@ export default function ProcessTimeline() {
                       <div className="relative z-10 flex items-start justify-between -mb-10">
                         <div className="flex items-center gap-4">
                           <span className="flex h-12 w-12 items-center justify-center rounded-full border border-[#0a0a0a]/15 dark:border-white/15">
-                            <Icon className="h-5 w-5 text-[#E42527] dark:text-rose-400" />
+                            <Icon className="h-5 w-5 text-[#E42527]" />
                           </span>
                           <div>
                             <p className="font-mono text-xs uppercase tracking-[0.4em] text-[#0a0a0a]/50 dark:text-white/40">

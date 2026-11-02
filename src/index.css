@@ -2,6 +2,13 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+:root {
+  --color-red: #E42527;
+  --color-blue: #226DB4;
+  --color-green: #009B5D;
+  --color-orange: #F5B335;
+}
+
 html {
   color-scheme: light;
   scrollbar-width: none;
@@ -28,12 +35,17 @@ html.dark {
 @theme {
   --font-sans: 'Inter', sans-serif;
   --font-display: 'Space Grotesk', sans-serif;
-  
+
   --color-primary: #0A0A0A;
   --color-secondary: #666666;
-  --color-accent: #000000; /* Use black as accent for a sharper theme, or keep green? Let's use a stark black/white theme with tiny hints of color */
+  --color-accent: #000000;
   --color-bg-base: #FFFFFF;
   --color-bg-subtle: #F5F5F5;
+
+  --color-red: #E42527;
+  --color-blue: #226DB4;
+  --color-green: #009B5D;
+  --color-orange: #F5B335;
 }
 
 @layer base {

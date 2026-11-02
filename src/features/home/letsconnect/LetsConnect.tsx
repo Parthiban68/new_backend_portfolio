@@ -62,7 +62,7 @@ const TechnicalBackground = () => (
 
 export default function ContactSection() {
   return (
-    <section className="relative w-full bg-white dark:bg-[#0A0A0A] overflow-hidden min-h-150 lg:min-h-175 transition-colors duration-300">
+    <section className="relative w-full bg-white dark:bg-[#0A0A0A] overflow-hidden min-h-150 lg:min-h-175 transition-colors duration-300 -mt-20">
       {/* <TechnicalBackground /> */}
 
       <div className="relative mx-auto max-w-[1500px] w-full px-6 md:px-12 lg:px-16 flex flex-col lg:flex-row items-center z-10">
