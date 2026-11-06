@@ -1,264 +1,466 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { Mail, ArrowUpRight } from "lucide-react";
-import { NavLink } from "react-router-dom";
-// --- Animation Variants ---
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.12, delayChildren: 0.1 },
-  },
+import { useRef, useState, type CSSProperties, type FormEvent } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ArrowUpRight } from "lucide-react";
+
+import portraitImage from "../../../assets/Parthiban.jpeg";
+import cfoImage from "../../../assets/cfo.png";
+import aboutImage from "../../../assets/about2.png";
+import trendImage from "../../../assets/treadtrends.png";
+import busStandImage from "../../../assets/tbs.png";
+import taskFlowImage from "../../../assets/new_5.png";
+
+gsap.registerPlugin(useGSAP, ScrollTrigger);
+
+const CONTACT_EMAIL = "parthibanm1268@gmail.com";
+const LINKEDIN_URL = "https://www.linkedin.com/in/m-parthiban/";
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+type FloatingTile = {
+  src: string;
+  alt: string;
+  aspect: string;
+  stripWidth: string;
+  desktopWidth: string;
+  position: string;
+  rotate: number;
+  floatRotate: number;
+  duration: number;
+  delay: number;
+  distance: number;
+  stripOffset?: string;
+  monochrome?: boolean;
 };
 
-const itemVariants: any = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
+const floatingTiles: FloatingTile[] = [
+  {
+    src: portraitImage,
+    alt: "Parthiban M portrait",
+    aspect: "aspect-[3/4]",
+    stripWidth: "w-[64px] sm:w-[88px] md:w-[104px]",
+    desktopWidth: "lg:w-[118px] xl:w-[146px] 2xl:w-[170px]",
+    position:
+      "lg:left-[3%] lg:top-[6%] xl:left-[6%] xl:top-[7%] 2xl:left-[8%] 2xl:top-[8%]",
+    rotate: -6,
+    floatRotate: -1.6,
+    duration: 7.6,
+    delay: 0.2,
+    distance: 9,
+    stripOffset: "mt-3",
   },
-};
+  {
+    src: cfoImage,
+    alt: "CFO360 finance platform preview",
+    aspect: "aspect-[16/10]",
+    stripWidth: "w-[76px] sm:w-[104px] md:w-[120px]",
+    desktopWidth: "lg:w-[142px] xl:w-[176px] 2xl:w-[205px]",
+    position:
+      "lg:right-[3%] lg:top-[3%] xl:right-[6%] xl:top-[4%] 2xl:right-[8%] 2xl:top-[5%]",
+    rotate: 4,
+    floatRotate: 1.4,
+    duration: 8.4,
+    delay: 0.9,
+    distance: 11,
+    stripOffset: "-mt-2",
+  },
+  {
+    src: aboutImage,
+    alt: "Design and workspace detail",
+    aspect: "aspect-[3/4]",
+    stripWidth: "w-[58px] sm:w-[80px] md:w-[92px]",
+    desktopWidth: "lg:w-[108px] xl:w-[134px] 2xl:w-[158px]",
+    position:
+      "lg:left-[5%] lg:top-[43%] xl:left-[8%] xl:top-[43%] 2xl:left-[10%] 2xl:top-[44%]",
+    rotate: 3,
+    floatRotate: 1.5,
+    duration: 6.8,
+    delay: 1.4,
+    distance: 8,
+    stripOffset: "mt-4",
+  },
+  {
+    src: trendImage,
+    alt: "TreadTrends project preview",
+    aspect: "aspect-[4/5]",
+    stripWidth: "w-[56px] sm:w-[76px] md:w-[88px]",
+    desktopWidth: "lg:w-[112px] xl:w-[140px] 2xl:w-[162px]",
+    position:
+      "lg:right-[5%] lg:top-[41%] xl:right-[8%] xl:top-[42%] 2xl:right-[10%] 2xl:top-[42%]",
+    rotate: -5,
+    floatRotate: -1.3,
+    duration: 7.2,
+    delay: 0.6,
+    distance: 10,
+    stripOffset: "-mt-4",
+    monochrome: true,
+  },
+  {
+    src: busStandImage,
+    alt: "TheBusStand booking platform preview",
+    aspect: "aspect-[16/10]",
+    stripWidth: "w-[74px] sm:w-[100px] md:w-[116px]",
+    desktopWidth: "lg:w-[122px] xl:w-[152px] 2xl:w-[178px]",
+    position:
+      "lg:bottom-[6%] lg:left-[3%] xl:bottom-[8%] xl:left-[6%] 2xl:bottom-[9%] 2xl:left-[8%]",
+    rotate: 5,
+    floatRotate: 1.3,
+    duration: 8.8,
+    delay: 1.8,
+    distance: 9,
+  },
+  {
+    src: taskFlowImage,
+    alt: "TaskFlow productivity app preview",
+    aspect: "aspect-[3/4]",
+    stripWidth: "w-[66px] sm:w-[90px] md:w-[104px]",
+    desktopWidth: "lg:w-[112px] xl:w-[140px] 2xl:w-[162px]",
+    position:
+      "lg:bottom-[8%] lg:right-[5%] xl:bottom-[9%] xl:right-[8%] 2xl:bottom-[10%] 2xl:right-[9%]",
+    rotate: -3,
+    floatRotate: -1.4,
+    duration: 7.9,
+    delay: 1.1,
+    distance: 10,
+  },
+];
 
-// --- Background & Right Side (Kept intact from the premium concept) ---
+function FloatingImage({
+  tile,
+  variant,
+  className = "",
+}: {
+  tile: FloatingTile;
+  variant: "strip" | "desktop";
+  className?: string;
+}) {
+  const isDesktop = variant === "desktop";
+  const tiltStyle = {
+    "--tile-rotate": `${tile.rotate}deg`,
+  } as CSSProperties;
 
-const TechnicalBackground = () => (
-  <div
-    className="absolute inset-0 z-0 pointer-events-none opacity-[0.25]"
-    aria-hidden="true"
-  >
-    <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <pattern
-          id="tech-grid"
-          width="64"
-          height="64"
-          patternUnits="userSpaceOnUse"
-        >
-          <path
-            d="M 64 0 L 0 0 0 64"
-            fill="none"
-            stroke="#000000"
-            strokeWidth="0.5"
-            strokeOpacity="0.06"
-          />
-          <path
-            d="M -2 0 L 2 0 M 0 -2 L 0 2"
-            stroke="#000000"
-            strokeWidth="1"
-            strokeOpacity="0.1"
-          />
-        </pattern>
-        <radialGradient id="fade-out" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0" />
-          <stop offset="100%" stopColor="#FFFFFF" stopOpacity="1" />
-        </radialGradient>
-      </defs>
-      <rect width="100%" height="100%" fill="url(#tech-grid)" />
-      <rect width="100%" height="100%" fill="url(#fade-out)" />
-    </svg>
-  </div>
-);
-
-export default function ContactSection() {
   return (
-    <section className="relative w-full bg-white dark:bg-[#0A0A0A] overflow-hidden min-h-150 lg:min-h-175 transition-colors duration-300 -mt-20">
-      {/* <TechnicalBackground /> */}
-
-      <div className="relative mx-auto max-w-[1500px] w-full px-6 md:px-12 lg:px-16 flex flex-col lg:flex-row items-center z-10">
-        {/* NEW LEFT COLUMN DESIGN: Data-driven & Structured */}
-        <motion.div
-          className="w-full lg:w-[55%] flex flex-col z-20"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+    <div
+      data-float-tile
+      data-float-distance={tile.distance}
+      data-float-duration={tile.duration}
+      data-float-delay={tile.delay}
+      data-float-rotate={tile.floatRotate}
+      className={`group pointer-events-auto ${
+        isDesktop
+          ? `absolute ${tile.desktopWidth} ${tile.position}`
+          : `relative shrink-0 ${tile.stripWidth} ${tile.stripOffset ?? ""}`
+      } ${className}`}
+    >
+      <div
+        style={tiltStyle}
+        className="overflow-hidden rounded-[16px] border border-[#0a0a0a]/10 bg-white/90 p-1.5 shadow-[0_18px_45px_-28px_rgba(10,10,10,0.55)] transition-all duration-500 ease-out [transform:rotate(var(--tile-rotate))] group-hover:border-[#0a0a0a]/20 group-hover:shadow-[0_26px_55px_-24px_rgba(10,10,10,0.5)] group-hover:[transform:rotate(0deg)_scale(1.035)] motion-reduce:transition-none dark:border-white/10 dark:bg-white/[0.04] dark:shadow-[0_20px_45px_-24px_rgba(0,0,0,0.9)] dark:group-hover:border-white/20 dark:group-hover:shadow-[0_26px_55px_-18px_rgba(0,0,0,0.95)] sm:rounded-[18px] sm:p-2"
+      >
+        <div
+          className={`overflow-hidden rounded-[11px] ${tile.aspect} sm:rounded-[12px]`}
         >
-          {/* Eyebrow: Sleek Badge Style */}
-          <motion.div variants={itemVariants} className="mb-8">
-            <div className="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-neutral-50 dark:bg-neutral-900 shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-              </span>
-              <span className="text-[12px] font-medium tracking-wide text-neutral-600 dark:text-neutral-400">
-                Let's work together
-              </span>
+          <img
+            src={tile.src}
+            alt={tile.alt}
+            loading="lazy"
+            decoding="async"
+            draggable={false}
+            className={`h-full w-full object-cover transition-[transform,filter] duration-700 ease-out group-hover:scale-[1.04] ${
+              tile.monochrome
+                ? "grayscale group-hover:grayscale-0"
+                : ""
+            }`}
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default function LetsConnect() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "error" | "success">("idle");
+  const [feedback, setFeedback] = useState("");
+
+  useGSAP(
+    () => {
+      const section = sectionRef.current;
+      const content = contentRef.current;
+      if (!section || !content) return;
+
+      const mm = gsap.matchMedia();
+
+      mm.add("(prefers-reduced-motion: no-preference)", () => {
+        const revealItems = gsap.utils.toArray<HTMLElement>(
+          "[data-connect-reveal]",
+          content,
+        );
+
+        if (revealItems.length > 0) {
+          gsap.from(revealItems, {
+            y: 26,
+            autoAlpha: 0,
+            duration: 0.9,
+            stagger: 0.09,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: content,
+              start: "top 82%",
+              toggleActions: "play none none none",
+            },
+          });
+        }
+
+        const tiles = gsap.utils.toArray<HTMLElement>(
+          "[data-float-tile]",
+          section,
+        );
+
+        if (tiles.length > 0) {
+          gsap.from(tiles, {
+            autoAlpha: 0,
+            duration: 0.8,
+            stagger: 0.07,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: section,
+              start: "top 78%",
+              toggleActions: "play none none none",
+            },
+          });
+        }
+
+        tiles.forEach((tile) => {
+          const distance = Number(tile.dataset.floatDistance ?? 9);
+          const rotation = Number(tile.dataset.floatRotate ?? 1.4);
+          const duration = Number(tile.dataset.floatDuration ?? 7);
+          const delay = Number(tile.dataset.floatDelay ?? 0);
+
+          gsap.set(tile, { transformOrigin: "50% 50%", force3D: true });
+          gsap.to(tile, {
+            y: -distance,
+            rotation,
+            duration,
+            delay,
+            repeat: -1,
+            yoyo: true,
+            ease: "sine.inOut",
+          });
+        });
+      });
+
+      return () => mm.revert();
+    },
+    { scope: sectionRef },
+  );
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const value = email.trim();
+
+    if (!value) {
+      setStatus("error");
+      setFeedback("Please enter your email address.");
+      return;
+    }
+
+    if (!EMAIL_PATTERN.test(value)) {
+      setStatus("error");
+      setFeedback("That email address doesn't look right.");
+      return;
+    }
+
+    const subject = encodeURIComponent("Let's create something together");
+    const body = encodeURIComponent(
+      `Hi Parthiban,\n\nI'd love to talk about a project or opportunity. You can reach me at ${value}.\n\nThanks!`,
+    );
+
+    setStatus("success");
+    setFeedback("Opening your email client…");
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+  };
+
+  return (
+    <section
+      ref={sectionRef}
+      aria-labelledby="lets-connect-heading"
+      className="relative isolate h-screen -mt-20 w-full overflow-hidden bg-[#f7f3ed] text-[#0a0a0a] transition-colors duration-300 dark:bg-[#050505] dark:text-white"
+    >
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+        <div
+          className="absolute inset-0 opacity-[0.045] dark:hidden"
+          style={{
+            backgroundImage:
+              "linear-gradient(#15130d 1px, transparent 1px), linear-gradient(90deg, #15130d 1px, transparent 1px)",
+            backgroundSize: "72px 72px",
+            maskImage:
+              "radial-gradient(ellipse at center, black 0%, transparent 72%)",
+            WebkitMaskImage:
+              "radial-gradient(ellipse at center, black 0%, transparent 72%)",
+          }}
+        />
+        <div
+          className="absolute inset-0 hidden opacity-[0.035] dark:block"
+          style={{
+            backgroundImage:
+              "linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)",
+            backgroundSize: "72px 72px",
+            maskImage:
+              "radial-gradient(ellipse at center, black 0%, transparent 72%)",
+            WebkitMaskImage:
+              "radial-gradient(ellipse at center, black 0%, transparent 72%)",
+          }}
+        />
+        <div className="absolute left-1/2 top-1/2 h-[540px] w-[min(92vw,920px)] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(16,185,129,0.06),transparent_68%)] dark:bg-[radial-gradient(ellipse_at_center,rgba(16,185,129,0.045),transparent_68%)]" />
+      </div>
+
+      <div className="relative mx-auto flex w-full max-w-[1600px] flex-col justify-center px-6 py-16 sm:px-10 sm:py-20 lg:min-h-[720px] lg:px-10 lg:py-24 xl:min-h-[760px] xl:px-14">
+        {/* <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 hidden lg:block"
+        >
+          {floatingTiles.map((tile) => (
+            <FloatingImage
+              key={`desktop-${tile.alt}`}
+              tile={tile}
+              variant="desktop"
+            />
+          ))}
+        </div> */}
+
+        <div
+          ref={contentRef}
+          className="relative z-20 mx-auto w-full max-w-[900px] text-center "
+        >
+          <div
+            aria-hidden="true"
+            className="relative z-10 mx-auto mb-9 flex w-full max-w-[430px] items-center justify-center gap-3 sm:mb-11 sm:max-w-[560px] sm:gap-5 lg:hidden"
+          >
+            {floatingTiles.slice(0, 4).map((tile, index) => (
+              <FloatingImage
+                key={`strip-${tile.alt}`}
+                tile={tile}
+                variant="strip"
+                className={index === 3 ? "hidden sm:block" : ""}
+              />
+            ))}
+          </div>
+
+          <div data-connect-reveal>
+            <span className="inline-flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.4em] text-[#0a0a0a]/50 dark:text-white/40">
+              <span
+                aria-hidden="true"
+                className="h-px w-8 bg-gradient-to-r from-emerald-500 to-cyan-500"
+              />
+              Let's Connect
+            </span>
+          </div>
+
+          <h2
+            id="lets-connect-heading"
+            data-connect-reveal
+            className="mt-6 font-['Barlow_Condensed'] text-[clamp(2.75rem,8vw,5.5rem)] font-black uppercase leading-[0.84] tracking-[-0.02em] text-balance text-[#0a0a0a] dark:text-white"
+          >
+            A good idea is just the start.{" "}
+            <span className="mt-1 block">Let's make something of it.</span>
+          </h2>
+
+          <p
+            data-connect-reveal
+            className="mx-auto mt-6 max-w-[540px] text-[15px] leading-[1.65] text-[#6B6B6B] dark:text-neutral-400 sm:text-base"
+          >
+            Have a project, an opportunity, or an interesting idea? I'd love to
+            hear from you.
+          </p>
+
+          <form
+            data-connect-reveal
+            onSubmit={handleSubmit}
+            noValidate
+            className="mx-auto mt-9 w-full max-w-[560px] sm:mt-10"
+          >
+            <div className="flex flex-col gap-2 rounded-[26px] border border-[#0a0a0a]/10 bg-white/70 p-2 shadow-[0_24px_60px_-40px_rgba(10,10,10,0.55)] transition-all duration-300 focus-within:border-emerald-500/50 focus-within:ring-4 focus-within:ring-emerald-500/10 dark:border-white/10 dark:bg-white/[0.035] dark:shadow-[0_24px_60px_-40px_rgba(0,0,0,0.9)] dark:focus-within:border-emerald-400/50 dark:focus-within:ring-emerald-400/10 sm:flex-row sm:items-center sm:rounded-full">
+              <label htmlFor="connect-email" className="sr-only">
+                Email address
+              </label>
+              <input
+                id="connect-email"
+                name="email"
+                type="email"
+                inputMode="email"
+                autoComplete="email"
+                placeholder="Your email goes here"
+                value={email}
+                aria-invalid={status === "error"}
+                aria-describedby="connect-email-note"
+                onChange={(event) => {
+                  setEmail(event.target.value);
+                  if (status !== "idle") {
+                    setStatus("idle");
+                    setFeedback("");
+                  }
+                }}
+                className="h-12 w-full min-w-0 flex-none rounded-full bg-transparent px-5 text-[15px] text-[#0a0a0a] outline-none placeholder:text-[#0a0a0a]/35 sm:flex-1 dark:text-white dark:placeholder:text-white/30"
+              />
+              <button
+                type="submit"
+                className="group/cta inline-flex h-12 w-full shrink-0 items-center justify-center gap-2 rounded-full bg-[#E42527] px-6 text-[14px] font-semibold text-white transition-all duration-300 hover:-translate-y-0.5  hover:shadow-[0_12px_30px_-12px_rgba(10,10,10,0.6)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#f7f3ed] active:translate-y-0  dark:focus-visible:ring-offset-[#050505] sm:w-auto"
+              >
+                <span>Start creating</span>
+                <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover/cta:-translate-y-0.5 group-hover/cta:translate-x-0.5" />
+              </button>
             </div>
-          </motion.div>
 
-          {/* Main Heading: Stacked & Massive */}
-          <motion.h2
-            variants={itemVariants}
-            className="text-[40px] sm:text-[56px] leading-[0.95] lg:text-[60px] lg:leading-[0.9] tracking-tighter font-semibold text-[#0A0A0A] dark:text-white mb-10"
-          >
-            Lets's Connect
-          </motion.h2>
-
-          {/* Micro-Data Grid (Engineering/Specs vibe) */}
-          <motion.div
-            variants={itemVariants}
-            className="grid grid-cols-2 gap-x-8 gap-y-6 py-6 border-y border-black/[0.06] dark:border-white/[0.06] mb-10 max-w-[500px]"
-          >
-            <div>
-              <span className="block text-[11px] uppercase tracking-[0.06em] text-neutral-400 dark:text-neutral-500 font-semibold mb-1.5">
-                Current Focus
-              </span>
-              <span className="block text-[15px] text-neutral-900 dark:text-neutral-100 font-medium">
-                Scalable Systems & UI
-              </span>
-            </div>
-            <div>
-              <span className="block text-[11px] uppercase tracking-[0.06em] text-neutral-400 dark:text-neutral-500 font-semibold mb-1.5">
-                Location
-              </span>
-              <span className="block text-[15px] text-neutral-900 dark:text-neutral-100 font-medium">
-                Remote / Global
-              </span>
-            </div>
-          </motion.div>
-
-          {/* Shortened punchy description */}
-          <motion.p
-            variants={itemVariants}
-            className="text-[16px] lg:text-[18px] leading-[1.6] text-[#666666] dark:text-gray-400 max-w-[540px] mb-10"
-          >
-            Whether it’s a complex backend architecture or a pristine product
-            experience, I’m looking to partner with ambitious teams to build the
-            next iteration of the web.
-          </motion.p>
-
-          {/* CTA Group: Editorial Style (Button + Text Link) */}
-          <motion.div
-            variants={itemVariants}
-            className="flex flex-col sm:flex-row items-start sm:items-center gap-6 lg:gap-8"
-          >
-            <a
-              href="mailto:parthibanm1268@gmail.com"
-              className="group relative flex items-center justify-center gap-2 h-[52px] px-7 bg-[#0A0A0A] dark:bg-white text-white dark:text-[#0A0A0A] rounded-full text-[15px] font-medium transition-all duration-300 hover:bg-neutral-800 dark:hover:bg-gray-200 hover:-translate-y-0.5 hover:shadow-lg focus:outline-none"
+            <div
+              id="connect-email-note"
+              aria-live="polite"
+              className="mt-3 min-h-[18px] text-center font-mono text-[9px] uppercase tracking-[0.22em] sm:text-[10px]"
             >
-              <Mail className="w-4 h-4 text-neutral-400 group-hover:text-white transition-colors" />
-              <span>Drop a message</span>
-            </a>
+              {status === "error" ? (
+                <span className="text-[#E42527]">
+                  {feedback}
+                </span>
+              ) : status === "success" ? (
+                <span className="text-emerald-600 dark:text-emerald-400">
+                  {feedback}
+                </span>
+              ) : (
+                <span className="text-[#0a0a0a]/35 dark:text-white/30">
+                  Opens in your email client
+                </span>
+              )}
+            </div>
+          </form>
 
+          <div
+            data-connect-reveal
+            className="mt-6 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 font-mono text-[9px] uppercase tracking-[0.24em] text-[#0a0a0a]/40 dark:text-white/35 sm:text-[10px]"
+          >
             <a
-              href="https://www.linkedin.com/in/m-parthiban/"
+              href={`mailto:${CONTACT_EMAIL}`}
+              className="transition-colors duration-300 hover:text-[#0a0a0a] dark:hover:text-white"
+            >
+              {CONTACT_EMAIL}
+            </a>
+            <span
+              aria-hidden="true"
+              className="hidden h-3 w-px bg-[#0a0a0a]/15 dark:bg-white/15 sm:block"
+            />
+            <a
+              href={LINKEDIN_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-1.5 text-[15px] font-medium text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors"
+              className="group inline-flex items-center gap-1.5 transition-colors duration-300 hover:text-[#0a0a0a] dark:hover:text-white"
             >
-              <span>Connect on LinkedIn</span>
-              <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </a>
-          </motion.div>
-        </motion.div>
-
-        {/* RIGHT COLUMN: Visual (Unchanged) */}
-        {/* <div className="w-full lg:w-[45%] lg:absolute lg:right-0 lg:top-1/2 lg:-translate-y-1/2 mt-16 lg:mt-0 flex justify-center lg:justify-end z-0">
-          <SystemVisualization />
-        </div> */}
-           <div className="w-full lg:w-1/2 h-[500px] lg:h-[600px] relative bg-transparent shadow-sm overflow-hidden flex-shrink-0">
-
-          {/* Badge 1: Email */}
-          <div className="absolute top-[20%] left-[15%] -rotate-6 z-10 group cursor-pointer hover:-translate-y-1 transition-transform">
-            <span className="absolute -top-5 right-2 text-xs font-semibold text-gray-500">-5°</span>
-            <a href="mailto:parthibanm1268@gmail.com" className="bg-white dark:bg-neutral-900 border-2 border-black dark:border-white rounded-xl px-4 py-2 flex items-center gap-2 shadow-[2px_4px_0px_0px_rgba(0,0,0,0.15)] dark:shadow-[2px_4px_0px_0px_rgba(255,255,255,0.15)]">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-              <span className="font-bold text-sm tracking-widest text-gray-900 dark:text-white">EMAIL</span>
+              LinkedIn
+              <ArrowUpRight className="h-3 w-3 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </a>
           </div>
-
-          {/* Badge 2: GitHub */}
-          <div className="absolute top-[22%] right-[15%] rotate-3 z-10 group cursor-pointer hover:-translate-y-1 transition-transform">
-            <span className="absolute -top-5 right-2 text-xs font-semibold text-gray-500">3°</span>
-            <a href="https://github.com/Parthiban68" className="bg-white dark:bg-neutral-900 border-2 border-black dark:border-white rounded-xl px-4 py-2 flex items-center gap-2 shadow-[2px_4px_0px_0px_rgba(0,0,0,0.15)] dark:shadow-[2px_4px_0px_0px_rgba(255,255,255,0.15)]">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
-              <span className="font-bold text-sm tracking-widest text-gray-900 dark:text-white">GITHUB</span>
-            </a>
-          </div>
-
-          {/* Badge 3: LinkedIn (Moving) */}
-          <div className="absolute top-[42%] left-[12%] rotate-3 z-10 group cursor-pointer">
-            <span className="absolute -top-5 right-2 text-xs font-semibold text-gray-500">3°</span>
-            
-            {/* Motion Lines */}
-            <div className="absolute top-1/2 -left-12 w-10 h-0.5 bg-gray-300 -translate-y-2 -rotate-12"></div>
-            <div className="absolute top-1/2 -left-16 w-14 h-0.5 bg-gray-300 translate-y-1 -rotate-6"></div>
-            <div className="absolute top-1/2 -left-10 w-8 h-0.5 bg-gray-300 translate-y-4 -rotate-3"></div>
-            
-            {/* Pointer Cursor */}
-            <div className="absolute -bottom-10 -left-6 rotate-[25deg]">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="black" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="m3 3 7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/><path d="m13 13 6 6"/></svg>
-            </div>
-
-            <a href="https://www.linkedin.com/in/m-parthiban/" className="bg-white dark:bg-neutral-900 border-2 border-black dark:border-white rounded-xl px-4 py-2 flex items-center gap-2 shadow-[2px_4px_0px_0px_rgba(0,0,0,0.15)] dark:shadow-[2px_4px_0px_0px_rgba(255,255,255,0.15)] relative">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-              <span className="font-bold text-sm tracking-widest text-gray-900 dark:text-white">LINKEDIN</span>
-            </a>
-          </div>
-
-          {/* Badge 4: Central LinkedIn with Ripples */}
-          <div className="absolute top-[60%] left-[10%] sm:left-[24%] -rotate-[4deg] z-20 cursor-pointer">
-            
-            {/* Connecting Path */}
-            <svg className="absolute -top-[55px] -right-[50px] w-32 h-32 pointer-events-none" style={{ transform: 'rotate(4deg)' }}>
-              <path d="M 0,90 Q 50,80 70,30 T 95,5" fill="none" stroke="#D1D5DB" strokeWidth="2" strokeLinecap="round"/>
-              <circle cx="95" cy="5" r="4" fill="#D1D5DB" />
-            </svg>
-
-            {/* Concentric Circles / Ripples */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full pointer-events-none">
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] border-2 border-gray-200 rounded-full"></div>
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[190%] h-[190%] border border-gray-100 rounded-full"></div>
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250%] h-[250%] border border-gray-50 rounded-full"></div>
-            </div>
-
-            <NavLink to={"/contact"} className="bg-gray-100 dark:bg-neutral-800 border-2 border-black dark:border-white rounded-xl px-5 py-2.5 flex items-center gap-2 shadow-[2px_6px_0px_0px_rgba(0,0,0,0.25)] dark:shadow-[2px_6px_0px_0px_rgba(255,255,255,0.25)] relative z-10">
-              {/* <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg> */}
-              <span className="font-bold text-[15px] tracking-widest text-gray-900 dark:text-white">Let's Work Together</span>
-            </NavLink>
-          </div>
-
-          {/* Badge 5: WhatsApp */}
-          <div className="absolute top-[52%] right-[10%] rotate-6 z-10 group cursor-pointer hover:-translate-y-1 transition-transform">
-            <span className="absolute -top-5 right-2 text-xs font-semibold text-gray-500">8°</span>
-            <div className="bg-white dark:bg-neutral-900 border-2 border-black dark:border-white rounded-xl px-4 py-2 flex items-center gap-2 shadow-[2px_4px_0px_0px_rgba(0,0,0,0.15)] dark:shadow-[2px_4px_0px_0px_rgba(255,255,255,0.15)]">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
-              <span className="font-bold text-sm tracking-widest text-gray-900 dark:text-white">WHATSAPP</span>
-            </div>
-          </div>
-
-          {/* Badge 6: Resume */}
-          <div className="absolute bottom-[15%] left-[45%] -rotate-6 z-10 group cursor-pointer hover:-translate-y-1 transition-transform">
-            <span className="absolute -top-5 right-2 text-xs font-semibold text-gray-500">-5°</span>
-            <div className="bg-white dark:bg-neutral-900 border-2 border-black dark:border-white rounded-xl px-4 py-2 flex items-center gap-2 shadow-[2px_4px_0px_0px_rgba(0,0,0,0.15)] dark:shadow-[2px_4px_0px_0px_rgba(255,255,255,0.15)]">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/><line x1="10" x2="8" y1="9" y2="9"/></svg>
-              <span className="font-bold text-sm tracking-widest text-gray-900 dark:text-white">RESUME</span>
-            </div>
-          </div>
-
-          {/* Badge 7: X (Twitter) */}
-          <div className="absolute bottom-[20%] right-[20%] rotate-3 z-10 group cursor-pointer hover:-translate-y-1 transition-transform">
-            <span className="absolute -top-5 right-2 text-xs font-semibold text-gray-500">3°</span>
-            <div className="bg-white dark:bg-neutral-900 border-2 border-black dark:border-white rounded-xl px-4 py-2 flex items-center gap-2 shadow-[2px_4px_0px_0px_rgba(0,0,0,0.15)] dark:shadow-[2px_4px_0px_0px_rgba(255,255,255,0.15)]">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4l16 16"/><path d="M4 20L20 4"/></svg>
-              <span className="font-bold text-sm tracking-widest text-gray-900 dark:text-white">X</span>
-            </div>
-          </div>
-
-          {/* Helper Texts */}
-          <div className="absolute top-[44%] right-[25%] hidden sm:block z-0">
-            <span className="text-[10px] font-bold tracking-wider text-gray-600 dark:text-gray-400">CONNECT WITH ME →</span>
-          </div>
-
-          <div className="absolute bottom-[25%] left-[4%] sm:left-[8%] z-0">
-            <span className="text-[10px] font-bold tracking-wider text-gray-600 dark:text-gray-400">PICK A WAY TO CONNECT →</span>
-          </div>
-
         </div>
       </div>
     </section>
   );
 }
-
-
