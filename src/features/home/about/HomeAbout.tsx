@@ -62,7 +62,7 @@ const HomeAbout = () => {
             {/* Experience */}
             <div className="flex flex-col items-center">
               <h3 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-medium text-gray-950 dark:text-white mb-2.5 tracking-tight">
-                1.6+
+                1.10+
               </h3>
               <p className="text-[9px] sm:text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-[0.2em] leading-tight">
                 YEARS OF
