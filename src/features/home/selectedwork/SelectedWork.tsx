@@ -13,47 +13,35 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useReducedMotion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 import CardSwap, { Card } from "../../../components/ui/CardSwap/CardSwap";
-import cfoImage from "../../../assets/cfo.png";
-import treadTrendsImage from "../../../assets/treadtrends.png";
-import taskFlowImage from "../../../assets/new_5.png";
+import { projectsData, type ProjectData } from "../../../data/projects";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
-const projects = [
-  {
-    number: "01",
-    title: "CFO360.ai",
-    category: "Professional",
-    role: "Full-Stack Engineer",
-    description:
-      "A multi-tenant accounting and finance platform built for scalable business operations.",
-    tech: ["NestJS", "PostgreSQL", "Sequelize", "React"],
-    link: "#cfo360",
-    image: cfoImage,
-  },
-  {
-    number: "02",
-    title: "TreadTrends",
-    category: "Professional",
-    role: "Full-Stack Engineer",
-    description:
-      "A real-time product tracking and trend analysis platform for smarter decisions.",
-    tech: ["React", "Node.js", "Express", "MongoDB"],
-    link: "#treadtrends",
-    image: treadTrendsImage,
-  },
-  {
-    number: "03",
-    title: "TaskFlow",
-    category: "Personal",
-    role: "Full-Stack Engineer",
-    description:
-      "A personal productivity app designed to help teams plan, track, and ship work with clarity.",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
-    link: "#taskflow",
-    image: taskFlowImage,
-  },
-];
+const FEATURED_PROJECT_IDS = [2, 5, 1];
+
+const featuredProjects = FEATURED_PROJECT_IDS.map((id) =>
+  projectsData.find((project) => project.id === id),
+).filter((project): project is ProjectData => project !== undefined);
+
+const projects = featuredProjects.map((project, index) => {
+  const [name, ...tagline] = project.title.split(" - ");
+
+  return {
+    number: String(index + 1).padStart(2, "0"),
+    title: name,
+    tagline: tagline.join(" - "),
+    category: project.category,
+    year: project.year,
+    role:
+      project.category === "Professional"
+        ? "Full-Stack Engineer"
+        : "Full-Stack Developer",
+    description: project.description,
+    tech: project.stack,
+    link: project.demoLink ?? project.codeLink ?? "/projects",
+    image: project.image,
+  };
+});
 
 const META =
   "font-mono text-[10px] uppercase tracking-[0.3em] text-[#0a0a0a]/50 dark:text-white/40";
@@ -63,13 +51,27 @@ const LINK =
   "group/link inline-flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.32em] text-[#0a0a0a] transition-colors duration-300 hover:text-[#E42527] dark:text-white dark:hover:text-[#E42527]";
 
 function ProjectLink({ link, label }: { link: string; label: string }) {
-  return (
-    <a href={link} className={LINK}>
+  const content = (
+    <>
       <span className="relative">
         {label}
         <span className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-[#E42527] transition-transform duration-500 group-hover/link:scale-x-100" />
       </span>
       <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover/link:-translate-y-1 group-hover/link:translate-x-1" />
+    </>
+  );
+
+  if (link.startsWith("/")) {
+    return (
+      <NavLink to={link} className={LINK}>
+        {content}
+      </NavLink>
+    );
+  }
+
+  return (
+    <a href={link} target="_blank" rel="noreferrer" className={LINK}>
+      {content}
     </a>
   );
 }
@@ -445,7 +447,9 @@ export default function SelectedWork() {
                 aria-hidden="true"
                 className="h-px w-10 bg-[#0a0a0a]/15 dark:bg-white/15"
               />
-              <span className={META}>{activeProject.category}</span>
+              <span className={META}>
+                {activeProject.category} / {activeProject.year}
+              </span>
             </div>
 
             <h3
@@ -454,6 +458,15 @@ export default function SelectedWork() {
             >
               {activeProject.title}
             </h3>
+
+            {activeProject.tagline && (
+              <p
+                data-featured-item
+                className="mt-4 font-mono text-[11px] uppercase tracking-[0.24em] text-[#0a0a0a]/50 dark:text-white/45"
+              >
+                {activeProject.tagline}
+              </p>
+            )}
 
             <p
               data-featured-item
